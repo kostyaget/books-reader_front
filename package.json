@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "chart.js": "^3.9.1",
+    "emotion": "^11.0.0",
+    "modern-normalize": "^1.1.0",
+    "react-chartjs-2": "^4.3.1"
+  }
+}
