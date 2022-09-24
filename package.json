@@ -3,6 +3,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
+    "create-react-app": "^5.0.1",
     "emotion": "^11.0.0",
     "modern-normalize": "^1.1.0",
     "react": "^18.2.0",
