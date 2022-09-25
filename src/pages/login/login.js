@@ -1,5 +1,8 @@
 import { Formik } from "formik";
 import * as yup from "yup";
+import google from "../../images/google icon.svg";
+
+import { GoogleButton, GoogleLogo, Section } from "./login.styled";
 
 const Login = () => {
   const validationSchema = yup.object().shape({
@@ -17,7 +20,7 @@ const Login = () => {
 
   return (
     <>
-      <section>
+      <Section>
         <Formik
           initialValues={{
             email: "",
@@ -31,7 +34,10 @@ const Login = () => {
         >
           {({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <button type="submit">Google</button>
+              <GoogleButton type="submit">
+                <GoogleLogo src={google} alt="google" />
+                Google
+              </GoogleButton>
 
               <label>Email</label>
               <input
@@ -57,7 +63,7 @@ const Login = () => {
             </form>
           )}
         </Formik>
-      </section>
+      </Section>
     </>
   );
 };
