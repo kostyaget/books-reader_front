@@ -8,12 +8,15 @@ import {
   LoginImg,
 } from "./hero.styled";
 
+import LoginForm from "../../pages/login/login";
+
 export default function Hero() {
   return (
     <>
       <Container>
         <SectionLogin>
           <LoginImg></LoginImg>
+          <LoginForm />
         </SectionLogin>
         <SectionTitles>
           <Icon></Icon>
