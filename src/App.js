@@ -1,11 +1,14 @@
-import Header from "./components/Header"
-function App() {
-    return (
-        <>
-          <Header/>  
-        </>
-)
+import Header from "./components/Header";
+import Hero from "./components/Hero/hero";
 
-    // console.log(post)
+function App() {
+  return (
+    <>
+      <Header />
+      <Hero />
+    </>
+  );
+
+  // console.log(post)
 }
-export default App
+export default App;
