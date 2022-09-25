@@ -2,26 +2,29 @@ import {
   Container,
   SectionLogin,
   SectionTitles,
-  Sidebar,
   Icon,
   Text,
   Author,
+  LoginImg,
 } from "./hero.styled";
+
+import LoginForm from "../../pages/login/login";
 
 export default function Hero() {
   return (
     <>
       <Container>
-        <SectionLogin></SectionLogin>
+        <SectionLogin>
+          <LoginImg></LoginImg>
+          <LoginForm />
+        </SectionLogin>
         <SectionTitles>
-          <Sidebar>
-            <Icon></Icon>
-            <Text>
-              Books are the ships of thoughts, wandering through the waves of
-              time.
-            </Text>
-            <Author>Francis Bacon</Author>
-          </Sidebar>
+          <Icon></Icon>
+          <Text>
+            Books are the ships of thoughts, wandering through the waves of
+            time.
+          </Text>
+          <Author>Francis Bacon</Author>
         </SectionTitles>
       </Container>
     </>
