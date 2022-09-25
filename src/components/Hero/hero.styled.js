@@ -3,24 +3,33 @@ import pic from "../../images/pic.jpg";
 import ico from "../../images/ico.jpg";
 
 export const Container = styled.div`
+  // width:1280px
   display: flex;
+  height: 790px;
 `;
-
-export const SectionLogin = styled.div`
-  width: 80%;
+export const SectionLogin = styled.div``;
+export const LoginImg = styled.div`
+  // width: 80%;
   width: 549px;
-  height: 850px;
+  height: 790px;
   background-image: url(${pic});
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 185px 82px 185px 83px;
+  // padding: 185px 82px 185px 83px;
 `;
-export const SectionTitles = styled.div``;
 
-export const Sidebar = styled.div`
+export const SectionTitles = styled.div`
   width: 485px;
   padding-top: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 `;
+
+export const Sidebar = styled.div``;
 
 export const Icon = styled.p`
   background-image: url(${ico});
@@ -37,6 +46,7 @@ export const Text = styled.p`
   font-size: 24px;
   line-height: 1.583;
   margin-bottom: 28px;
+  text-align: center;
 `;
 
 export const Author = styled.p`
@@ -45,8 +55,8 @@ export const Author = styled.p`
   font-weight: 500;
   font-size: 20px;
   line-height: 1.9;
-  width: 100px;
-  margin: 0px auto;
+  margin-top: 20px;
   color: #898f9f;
   border-top: 1px solid rgba(36, 42, 55, 0.5);
+  text-align: center;
 `;
