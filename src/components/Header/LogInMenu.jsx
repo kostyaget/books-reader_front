@@ -1,28 +1,42 @@
-import { Logo, LogInContainer, NavList, NavItem, StyledNavLink ,Avatar,LogOutBtn} from './Header.styled';
+import {
+  Logo,
+  LogInContainer,
+  NavList,
+  Avatar,
+  StyledNavLink,
+  LogOutBtn,
+  Border,
+  NavWrapper,
+  Name
+} from "./Header.styled";
 
-import { ReactComponent as Home } from './Logo/home.svg';
-import { ReactComponent as Lib } from './Logo/lib.svg';
-import { ReactComponent as User} from './Logo/user.svg';
+import { ReactComponent as Home } from "./Logo/home.svg";
+import { ReactComponent as Lib } from "./Logo/lib.svg";
+import { ReactComponent as User } from "./Logo/user.svg";
 
 export default function LogInMenu() {
   return (
     <>
       <LogInContainer>
         <Logo>BR</Logo>
+        <NavWrapper>
         <NavList>
-          <NavItem>
-            <StyledNavLink to='/training' >
-              <Lib />
-            </StyledNavLink>
-          </NavItem>
-          <NavItem>
-            <StyledNavLink to='/'>
-              <Home />
-            </StyledNavLink>
-          </NavItem>
+          <StyledNavLink to="/training">
+            <Lib />
+          </StyledNavLink>
+          <Border>
+          <StyledNavLink to="/">
+            <Home  />
+          </StyledNavLink>
+          </Border>
         </NavList>
-        <Avatar><User/></Avatar>
-        <LogOutBtn type='submit'>Logout</LogOutBtn>
+        <Name>Martha Stewart</Name>
+        <Avatar>
+          <User width="40px" height="40px" />
+        </Avatar>
+        
+        </NavWrapper>
+        <LogOutBtn type="submit">Logout</LogOutBtn>
       </LogInContainer>
     </>
   );
