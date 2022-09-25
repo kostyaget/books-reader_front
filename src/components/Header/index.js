@@ -1,10 +1,14 @@
-export default function Header() {
-    return (
-        <div>
-            <h2>    
-                Hello
-                
-            </h2>
-        </div>
-    )
+// import LogOutMenu from './LogOutMenu';
+import LogInMenu from './LogInMenu';
+import { Header } from './Header.styled';
+
+export default function HeaderMenu() {
+  return (
+    <>
+      <Header>
+        {/* <LogOutMenu /> */}
+        <LogInMenu />
+      </Header>
+    </>
+  );
 }
