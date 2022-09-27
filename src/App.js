@@ -1,9 +1,8 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero/hero";
-import NumberBooks from "./components/NumberBooks/NumberBooks.jsx";
-import { Routes, Route } from "react-router-dom";
-import Modal from "./modal/modal.jsx";
-import React, { useState } from "react";
+
+// import NumberBooks from './components/NumberBooks/NumberBooks.jsx'
+// import LibraryModal from "./components/Library/LibraryModal";
 
 const App = () => {
   const [modalActive, setModalActive] = useState(false);
