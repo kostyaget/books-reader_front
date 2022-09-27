@@ -9,20 +9,19 @@ export const Goal = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media ${device.mobileS} {
+  @media ${device.mobileS} and (max-width: 767px)  {
     max-width: 280px;
     height: 60px;
   }
-  @media ${device.tablet} {
-    max-width: 275px;
+  @media ${device.tablet} and (max-width: 1023px) {
+    width: 275px;
     max-height: 60px;
+    margin: 23px 71px 23px 28px;
 
-    // margin-left: 28px;
-    margin: 23px 0 23px 28px;
   }
   @media ${device.laptop} {
     max-width: 288px;
-    max-height: 269px;
+    height: 60px;
   }
 `;
 
@@ -37,40 +36,61 @@ export const Number = styled.p`
   line-height: 38px;
 
   color: #091e3f;
-
-  // margin-left: auto;
-  // margin-right: auto;
 `;
 
 export const RoomArea = styled.div`
-  width: 100px;
-  height: 100px;
-  display: flex;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
   background: #f5f7fa;
   box-shadow: 4px 4px 8px rgba(36, 42, 55, 0.15);
+
+  @media ${device.mobileS} {
+    width: 100px;
+    height: 100px; 
+    
+  }
+  @media ${device.tablet} {
+    width: 100px;
+    height: 60px;
+  }
+  @media ${device.laptop} { 
+    width: 100px;
+    height: 100px;  
+  }
 `;
 
 export const TextNumber = styled.p`
-  width: 66px;
-  height: 34px;
-
   margin-left: auto;
   margin-right: auto;
-  margin-top: 14px;
 
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+
   line-height: 17px;
   text-align: center;
 
   color: #898f9f;
+
+  @media ${device.mobileS} and (max-width: 767px) {
+    margin-top: 14px;
+    width: 66px;
+    height: 34px;
+    font-size: 14px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    margin-top: 4px;
+    display: flex;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  @media ${device.laptop} {
+    margin-top: 14px;
+    width: 57px;
+    height: 30px;
+  }
 `;
 
 export const TextTitle = styled.p`
@@ -85,59 +105,60 @@ export const TextTitle = styled.p`
   text-align: center;
 
   color: #ffffff;
+
 `;
 
 export const ResultItem = styled.ul`
   display: flex;
-
-  background: #ffffff;
-  box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
-
-  @media ${device.mobileS} {
-    max-width: 280px;
-    max-height: 236px;
-  }
-  @media ${device.tablet} {
-    max-width: 704px;
-    max-height: 105px;
-  }
-  @media ${device.laptop} {
-    max-width: 288px;
-    max-height: 269px;
-  }
-
-  //   flex-wrap: wrap;
-  //   margin-left: auto;
-  //   margin-right: auto;
+ 
+  // background: #ffffff;
+  // box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 `;
 
 
 export const ListNumbers = styled.li`
-  margin-top: 44px;
-  margin-bottom: 44px;
-  width: 100px;
-  margin-left: 30px;
-  margin-right: -10px;
   list-style-type: none;
 
+  @media ${device.mobileS} and (max-width: 767px) {
+    margin-top: 44px;
+    margin-bottom: 44px;
+    width: 100px;
+    margin-left: 30px;
+    margin-right: -10px;
+  }
+  @media ${device.tablet} and (max-width: 1023px){
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  @media ${device.laptop} {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    width: 100px;
+    margin-left: 34px;
+    margin-right: -14px;
+  }
 `;
 
 export const Container = styled.div`  
   display: block;
   margin: 20px;
 
-  @media ${device.mobileS} {
+  box-shadow: 4px 4px 8px rgba(80, 80, 55, 5);
+
+  @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
-    max-height: 236px;
+    max-height: 296px;
   }
-  @media ${device.tablet} {
+  @media ${device.tablet} and (max-width: 1023px){
     max-width: 704px;
     max-height: 105px;
     // background-color: #212121;
+    display: flex;
   }
   @media ${device.laptop} {
     max-width: 288px;
-    max-height: 269px;
+    max-height: 329px;
   }
 `;
 
