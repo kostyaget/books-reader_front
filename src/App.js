@@ -1,16 +1,19 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero/hero";
-// import NumberBooks from './components/NumberBooks/NumberBooks.jsx'
+import NumberBooks from "./components/NumberBooks/NumberBooks.jsx";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <>
-      <Header />
-      <Hero />
-      {/* <NumberBooks/> */}
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route path="/Hero" element={<Hero />} />
+          <Route path="/StartTraining" element={<NumberBooks />} />
+        </Route>
+      </Routes>
     </>
   );
+};
 
-  // console.log(post)
-}
 export default App;
