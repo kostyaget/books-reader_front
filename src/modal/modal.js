@@ -1,2 +1,0 @@
-const modal = 2;
-
