@@ -18,7 +18,7 @@ export const Container = styled.div`
   height: 290px;
   padding: 20px;
 
-  background: #ffffff;
+  background: ${Colors.white};
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.25);
 
   @media screen and (min-width: 768px) {

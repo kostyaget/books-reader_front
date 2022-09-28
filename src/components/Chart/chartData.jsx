@@ -8,8 +8,8 @@ const labelsData = ["a", "b", "c", "d", "e", "f"];
 const planData = [3, 3, 3, 3, 3, 3];
 const actData = [6, 5, 6, -2, 4, 5];
 
-const planLineData = dataTrue ? planData : [3];
-const actLineData = dataTrue ? actData : [0];
+const planLineData = dataTrue ? planData : [0];
+const actLineData = dataTrue ? actData : [-1];
 
 const labels = dataTrue ? labelsData : ["zero"];
 
