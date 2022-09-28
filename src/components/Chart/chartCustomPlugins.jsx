@@ -1,5 +1,5 @@
 import { Colors } from "./Chart.styled";
-import { ACT_LINE_NAME } from "./chartData";
+import { PLAN_LINE_NAME } from "./chartData";
 
 export const customBorder = {
   id: "customBorder",
@@ -68,14 +68,7 @@ export const customPagesValue = {
   id: "customPagesValue",
 
   beforeDatasetsDraw(chart, args, pluginOptions) {
-    const {
-      ctx,
-      data,
-      legend: { legendItems },
-      tooltip: { _active },
-    } = chart;
-    let defaulNumbersValue = "0";
-
+    const { ctx, data } = chart;
     ctx.save();
 
     ctx.beginPath();
@@ -91,26 +84,27 @@ export const customPagesValue = {
     ctx.fillText("КІЛЬКІСТЬ СТОРІНОК / ДЕНЬ", 3, 13);
     ctx.fill();
 
-    if (!_active[0]) {
-      ctx.fillStyle = Colors.grayBlue;
-      ctx.textBaseline = "middle";
-      ctx.font = "bold 12px Montserrat";
-      ctx.fillText(defaulNumbersValue, 203, 13);
-      ctx.fill();
-    }
-
-    if (_active[0]) {
-      legendItems.forEach((item, index) => {
-        if (item.text === ACT_LINE_NAME) {
-          ctx.fillStyle = Colors.grayBlue;
-          ctx.font = "bold 12px Montserrat";
-          ctx.fillText(
-            `${data.datasets[index].data[_active[0].index]}`,
-            203,
-            13
-          );
+    data.datasets.forEach((item, index) => {
+      if (item.label === PLAN_LINE_NAME) {
+        const value = item.data[0];
+        const ifValue = data.datasets[index].data[0].toString().length;
+        if (ifValue > 1) {
+          let bgPagesLength = 25;
+          if (ifValue === 2) {
+            bgPagesLength = 32;
+          }
+          if (ifValue >= 3) {
+            bgPagesLength = 37;
+          }
+          ctx.fillStyle = Colors.lightGray;
+          ctx.fillRect(195, 0, bgPagesLength, 25);
+          ctx.fill();
         }
-      });
-    }
+
+        ctx.fillStyle = Colors.grayBlue;
+        ctx.font = "bold 12px Montserrat";
+        ctx.fillText(value || 0, 203, 13);
+      }
+    });
   },
 };
