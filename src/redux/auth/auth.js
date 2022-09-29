@@ -58,14 +58,14 @@ const authSlice = createSlice({
         }
       )
       .addMatcher(
-        authApi.endpoints.fetchUserData.matchFulfilled,
+        authApi.endpoints.fetchGoogleAccount.matchFulfilled,
         (state, { payload }) => {
           state.user = payload;
           state.isLoggedIn = true;
         }
       )
       .addMatcher(
-        authApi.endpoints.fetchUserData.matchRejected,
+        authApi.endpoints.fetchGoogleAccount.matchRejected,
         (state, _action) => {
           state.user = null;
           state.isLoggedIn = false;
