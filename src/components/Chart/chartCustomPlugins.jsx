@@ -1,5 +1,5 @@
 import { Colors } from "./Chart.styled";
-import { PLAN_LINE_NAME } from "./chartData";
+import { PLAN_LINE_NAME } from "./Chart";
 
 export const customBorder = {
   id: "customBorder",
