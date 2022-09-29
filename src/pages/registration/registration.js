@@ -1,5 +1,22 @@
 import { Formik } from "formik";
 import * as yup from "yup";
+import google from "../../images/google icon.svg";
+
+import {
+  Section,
+  GoogleSection,
+  SectionRegistration,
+  GoogleButton,
+  GoogleLogo,
+  Error,
+  LabelField,
+  InputField,
+  RegisterBtn,
+  LogTitle,
+  Login,
+  Star,
+  LoginLink,
+} from "./registration.styled";
 
 const Registration = () => {
   const validationSchema = yup.object().shape({
@@ -25,14 +42,9 @@ const Registration = () => {
       .required("Required"),
   });
 
-  //const submitHandler = e => {
-  //   e.preventDefault();
-  //   console.log(e.target.name)
-  //}
-
   return (
     <>
-      <section>
+      <Section>
         <Formik
           initialValues={{
             name: "",
@@ -54,52 +66,84 @@ const Registration = () => {
             handleSubmit,
           }) => (
             <form onSubmit={handleSubmit}>
-              <button type="submit">Google</button>
-              <label>Name</label>
-              <input
-                type="text"
-                name="name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-              />
-              {errors.name && touched.name ? <p>{errors.name}</p> : null}
+              <SectionRegistration>
+                <GoogleSection>
+                  <GoogleButton type="submit">
+                    <GoogleLogo src={google} alt="google" />
+                    Google
+                  </GoogleButton>
+                </GoogleSection>
 
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-              />
-              {errors.email && touched.email ? <p>{errors.email}</p> : null}
+                <LabelField>
+                  Name
+                  <Star>*</Star>
+                </LabelField>
+                <InputField
+                  type="text"
+                  name="name"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="..."
+                />
+                {errors.name && touched.name ? (
+                  <Error>{errors.name}</Error>
+                ) : null}
 
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                onBlur={handleBlur}
-                onChange={handleChange}
-              />
-              {errors.password && touched.password ? (
-                <p>{errors.password}</p>
-              ) : null}
+                <LabelField>
+                  Email
+                  <Star>*</Star>
+                </LabelField>
+                <InputField
+                  type="email"
+                  name="email"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="your@email.com"
+                />
+                {errors.email && touched.email ? (
+                  <Error>{errors.email}</Error>
+                ) : null}
 
-              <label>Confirm password</label>
-              <input
-                type="password"
-                name="confirmPassword"
-                onBlur={handleBlur}
-                onChange={handleChange}
-              />
-              {errors.confirmPassword && touched.confirmPassword ? (
-                <p>{errors.confirmPassword}</p>
-              ) : null}
+                <LabelField>
+                  Password
+                  <Star>*</Star>
+                </LabelField>
+                <InputField
+                  type="password"
+                  name="password"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="..."
+                />
+                {errors.password && touched.password ? (
+                  <Error>{errors.password}</Error>
+                ) : null}
 
-              <button type="submit">Register</button>
+                <LabelField>
+                  Confirm password
+                  <Star>*</Star>
+                </LabelField>
+                <InputField
+                  type="password"
+                  name="confirmPassword"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="..."
+                />
+                {errors.confirmPassword && touched.confirmPassword ? (
+                  <Error>{errors.confirmPassword}</Error>
+                ) : null}
+
+                <RegisterBtn type="submit">Register</RegisterBtn>
+                <LoginLink>
+                  <LogTitle>Already have an account?</LogTitle>
+                  <Login href="/">Log in</Login>
+                </LoginLink>
+              </SectionRegistration>
             </form>
           )}
         </Formik>
-      </section>
+      </Section>
     </>
   );
 };
