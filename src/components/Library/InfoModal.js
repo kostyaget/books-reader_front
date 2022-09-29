@@ -7,15 +7,21 @@ import {
   InfoList,
   InfoItem,
   InfoBtn,
-} from "./InfoModal.styled";
-import { ReactComponent as Flag } from "../../images/flag.svg";
-import { ReactComponent as Arrw } from "../../images/arrw.svg";
-import { ReactComponent as Book } from "../../images/book.svg";
+} from './InfoModal.styled';
+import { useState } from 'react';
+
+import { ReactComponent as Flag } from '../../images/flag.svg';
+import { ReactComponent as Arrw } from '../../images/arrw.svg';
+import { ReactComponent as Book } from '../../images/book.svg';
 
 export default function InfoModal() {
+  const [active, setActive] = useState(true);
+  const onStart = () => {
+    setActive(false);
+  };
   return (
     <>
-      <ІnfModal>
+      <ІnfModal style={active ? { display: 'block' } : { display: 'none' }}>
         <InfoList>
           <InfoItem>
             <InfoPreTitle>Step 1.</InfoPreTitle>
@@ -41,7 +47,7 @@ export default function InfoModal() {
             </InfoTextWrapp>
           </InfoItem>
         </InfoList>
-        <InfoBtn>Ok</InfoBtn>
+        <InfoBtn type='button' onClick={onStart}>Ok</InfoBtn>
       </ІnfModal>
     </>
   );

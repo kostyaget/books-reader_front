@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const BookForm = styled.form`
   width: 280px;
-  background-color: #f6f7fb;
   padding-top: 24px;
   padding-left: 20px;
   padding-right: 20px;
@@ -15,6 +14,7 @@ export const BookForm = styled.form`
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 32px;
+    padding-bottom: 0px;
     dispay: flex;
     flex-wrap: wrap;
   }
@@ -28,7 +28,7 @@ export const BookForm = styled.form`
   }
 `;
 export const BookInputTitle = styled.input`
-  width: 280px;
+  width: 274px;
   height: 42px;
   border: 1px solid #a6abb9;
   margin-bottom: 20px;
@@ -42,7 +42,7 @@ export const BookInputTitle = styled.input`
   }
 `;
 export const BookInputAuthor = styled.input`
-  width: 280px;
+  width: 274px;
   height: 42px;
   border: 1px solid #a6abb9;
   margin-bottom: 20px;
@@ -56,7 +56,7 @@ export const BookInputAuthor = styled.input`
   }
 `;
 export const BookInput = styled.input`
-  width: 280px;
+  width: 274px;
   height: 42px;
   border: 1px solid #a6abb9;
   margin-bottom: 20px;
@@ -96,7 +96,7 @@ export const BookBnt = styled.button`
   border: 1px solid #242a37;
   background: #f6f7fb;
 
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -125,6 +125,7 @@ export const ValidMessege = styled.span`
   color: red;
 `;
 export const InputWrapperList = styled.ul`
+padding:0px;
     @media screen and (min-width: 768px) {
       margin-right: -30px;
       display: flex;
@@ -148,6 +149,6 @@ export const InputWrapper = styled.li`
   }
 `;
 
-export const LibrarySecrion  = styled.section`
+export const LibrarySecrion = styled.section`
   background-color: #f6f7fb;
 `;
