@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const BookForm = styled.form`
   width: 280px;
@@ -96,12 +96,15 @@ export const BookBnt = styled.button`
   border: 1px solid #242a37;
   background: #f6f7fb;
 
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
 
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
   @media screen and (min-width: 1280px) {
     margin-right: auto;
     margin-left: 32px;
@@ -149,6 +152,9 @@ export const InputWrapper = styled.li`
   }
 `;
 
-export const LibrarySecrion = styled.section`
+export const LibrarySection = styled.section`
   background-color: #f6f7fb;
+  max-width: 1280px;
+  margin: auto;
+  padding-bottom: 60px;
 `;
