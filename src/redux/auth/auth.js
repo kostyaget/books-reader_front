@@ -56,7 +56,7 @@ const authSlice = createSlice({
           state.isError = true;
           state.isLoggedIn = false;
         }
-      )
+      ) 
       .addMatcher(
         authApi.endpoints.fetchUserData.matchFulfilled,
         (state, { payload }) => {
