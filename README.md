@@ -2,7 +2,7 @@
 
 ![](https://github.com/kostyaget/books-reader_front/blob/main/src/images/xK.gif)
 
-# WELCOME TO OUR PROJECT, BOOKS READER
+# WELCOME TO OUR PROJECT, BOOKS READER 📔
 
 ## This is a front-end part of project which was created for reading books.
 
