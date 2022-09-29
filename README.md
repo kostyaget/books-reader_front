@@ -2,9 +2,9 @@
 
 ![](https://github.com/kostyaget/books-reader_front/blob/main/src/images/xK.gif)
 
-# WELCOME
+# WELCOME TO OUR PROJECT, BOOKS READER 📔
 
-## Project
+## This is a front-end part of project which was created for reading books.
 
 <!-- HEADER -->
 
@@ -24,7 +24,7 @@
 
 ##
 
-### Stats:
+<!-- ### Stats: -->
 
 <!--
 <a href="https://github.com/kostyaget/books-reader_front">
