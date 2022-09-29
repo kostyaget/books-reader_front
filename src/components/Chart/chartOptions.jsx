@@ -41,7 +41,7 @@ export const options = {
   plugins: {
     tooltip: {
       intersect: false,
-      // enabled: false,
+      enabled: false,
     },
     legend: {
       display: false,
