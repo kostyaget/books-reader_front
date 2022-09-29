@@ -11,6 +11,10 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
+
+  @media (min-width: 280px) and (max-width: 767px) {
+    width: 280px;
+  }
 }
 
 .modal.active {
@@ -20,12 +24,18 @@
 
 .modal__content {
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 2px;
   background-color: white;
   transform: scale(0.5);
   transition: 0.4s all;
-  width: 50vw;
 
+  @media (min-width: 280px) and (max-width: 767px) {
+    width: 280px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 50vw;
+  }
 }
 
 .modal__content.active {

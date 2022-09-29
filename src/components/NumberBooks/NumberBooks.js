@@ -153,7 +153,6 @@ export const Container = styled.div`
   @media ${device.tablet} and (max-width: 1023px){
     max-width: 704px;
     max-height: 105px;
-    // background-color: #212121;
     display: flex;
   }
   @media ${device.laptop} {

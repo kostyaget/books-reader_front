@@ -14,7 +14,7 @@ import { ReactComponent as Home } from "./Logo/home.svg";
 import { ReactComponent as Lib } from "./Logo/lib.svg";
 import { ReactComponent as User } from "./Logo/user.svg";
 
-export default function LogInMenu() {
+export default function  LogInMenu() {
   return (
     <>
       <LogInContainer>
