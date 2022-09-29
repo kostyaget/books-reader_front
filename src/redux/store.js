@@ -15,6 +15,7 @@ import storage from "redux-persist/lib/storage";
 
 import authReducer from "./auth/auth";
 import { authApi } from "./auth/authApi";
+import { usersApi } from "./users/usersApi";
 import { booksApi } from "./books/booksApi";
 
 const authPersistConfig = {
@@ -26,6 +27,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     [booksApi.reducerPath]: booksApi.reducer,
+    [usersApi.reducerPath]: usersApi.reducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: (getDefaultMiddleware) => [
@@ -35,6 +37,7 @@ const store = configureStore({
       },
     }),
     booksApi.middleware,
+    usersApi.middleware,
     authApi.middleware,
   ],
 });
