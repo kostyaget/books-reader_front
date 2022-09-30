@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/hero";
-import Library from "./pages/Library";
+import Library from "./pages/Library/Library";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -25,7 +25,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/library" element={<Library />} />
+        <Route path="/library" element={<Library/>} />
         {/* <Route path="/StartTraining" element={<NumberBooks />} /> */}
       </Routes>
     </>
