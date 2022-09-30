@@ -1,6 +1,6 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Hero from "./components/Hero/hero";
-import Library from "./components/Library";
+import Library from "./components/Library/Library";
 import { Route, Routes } from "react-router-dom";
 
 // import NumberBooks from './components/NumberBooks/NumberBooks.jsx'
@@ -13,14 +13,12 @@ const App = () => {
         Открыть модальное окно
       </button> */}
       {/* <Modal active={modalActive} setActive={setModalActive} /> */}
+      <Header />
       <Routes>
-        <Route path="/" element={<Header />}>
-          <Route path="/Hero" element={<Hero />} />
-          <Route path="/library" element={<Library />} />
-          {/* <Route path="/StartTraining" element={<NumberBooks />} /> */}
-        </Route>
+        <Route path="/" element={<Hero />} />
+        <Route path="/library" element={<Library />} />
+        {/* <Route path="/StartTraining" element={<NumberBooks />} /> */}
       </Routes>
-      <Hero />
     </>
   );
 };
