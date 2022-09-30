@@ -20,7 +20,7 @@ export const LoginImg = styled.div`
 
 export const SectionTitles = styled.div`
   width: 485px;
-  padding-top: 130px;
+  padding-top: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
