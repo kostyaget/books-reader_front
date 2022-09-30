@@ -1,6 +1,5 @@
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/hero";
-// import RegistrationSection from "./components/Hero/registrationForm";
 import Library from "./pages/Library/Library";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
