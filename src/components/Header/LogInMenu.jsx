@@ -21,7 +21,7 @@ export default function LogInMenu() {
         <Logo>BR</Logo>
         <NavWrapper>
         <NavList>
-          <StyledNavLink to="/training">
+          <StyledNavLink to="/library">
             <Lib />
           </StyledNavLink>
           <Border>
