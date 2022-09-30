@@ -56,16 +56,16 @@ const authSlice = createSlice({
           state.isError = true;
           state.isLoggedIn = false;
         }
-      )
+      ) 
       .addMatcher(
-        authApi.endpoints.fetchUserData.matchFulfilled,
+        authApi.endpoints.fetchGoogleAccount.matchFulfilled,
         (state, { payload }) => {
           state.user = payload;
           state.isLoggedIn = true;
         }
       )
       .addMatcher(
-        authApi.endpoints.fetchUserData.matchRejected,
+        authApi.endpoints.fetchGoogleAccount.matchRejected,
         (state, _action) => {
           state.user = null;
           state.isLoggedIn = false;
@@ -84,6 +84,7 @@ const authSlice = createSlice({
 
 export default authSlice.reducer;
 
+//  selectors
 export const selectCurrentUser = (state) => state.auth.user;
 export const selectCurrentToken = (state) => state.auth.token;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;

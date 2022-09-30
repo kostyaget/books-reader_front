@@ -2,7 +2,19 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
 
-import { GoogleButton, GoogleLogo, Section } from "./login.styled";
+import {
+  Error,
+  GoogleButton,
+  GoogleLogo,
+  GoogleSection,
+  InputField,
+  LabelField,
+  LogiBtn,
+  Register,
+  Section,
+  SectionLogin,
+  Star,
+} from "./login.styled";
 
 const Login = () => {
   const validationSchema = yup.object().shape({
@@ -34,32 +46,48 @@ const Login = () => {
         >
           {({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <GoogleButton type="submit">
-                <GoogleLogo src={google} alt="google" />
-                Google
-              </GoogleButton>
+              <SectionLogin>
+                <GoogleSection>
+                  <GoogleButton type="submit">
+                    <GoogleLogo src={google} alt="google" />
+                    Google
+                  </GoogleButton>
+                </GoogleSection>
 
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-              />
-              {errors.email && touched.email ? <p>{errors.email}</p> : null}
+                <LabelField>
+                  Email<Star>*</Star>
+                </LabelField>
+                <InputField
+                  type="email"
+                  name="email"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="your@email.com"
+                />
+                {errors.email && touched.email ? (
+                  <Error>{errors.email}</Error>
+                ) : null}
 
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                onBlur={handleBlur}
-                onChange={handleChange}
-              />
-              {errors.password && touched.password ? (
-                <p>{errors.password}</p>
-              ) : null}
+                <LabelField>
+                  Password
+                  <Star>*</Star>
+                </LabelField>
+                <InputField
+                  type="password"
+                  name="password"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="Password"
+                />
+                {errors.password && touched.password ? (
+                  <Error>{errors.password}</Error>
+                ) : null}
 
-              <button type="submit">Login</button>
+                <LogiBtn type="submit">Login</LogiBtn>
+                <Register href="..//..//components/Hero/registrationForm.js">
+                  Register
+                </Register>
+              </SectionLogin>
             </form>
           )}
         </Formik>

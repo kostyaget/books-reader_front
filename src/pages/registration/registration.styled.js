@@ -2,25 +2,21 @@ import styled from "styled-components";
 
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
-  padding: 176px 79px 184px 70px;
+  padding: 108px 77px 74px 72px;
 `;
-
-export const SectionLogin = styled.div`
+export const SectionRegistration = styled.div`
   display: flex;
   flex-direction: column;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height: 430px;
+  height: 609px;
   background: #ffffff;
 `;
 export const GoogleSection = styled.div`
-  display: flex;
-  padding-top: 40px;
-  padding-bottom: 8px;
+  padding-top: 41px;
 `;
-
 export const GoogleButton = styled.button`
   align-items: center;
   display: flex;
@@ -44,6 +40,7 @@ export const GoogleLogo = styled.img`
   margin-right: 16px;
   margin-left: 14px;
 `;
+
 export const Error = styled.p`
   color: red;
 `;
@@ -66,7 +63,8 @@ export const InputField = styled.input`
   background: #f5f7fa;
   box-shadow: inset 0px 1px 2px rgba(29, 29, 27, 0.15);
 `;
-export const LogiBtn = styled.button`
+
+export const RegisterBtn = styled.button`
   width: 320px;
   height: 60px;
   margin-top: 32px;
@@ -79,10 +77,22 @@ export const LogiBtn = styled.button`
   color: #ffffff;
   background: #ff6b08;
 `;
-export const Register = styled.a`
+export const LoginLink = styled.div``;
+export const LogTitle = styled.span`
   font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
   font-size: 13px;
   line-height: 16px;
+
+  text-align: center;
+
+  color: #898f9f;
+`;
+export const Login = styled.a`
+  font-size: 13px;
+  line-height: 16px;
+  margin-left: 5px;
   color: #ff6b08;
 `;
 export const Star = styled.span`

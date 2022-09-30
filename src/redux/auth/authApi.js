@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API_URL = "https://*.herokuapp.com";
+const API_URL = "https://books-reader-project.herokuapp.com";
 
 // Authorization
 export const authApi = createApi({
@@ -15,43 +15,42 @@ export const authApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["auth/user", "books"],
+  tagTypes: ["auth"],
   endpoints: (builder) => ({
-    fetchUserData: builder.query({
+    fetchGoogleAccount: builder.query({
       query: () => ({
-        url: "/users/current",
+        url: "/api/auth/google",
       }),
-      providesTags: ["auth/user"],
+      providesTags: ["auth"],
     }),
     createNewUser: builder.mutation({
       query: (body) => ({
-        url: "/users/signup",
+        url: "/api/auth/register",
         method: "POST",
         body,
       }),
-      invalidatesTags: ["auth/user"],
+      invalidatesTags: ["auth"],
     }),
     loginUser: builder.mutation({
       query: (body) => ({
-        url: "/users/login",
+        url: "/api/auth/login",
         method: "POST",
         body,
       }),
-      invalidatesTags: ["auth/user"],
+      invalidatesTags: ["auth"],
     }),
     logoutUser: builder.mutation({
       query: () => ({
-        url: "/users/logout",
+        url: "/api/auth/logout",
         method: "POST",
       }),
-      invalidatesTags: ["auth/user"],
+      invalidatesTags: ["auth"],
     }),
   }),
 });
 
 export const {
-  useFetchUserDataQuery,
-  useLazyFetchUserDataQuery,
+  useFetchGoogleAccountQuery,
   useCreateNewUserMutation,
   useLoginUserMutation,
   useLogoutUserMutation,
