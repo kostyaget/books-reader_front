@@ -9,7 +9,6 @@ import {
 } from "./hero.styled";
 
 import LoginForm from "../../pages/login/login";
-// import RegistrationForm from "../../pages/registration/registration";
 
 export default function Hero() {
   return (
@@ -18,7 +17,6 @@ export default function Hero() {
         <SectionLogin>
           <LoginImg>
             <LoginForm />
-            {/* <RegistrationForm /> */}
           </LoginImg>
         </SectionLogin>
         <SectionTitles>
