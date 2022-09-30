@@ -2,20 +2,44 @@ import styled from "styled-components";
 import { device } from "../device/device";
 
 export const Rating = styled.p`
-
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-
-text-align: center;
-color: #242A37;
+  width: 193px;
+  height: 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #242a37;
 
   @media ${device.mobileS} {
-    margin: 28px 2px 0 2px;
-    width: 237px;
-    height: 66px;
+    margin: 0 0 20px 0;
+  }
+`;
+
+export const Forms = styled.textarea`
+  width: 240px;
+  height: 170px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #242a37;
+  padding: 10px;
+
+  border: 1px solid #A6ABB9;
+  resize: none;
+
+  @media ${device.mobileS} and (max-width: 767px) {
+    margin: -12px 0 20px 0;
+  }
+
+  @media ${device.tablet} {
+    margin: -8px 0 28px 0;
+    width: 568px;
+    height: 170px;
   }
 `;
 
@@ -25,16 +49,17 @@ export const Btn = styled.button`
   background: #ffffff;
   box-shadow: 10px 10px 20px rgba(9, 30, 63, 0.2);
   color: #242a37;
-  border: 1px solid #242a37;
+  border: 1px solid #242A37;
 
-  &:hover,
+
+  &:hover, 
   &:focus,
   &:active {
-    border: 1px solid #242a37;
-    background: #ff6b08;
+	border: 1px solid #242A37;
+	background: #ff6b08;
     cursor: pointer;
-    color: #fff;
-  }
+    color: #fff 
+}  
 `;
 
 export const BtnColor = styled.button`
@@ -52,15 +77,17 @@ export const BtnColor = styled.button`
     margin-left: 28px;
   }
 
-  &:hover,
+  &:hover, 
   &:focus,
   &:active {
-    border: 1px solid #242a37;
-    color: #242a37;
-    background: rgba(0, 0, 0, 0);
+	border: 1px solid #242A37;
+    border: trye;
+	color: #242a37;
+	background: rgba(0,0,0,0);
     cursor: pointer;
-  }
+}  
 `;
+
 
 export const ItemBtn = styled.div`
   margin: 20px 35px 40px 35px;
@@ -71,14 +98,12 @@ export const ItemBtn = styled.div`
 `;
 
 export const Container = styled.div`
-  background: #ffffff;
-//   box-shadow: 10px 10px 20px rgba(9, 30, 63, 0.2);
   @media screen and ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
-    max-height: 222px;
+    max-height: 395px;
   }
   @media screen and ${device.tablet} {
-    max-width: 394px;
-    max-height: 204px;
+    max-width: 608px;
+    max-height: 399px;
   }
 `;
