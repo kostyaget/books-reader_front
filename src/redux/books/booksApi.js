@@ -1,7 +1,7 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API_URL = "https://*.herokuapp.com";
+const API_URL = "https://books-reader-project.herokuapp.com";
 
 export const booksApi = createApi({
   reducerPath: "booksApi",
@@ -20,21 +20,32 @@ export const booksApi = createApi({
   endpoints: (builder) => ({
     fetchBooks: builder.query({
       query: () => ({
-        url: "/books",
+        url: "/api/books",
       }),
       providesTags: ["books"],
     }),
     addBook: builder.mutation({
       query: (body) => ({
-        url: "/books",
+        url: "/api/books",
         method: "POST",
         body,
       }),
       invalidatesTags: ["books"],
     }),
+    updateResume: builder.mutation({
+      query: (data) => {
+        const { id, ...body } = data;
+        return {
+          url: `/api/books/${id}/resume`,
+          method: "PATCH",
+          body,
+        };
+      },
+      invalidatesTags: ["books"],
+    }),
     deleteBook: builder.mutation({
       query: (bookId) => ({
-        url: `/books/${bookId}`,
+        url: `/api/books/${bookId}`,
         method: "DELETE",
       }),
       invalidatesTags: ["books"],
@@ -43,7 +54,8 @@ export const booksApi = createApi({
 });
 
 export const {
-  useFetchContactsQuery,
-  useDeleteContactMutation,
-  useAddContactMutation,
+  useFetchBooksQuery,
+  useAddBookMutation,
+  useUpdateResumeMutation,
+  useDeleteBookMutation,
 } = booksApi;

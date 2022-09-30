@@ -15,8 +15,9 @@ export default function Hero() {
     <>
       <Container>
         <SectionLogin>
-          <LoginImg></LoginImg>
-          <LoginForm />
+          <LoginImg>
+            <LoginForm />
+          </LoginImg>
         </SectionLogin>
         <SectionTitles>
           <Icon></Icon>

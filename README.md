@@ -2,16 +2,17 @@
 
 ![](https://github.com/kostyaget/books-reader_front/blob/main/src/images/xK.gif)
 
-# WELCOME
+# WELCOME TO OUR PROJECT, BOOKS READER 📔
 
-## Project
+## This is a front-end part of project which was created for reading books.
 
 <!-- HEADER -->
 
 ### Used in the project:
 
+<!-- ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) -->
+
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
@@ -23,7 +24,7 @@
 
 ##
 
-### Stats:
+<!-- ### Stats: -->
 
 <!--
 <a href="https://github.com/kostyaget/books-reader_front">

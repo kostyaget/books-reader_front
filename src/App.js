@@ -1,5 +1,7 @@
+
 // import Header from "./components/Header";
 // import Hero from "./components/Hero/hero";
+import RegistrationSection from "./components/Hero/registrationForm";
 import NumberBooks from "./components/NumberBooks/NumberBooks.jsx";
 // import { Routes, Route } from "react-router-dom";
 import Modal from "./modal/modal.jsx";
@@ -39,6 +41,8 @@ const App = () => {
       {/* <Routes>
         <Route path="/" element={<Header />}>
           <Route path="/Hero" element={<Hero />} />
+          {/* <Route path="/" element={<RegistrationSection />} /> */}
+        <Route path="/library" element={<Library />} />
           <Route path="/StartTraining" element={<NumberBooks />}/>
         </Route>
       </Routes> */}
