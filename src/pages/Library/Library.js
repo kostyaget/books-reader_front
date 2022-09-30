@@ -1,14 +1,14 @@
 import InfoModal from "./InfoModal";
 import LibraryForm from "./LibraryForm.js";
-import { LibrarySecrion } from "./Library.styled";
+import { LibrarySection } from "./Library.styled";
 
 export default function Library() {
   return (
     <>
-      <LibrarySecrion>
+      <LibrarySection>
         <LibraryForm></LibraryForm>
         <InfoModal></InfoModal>
-      </LibrarySecrion>
+      </LibrarySection>
     </>
   );
 }

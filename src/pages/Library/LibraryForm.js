@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useAddBookMutation } from "../../redux/books/booksApi";
+
 import {
   BookForm,
   BookInputTitle,
@@ -16,6 +19,14 @@ import * as yup from "yup";
 import { ReactComponent as BackArr } from "../../images/backArrow.svg";
 
 export default function LibraryForm() {
+  const [book, setBook] = useState({
+    bookTitle: "",
+    author: "",
+    publicationDate: "",
+    amountOfPages: "",
+  });
+
+  const [createBook] = useAddBookMutation();
   let navigate = useNavigate();
 
   function handleClick() {
@@ -26,7 +37,11 @@ export default function LibraryForm() {
     bookTitle: yup.string().typeError("").required("*").min(3),
     author: yup.string().typeError("").required("*").min(3),
     publicationDate: yup.number().typeError("should be a number").required("*"),
-    amountOfPages: yup.number().typeError("should be a number").required("*").min(1),
+    amountOfPages: yup
+      .number()
+      .typeError("should be a number")
+      .required("*")
+      .min(1),
   });
 
   return (
@@ -39,8 +54,11 @@ export default function LibraryForm() {
           amountOfPages: "",
         }}
         validateOnBlur
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={(values, { resetForm }) => {
+          setBook(values);
+          resetForm({ values: "" });
+          console.log(book);
+          createBook(book);
         }}
         validationSchema={validationsSchema}
       >
@@ -55,16 +73,16 @@ export default function LibraryForm() {
           dirty,
         }) => (
           <BookForm>
-            <BackArrow>
-              <BackArr onClick={handleClick} />
-            </BackArrow>
             <InputWrapperList>
+              <BackArrow>
+                <BackArr onClick={handleClick} />
+              </BackArrow>
               <InputWrapper>
                 <BookLabel htmlFor="bookTitle">
-                  Book title{" "}
+                  Book title
                   {touched.bookTitle && errors.bookTitle && (
                     <ValidMessege>{errors.bookTitle}</ValidMessege>
-                  )}{" "}
+                  )}
                 </BookLabel>
 
                 <BookInputTitle
@@ -80,7 +98,7 @@ export default function LibraryForm() {
                   Author{" "}
                   {touched.author && errors.author && (
                     <ValidMessege>{errors.author}</ValidMessege>
-                  )}{" "}
+                  )}
                 </BookLabel>
 
                 <BookInputAuthor
@@ -93,7 +111,7 @@ export default function LibraryForm() {
               </InputWrapper>
               <InputWrapper>
                 <BookLabel htmlFor="publicationDate">
-                  Publication date{" "}
+                  Publication date
                   {touched.publicationDate && errors.publicationDate && (
                     <ValidMessege>{errors.publicationDate}</ValidMessege>
                   )}
@@ -109,7 +127,7 @@ export default function LibraryForm() {
               </InputWrapper>
               <InputWrapper>
                 <BookLabel htmlFor="amountOfPages">
-                  Amount of pages{" "}
+                  Amount of pages
                   {touched.amountOfPages && errors.amountOfPages && (
                     <ValidMessege>{errors.amountOfPages}</ValidMessege>
                   )}

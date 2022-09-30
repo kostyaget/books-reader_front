@@ -15,6 +15,7 @@
     "formik": "^2.2.9",
     "modern-normalize": "^1.1.0",
     "morgan": "^1.10.0",
+    "netlify-cli": "^12.0.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
     "react-datepicker": "^4.8.0",
@@ -32,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
