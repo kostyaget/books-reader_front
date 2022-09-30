@@ -1,33 +1,59 @@
-import Header from "./components/Header/Header";
-import Hero from "./components/Hero/hero";
-import Library from "./pages/Library/Library";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "./redux/auth/auth";
 
-// import NumberBooks from './components/NumberBooks/NumberBooks.jsx'
+// import Header from "./components/Header/Header";
+// import Hero from "./components/Hero/hero";
+// import Library from "./pages/Library/Library";
+// import { Route, Routes, useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+// import { useSelector } from "react-redux";
+// import { selectIsLoggedIn } from "./redux/auth/auth";
+
+// import Header from "./components/Header";
+// import Hero from "./components/Hero/hero";
+// import RegistrationSection from "./components/Hero/registrationForm";
+import NumberBooks from "./components/NumberBooks/NumberBooks.jsx";
+// import { Routes, Route } from "react-router-dom";
+import Modal from "./modal/modal.jsx";
+import React, { useState } from "react";
+import Resume from "./components/Modal/Resume.jsx";
+import ExitModal from "./components/Modal/ExitModal.jsx";
+import BookRead from "./components/Modal/BookRead.jsx";
+import LateRead from "./components/Modal/LateRead.jsx";
 
 const App = () => {
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  useEffect(() => {
-    isLoggedIn && navigate("/library");
-  }, [isLoggedIn, navigate]);
-  // const [modalActive, setModalActive] = useState(false);
+  const [modalActiveResume, setModalActiveResume] = useState(false);
+  const [modalActiveExitModal, setModalActiveExitModal] = useState(false);
+  const [modalActiveBookRead, setModalActiveBookRead] = useState(false);
+  const [modalActiveLateRead, setModalActiveLateRead] = useState(false);
   return (
     <>
-      {/* <button onClick={() => setModalActive(true)}>
-        Открыть модальное окно
-      </button> */}
-      {/* <Modal active={modalActive} setActive={setModalActive} /> */}
-      <Header />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/library" element={<Library/>} />
-        {/* <Route path="/StartTraining" element={<NumberBooks />} /> */}
-      </Routes>
+      <button onClick={() => setModalActiveResume(true)}>
+        Открыть модальное окно Resume
+      </button>
+      <button onClick={() => setModalActiveExitModal(true)}>ExitModal</button>
+      <button onClick={() => setModalActiveBookRead(true)}>BookRead</button>
+      <button onClick={() => setModalActiveLateRead(true)}>LateRead</button>
+      <Modal active={modalActiveResume} setActive={setModalActiveResume}>
+        <Resume />
+      </Modal>
+      <Modal active={modalActiveExitModal} setActive={setModalActiveExitModal}>
+        <ExitModal />
+      </Modal>
+      <Modal active={modalActiveBookRead} setActive={setModalActiveBookRead}>
+        <BookRead />
+      </Modal>
+      <Modal active={modalActiveLateRead} setActive={setModalActiveLateRead}>
+        <LateRead />
+      </Modal>
+      {/* <Hero /> */}
+      <NumberBooks />
+      {/* { <Routes>
+        <Route path="/" element={<Header />}>
+          <Route path="/Hero" element={<Hero />} />
+          {/* <Route path="/" element={<RegistrationSection />} /> */}
+        {/* <Route path="/library" element={<Library />} /> */}
+          {/* <Route path="/StartTraining" element={<NumberBooks />}/> */}
+        {/* </Route> */}
+      {/* </Routes> } */}
     </>
   );
 };
