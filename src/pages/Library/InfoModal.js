@@ -10,7 +10,7 @@ import {
 } from './InfoModal.styled';
 import { useState } from 'react';
 
-import { ReactComponent as Flag } from '../../images/flag.svg';
+import { ReactComponent as Flag } from '../../images/home.svg';
 import { ReactComponent as Arrw } from '../../images/arrw.svg';
 import { ReactComponent as Book } from '../../images/book.svg';
 
