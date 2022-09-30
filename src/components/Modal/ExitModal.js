@@ -64,7 +64,6 @@ export const BtnColor = styled.button`
   &:hover,
   &:focus{
     border: 1px solid #242a37;
-    border: trye;
     color: #242a37;
     background: rgba(0, 0, 0, 0);
     cursor: pointer;
