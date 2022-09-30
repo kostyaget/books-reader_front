@@ -1,102 +1,101 @@
 import {
   Wrapper,
   SectionTitle,
-  WrapperHeading,
-  List,
-  Item,
-  ContainerItem,
+  Table,
+  TrHead,
+  THead,
+  ThBookTitle,
+  ThAuthor,
+  ThYear,
+  ThPages,
+  ThRating,
+  Tbody,
+  Trbody,
+  TdBookTitle,
+  TdAuthor,
+  TdYear,
+  TdPages,
+  TdRating,
+  MobileTableWrapper,
+  TableMobile,
+  TbodyMobile,
+  TrMobile,
+  ThMobile,
+  TdMobile,
   FirstColumn,
   IconContainer,
-  Heading,
-  BookTitleTablet,
-  BookTitleMobile,
-  WrapperTextMobile,
-  TextWrapper,
-  HeadingMobile,
   Text,
 } from "./BooksListMarkup.styled";
-import { ReactComponent as Lib } from "../Header/Logo/lib.svg";
 
-export function BooksListMarkup() {
+const raiting = true;
+
+export default function BooksListMarkup() {
   return (
-    <>
-      <Wrapper>
-        <SectionTitle>Маю намір прочитати</SectionTitle>
-        <WrapperHeading>
-          <Heading>Назва книги</Heading>
-          <Heading>Автор</Heading>
-          <Heading>Рік</Heading>
-          <Heading>Стор.</Heading>
-          {/* <div>Рейтинг</div> */}
-        </WrapperHeading>
-        <List>
-          <Item>
-            <ContainerItem>
+    <Wrapper>
+      <SectionTitle>Маю намір прочитати</SectionTitle>
+      <Table>
+        <THead>
+          <TrHead>
+            <ThBookTitle>Назва книги</ThBookTitle>
+            <ThAuthor>Автор</ThAuthor>
+            <ThYear>Рік</ThYear>
+            <ThPages>Стор.</ThPages>
+            {raiting && <ThRating>Рейтинг</ThRating>}
+          </TrHead>
+        </THead>
+        <Tbody>
+          {/* {items.map(({ id, type, amount, currency }) => ( */}
+          <Trbody>
+            <TdBookTitle>
               <FirstColumn>
-                <IconContainer>
-                  <Lib />
-                </IconContainer>
-                <BookTitleTablet>
-                  Scrum. Революционный метод управлениями проектами.
-                </BookTitleTablet>
+                <IconContainer>Ico</IconContainer>
+                <div>
+                  <Text>
+                    Scrum. Революционный метод управлениями проектами.
+                  </Text>
+                  {/* mobile table start */}
+                  <MobileTableWrapper>
+                    <TableMobile>
+                      <TbodyMobile>
+                        <TrMobile>
+                          <ThMobile>Автор:</ThMobile>
+                          <TdMobile>Алекс Остервальдер, Ив Пинье</TdMobile>
+                        </TrMobile>
+                        <TrMobile>
+                          <ThMobile>Рік:</ThMobile>
+                          <TdMobile>2014</TdMobile>
+                        </TrMobile>
+                        <TrMobile>
+                          <ThMobile>Стор.:</ThMobile>
+                          <TdMobile>25</TdMobile>
+                        </TrMobile>
+                        {raiting && (
+                          <TrMobile>
+                            <ThMobile>Рейтинг:</ThMobile>
+                            <TdMobile>55555</TdMobile>
+                          </TrMobile>
+                        )}
+                      </TbodyMobile>
+                    </TableMobile>
+                  </MobileTableWrapper>
+                  {/* mobile table end */}
+                </div>
               </FirstColumn>
-
-              <div>
-                <BookTitleMobile>
-                  Scrum. Революционный метод управлениями проектами.
-                </BookTitleMobile>
-
-                <WrapperTextMobile>
-                  <HeadingMobile>Автор:</HeadingMobile>
-                  <TextWrapper>
-                    <Text>Алекс Остервальдер, Ив Пинье</Text>
-                  </TextWrapper>
-                </WrapperTextMobile>
-                <WrapperTextMobile>
-                  <HeadingMobile>Рік:</HeadingMobile>
-                  <TextWrapper>
-                    <Text>2014</Text>
-                  </TextWrapper>
-                </WrapperTextMobile>
-                <WrapperTextMobile>
-                  <HeadingMobile>Стор.:</HeadingMobile>
-                  <TextWrapper>
-                    <Text>25</Text>
-                  </TextWrapper>
-                </WrapperTextMobile>
-                <WrapperTextMobile>
-                  <HeadingMobile>Рейтинг:</HeadingMobile>
-                </WrapperTextMobile>
-              </div>
-            </ContainerItem>
-          </Item>
-          <Item>
-            <ContainerItem>
-              <IconContainer>
-                <Lib />
-              </IconContainer>
-              <div>
-                <Text>Scrum. Революционный метод управлениями проектами.</Text>
-                <WrapperTextMobile>
-                  <div>
-                    <HeadingMobile>Автор</HeadingMobile>
-                    <HeadingMobile>Рік</HeadingMobile>
-                    <HeadingMobile>Стор.</HeadingMobile>
-                    {/* <div>Рейтинг</div> */}
-                  </div>
-
-                  <div>
-                    <Text>Джефф Сазерленд</Text>
-                    <Text>2014</Text>
-                    <Text>25</Text>
-                    {/* <div>Рейтинг</div> */}
-                  </div>
-                </WrapperTextMobile>
-              </div>
-            </ContainerItem>
-          </Item>
-        </List>
-      </Wrapper>
-    </>
+            </TdBookTitle>
+            <TdAuthor>
+              <Text>Алекс Остервальдер, Ив Пинье</Text>{" "}
+            </TdAuthor>
+            <TdYear>
+              <Text>2014</Text>
+            </TdYear>
+            <TdPages>
+              <Text>25</Text>
+            </TdPages>
+            {raiting && <TdRating>55555 </TdRating>}
+          </Trbody>
+          {/* ))} */}
+        </Tbody>
+      </Table>
+    </Wrapper>
   );
 }
