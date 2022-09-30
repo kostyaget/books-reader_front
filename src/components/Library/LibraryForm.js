@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 import {
   BookForm,
   BookInputTitle,
@@ -10,12 +12,18 @@ import {
   ValidMessege,
   InputWrapper,
   InputWrapperList,
-} from "./Library.styled";
-import { Formik } from "formik";
-import * as yup from "yup";
-import { ReactComponent as BackArr } from "../../images/backArrow.svg";
+} from './Library.styled';
+import { Formik } from 'formik';
+import * as yup from 'yup';
+import { ReactComponent as BackArr } from '../../images/backArrow.svg';
 
 export default function LibraryForm() {
+  const [book, setBook] = useState({
+    bookTitle: '',
+    author: '',
+    publicationDate: '',
+    amountOfPages: '',
+  });
   let navigate = useNavigate();
 
   function handleClick() {
@@ -23,24 +31,30 @@ export default function LibraryForm() {
   }
 
   const validationsSchema = yup.object().shape({
-    bookTitle: yup.string().typeError("").required("*").min(3),
-    author: yup.string().typeError("").required("*").min(3),
-    publicationDate: yup.number().typeError("should be a number").required("*"),
-    amountOfPages: yup.number().typeError("should be a number").required("*").min(1),
+    bookTitle: yup.string().typeError('').required('*').min(3),
+    author: yup.string().typeError('').required('*').min(3),
+    publicationDate: yup.number().typeError('should be a number').required('*'),
+    amountOfPages: yup
+      .number()
+      .typeError('should be a number')
+      .required('*')
+      .min(1),
   });
 
   return (
     <div>
       <Formik
         initialValues={{
-          bookTitle: "",
-          author: "",
-          publicationDate: "",
-          amountOfPages: "",
+          bookTitle: '',
+          author: '',
+          publicationDate: '',
+          amountOfPages: '',
         }}
         validateOnBlur
-        onSubmit={(values) => {
-          console.log(values);
+        onSubmit={(values, { resetForm }) => {
+          setBook(values);
+          resetForm({ values: '' });
+          console.log(book);
         }}
         validationSchema={validationsSchema}
       >
@@ -55,21 +69,22 @@ export default function LibraryForm() {
           dirty,
         }) => (
           <BookForm>
+            
+            <InputWrapperList>
             <BackArrow>
               <BackArr onClick={handleClick} />
             </BackArrow>
-            <InputWrapperList>
               <InputWrapper>
                 <BookLabel htmlFor="bookTitle">
-                  Book title{" "}
+                  Book title
                   {touched.bookTitle && errors.bookTitle && (
                     <ValidMessege>{errors.bookTitle}</ValidMessege>
-                  )}{" "}
+                  )}
                 </BookLabel>
 
                 <BookInputTitle
-                  type={"text"}
-                  name={"bookTitle"}
+                  type={'text'}
+                  name={'bookTitle'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.bookTitle}
@@ -77,15 +92,15 @@ export default function LibraryForm() {
               </InputWrapper>
               <InputWrapper>
                 <BookLabel htmlFor="author">
-                  Author{" "}
+                  Author{' '}
                   {touched.author && errors.author && (
                     <ValidMessege>{errors.author}</ValidMessege>
-                  )}{" "}
+                  )}
                 </BookLabel>
 
                 <BookInputAuthor
-                  type={"text"}
-                  name={"author"}
+                  type={'text'}
+                  name={'author'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.author}
@@ -93,15 +108,15 @@ export default function LibraryForm() {
               </InputWrapper>
               <InputWrapper>
                 <BookLabel htmlFor="publicationDate">
-                  Publication date{" "}
+                  Publication date
                   {touched.publicationDate && errors.publicationDate && (
                     <ValidMessege>{errors.publicationDate}</ValidMessege>
                   )}
                 </BookLabel>
 
                 <BookInput
-                  type={"number"}
-                  name={"publicationDate"}
+                  type={'number'}
+                  name={'publicationDate'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.publicationDate}
@@ -109,15 +124,15 @@ export default function LibraryForm() {
               </InputWrapper>
               <InputWrapper>
                 <BookLabel htmlFor="amountOfPages">
-                  Amount of pages{" "}
+                  Amount of pages
                   {touched.amountOfPages && errors.amountOfPages && (
                     <ValidMessege>{errors.amountOfPages}</ValidMessege>
                   )}
                 </BookLabel>
 
                 <BookInput
-                  type={"number"}
-                  name={"amountOfPages"}
+                  type={'number'}
+                  name={'amountOfPages'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.amountOfPages}

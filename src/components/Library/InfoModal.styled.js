@@ -7,6 +7,8 @@ export const ІnfModal = styled.div`
   padding-right: 20px;
   padding-top: 43px;
   padding-bottom: 94px;
+  background: #FFFFFF;
+box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 
   @media screen and (min-width: 768px) {
     width: 568px;

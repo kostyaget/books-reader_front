@@ -13,6 +13,7 @@ import {
   Register,
   Section,
   SectionLogin,
+  Star,
 } from "./login.styled";
 
 const Login = () => {
@@ -53,7 +54,9 @@ const Login = () => {
                   </GoogleButton>
                 </GoogleSection>
 
-                <LabelField>Email</LabelField>
+                <LabelField>
+                  Email<Star>*</Star>
+                </LabelField>
                 <InputField
                   type="email"
                   name="email"
@@ -65,7 +68,10 @@ const Login = () => {
                   <Error>{errors.email}</Error>
                 ) : null}
 
-                <LabelField>Password</LabelField>
+                <LabelField>
+                  Password
+                  <Star>*</Star>
+                </LabelField>
                 <InputField
                   type="password"
                   name="password"

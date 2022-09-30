@@ -33,6 +33,10 @@ export const options = {
       tension: 0.4,
       borderWidth: 2,
     },
+    point: {
+      radius: 4,
+      hoverRadius: 6,
+    },
   },
   plugins: {
     tooltip: {
