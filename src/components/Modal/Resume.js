@@ -19,17 +19,14 @@ export const Rating = styled.p`
 export const Forms = styled.textarea`
   width: 240px;
   height: 170px;
-
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-
   color: #242a37;
   padding: 10px;
-
-  border: 1px solid #A6ABB9;
+  border: 1px solid #a6abb9;
   resize: none;
 
   @media ${device.mobileS} and (max-width: 767px) {
@@ -49,17 +46,16 @@ export const Btn = styled.button`
   background: #ffffff;
   box-shadow: 10px 10px 20px rgba(9, 30, 63, 0.2);
   color: #242a37;
-  border: 1px solid #242A37;
+  border: 1px solid #242a37;
 
-
-  &:hover, 
+  &:hover,
   &:focus,
   &:active {
-	border: 1px solid #242A37;
-	background: #ff6b08;
+    border: 1px solid #242a37;
+    background: #ff6b08;
     cursor: pointer;
-    color: #fff 
-}  
+    color: #fff;
+  }
 `;
 
 export const BtnColor = styled.button`
@@ -77,21 +73,19 @@ export const BtnColor = styled.button`
     margin-left: 28px;
   }
 
-  &:hover, 
+  &:hover,
   &:focus,
   &:active {
-	border: 1px solid #242A37;
+    border: 1px solid #242a37;
     border: trye;
-	color: #242a37;
-	background: rgba(0,0,0,0);
+    color: #242a37;
+    background: rgba(0, 0, 0, 0);
     cursor: pointer;
-}  
+  }
 `;
-
 
 export const ItemBtn = styled.div`
   margin: 20px 35px 40px 35px;
-
   display: flex;
   align-items: center;
   justify-content: center;

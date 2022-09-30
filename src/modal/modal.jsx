@@ -1,8 +1,6 @@
 import React from "react";
 import "./modal.css";
 
-
-
 const Modal = ({ active, setActive, children }) => {
 
   // document.addEventListener('keydown', function(e) {
