@@ -1,19 +1,25 @@
 import styled from "styled-components";
 
 export const ІnfModal = styled.div`
+  position: absolute;
+  top: 160px;
+  right: 20px;
   margin: auto;
   width: 240px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 22px;
+  padding-right: 22px;
   padding-top: 43px;
   padding-bottom: 94px;
-  background: #FFFFFF;
-box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+  background: #ffffff;
+  box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 
   @media screen and (min-width: 768px) {
     width: 568px;
     padding-top: 40px;
     padding-bottom: 58px;
+    position: relative;
+    top: 0px;
+    right: 0px;
   }
 `;
 export const InfoPreTitle = styled.b`
