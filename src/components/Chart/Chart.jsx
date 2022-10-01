@@ -9,13 +9,18 @@ import {
 import { Colors } from "./Chart.styled";
 import PropTypes from "prop-types";
 
-export const PLAN_LINE_NAME = "ПЛАН";
-export const ACT_LINE_NAME = "ФАКТ";
+export const PLAN_LINE_NAME = "PLAN";
+export const ACT_LINE_NAME = "ACT";
 
-function Chart({ labelsData = ["time"], planValue = 0, actData = [-1] }) {
-  let planArray = [];
-  for (let i = 0; i < actData.length; i += 1) {
-    planArray.push(planValue);
+function Chart({ labelsData = ["time"], planData = [0], actData = [-1] }) {
+  if (!labelsData.length) {
+    labelsData = ["time"];
+  }
+  if (!planData.length) {
+    planData = [0];
+  }
+  if (!actData.length) {
+    actData = [-1];
   }
 
   const data = {
@@ -30,7 +35,7 @@ function Chart({ labelsData = ["time"], planValue = 0, actData = [-1] }) {
       },
       {
         label: PLAN_LINE_NAME,
-        data: planArray,
+        data: planData,
         borderColor: Colors.dark,
         pointBackgroundColor: Colors.dark,
         fill: false,
@@ -51,7 +56,7 @@ function Chart({ labelsData = ["time"], planValue = 0, actData = [-1] }) {
 
 Chart.propTypes = {
   labelsData: PropTypes.array.isRequired,
-  planValue: PropTypes.number.isRequired,
+  planData: PropTypes.array.isRequired,
   actData: PropTypes.array.isRequired,
 };
 
