@@ -36,8 +36,8 @@ export const customNameLine = {
 
       let bgPositionLableX = meta.data.length > 1 ? -48 : 10;
       let bgPositionLableY = meta.data.length > 1 ? -40 : -17;
-      let positionLableTextX = meta.data.length > 1 ? -39 : 17;
-      let positionLableTextY = meta.data.length > 1 ? -24 : 0;
+      let positionLableTextX = meta.data.length > 1 ? -23 : 35;
+      let positionLableTextY = meta.data.length > 1 ? -24 : -1;
 
       ctx.fillRect(
         meta.data[meta.data.length - 1].x + bgPositionLableX,
@@ -54,11 +54,13 @@ export const customNameLine = {
       ctx.font = "bolder 12px Arial";
       ctx.fillStyle = Colors.dark;
       ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
       ctx.fillText(
         meta._dataset.label,
         meta.data[meta.data.length - 1].x + positionLableTextX,
         meta.data[meta.data.length - 1].y + positionLableTextY
       );
+      ctx.textAlign = "left";
     });
   },
 };
@@ -74,36 +76,37 @@ export const customPagesValue = {
     ctx.beginPath();
     //rect
     ctx.fillStyle = Colors.lightGray;
-    ctx.fillRect(195, 0, 25, 25);
+    ctx.fillRect(165, 0, 25, 25);
     ctx.fill();
 
     //text
     ctx.fillStyle = Colors.grayBlue;
     ctx.textBaseline = "middle";
     ctx.font = "500 12px Montserrat";
-    ctx.fillText("КІЛЬКІСТЬ СТОРІНОК / ДЕНЬ", 3, 13);
+    ctx.fillText("AMONT OF PAGES / DAY", 3, 13);
     ctx.fill();
 
     data.datasets.forEach((item, index) => {
       if (item.label === PLAN_LINE_NAME) {
-        const value = item.data[0];
-        const ifValue = data.datasets[index].data[0].toString().length;
+        const value = item.data[item.data.length - 1];
+        const ifValue =
+          data.datasets[index].data[item.data.length - 1].toString().length;
         if (ifValue > 1) {
           let bgPagesLength = 25;
           if (ifValue === 2) {
             bgPagesLength = 32;
           }
           if (ifValue >= 3) {
-            bgPagesLength = 37;
+            bgPagesLength = 39;
           }
           ctx.fillStyle = Colors.lightGray;
-          ctx.fillRect(195, 0, bgPagesLength, 25);
+          ctx.fillRect(165, 0, bgPagesLength, 25);
           ctx.fill();
         }
 
         ctx.fillStyle = Colors.grayBlue;
         ctx.font = "bold 12px Montserrat";
-        ctx.fillText(value || 0, 203, 13);
+        ctx.fillText(value || 0, 174, 13);
       }
     });
   },
