@@ -1,4 +1,8 @@
 import styled, { css } from "styled-components";
+import library from "../../images/svg/library.svg";
+import libraryActive from "../../images/svg/libraryActive.svg";
+import checkbox from "../../images/svg/checkbox.svg";
+import checkboxActive from "../../images/svg/checkboxActive.svg";
 
 const BreakPoint = {
   mobileMin: "min-width: 320px",
@@ -51,7 +55,7 @@ export const Wrapper = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 
   font-family: "Montserrat";
   font-weight: 600;
@@ -67,7 +71,10 @@ export const SectionTitle = styled.h2`
 // table
 export const Table = styled.table`
   width: 100%;
-  border-spacing: 0 8px;
+  border-spacing: 0 16px;
+  @media screen and (${BreakPoint.tabletMin}) {
+    border-spacing: 0 8px;
+  }
 `;
 
 export const THead = styled.thead`
@@ -126,21 +133,36 @@ export const Trbody = styled.tr`
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 `;
 
+export const Text = styled.p``;
+
 export const TdBookTitle = styled.td`
   padding: 20px 20px 14px;
+  ${TextParams}
+  color: ${Colors.grayBlue};
   @media screen and (${BreakPoint.tabletMin}) {
     padding: 20px;
   }
 `;
+export const TdEmpty = styled.td.attrs({
+  colSpan: 4,
+})`
+  padding: 20px;
+  ${TextParams}
+  color: ${Colors.grayBlue};
+`;
 
 export const TdAuthor = styled.td`
   padding: 20px;
+  ${TextParams}
+  color: ${Colors.grayBlue};
   @media screen and (${BreakPoint.mobileMax}) {
     display: none;
   }
 `;
 
 export const TdYear = styled.td`
+  ${TextParams}
+  color: ${Colors.grayBlue};
   text-align: right;
   padding: 20px;
   @media screen and (${BreakPoint.mobileMax}) {
@@ -149,6 +171,8 @@ export const TdYear = styled.td`
 `;
 
 export const TdPages = styled.td`
+  ${TextParams}
+  color: ${Colors.grayBlue};
   text-align: right;
   padding: 20px;
   @media screen and (${BreakPoint.mobileMax}) {
@@ -166,6 +190,13 @@ export const TdRating = styled.td`
   }
 `;
 
+export const FirstColumn = styled.div`
+  display: flex;
+  @media screen and (${BreakPoint.tabletMin}) {
+    align-items: center;
+  }
+`;
+
 export const IconContainer = styled.div`
   width: 22px;
   margin-right: 12px;
@@ -174,16 +205,33 @@ export const IconContainer = styled.div`
   }
 `;
 
-export const FirstColumn = styled.div`
-  display: flex;
-  @media screen and (${BreakPoint.tabletMin}) {
-    align-items: center;
-  }
+const BackgroundIco = css`
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 22px;
+  height: 17px;
 `;
 
-export const Text = styled.p`
-  ${TextParams}
-  color: ${Colors.grayBlue};
+export const LibraryIco = styled.div`
+  background-image: url(${library});
+  ${BackgroundIco}
+`;
+
+export const LibraryActiveIco = styled.div`
+  background-image: url(${libraryActive});
+  ${BackgroundIco};
+`;
+
+export const checkboxIco = styled.div`
+  background-image: url(${checkbox});
+  ${BackgroundIco}
+  height: 15px;
+`;
+
+export const checkboxActiveIco = styled.div`
+  background-image: url(${checkboxActive});
+  ${BackgroundIco}
+  height: 15px;
 `;
 
 // mobile table start
