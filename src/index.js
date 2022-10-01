@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/kostyaget/books-reader_front/">
           <App />
         </BrowserRouter>
       </PersistGate>
