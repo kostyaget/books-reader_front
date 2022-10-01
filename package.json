@@ -21,6 +21,7 @@
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-ellipsis-text": "^1.2.1",
+    "react-google-button": "^0.7.2",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
@@ -58,7 +59,6 @@
   },
   "description": "<!-- HEADER -->",
   "main": "index.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kostyaget/books-reader_front.git"
@@ -68,5 +68,4 @@
   "bugs": {
     "url": "https://github.com/kostyaget/books-reader_front/issues"
   }
-  
 }
