@@ -1,17 +1,17 @@
-
-// import Header from "./components/Header/Header";
-// import Hero from "./components/Hero/hero";
-// import Library from "./pages/Library/Library";
-// import { Route, Routes, useNavigate } from "react-router-dom";
+// Не используемые импорты
 // import { useEffect } from "react";
 // import { useSelector } from "react-redux";
 // import { selectIsLoggedIn } from "./redux/auth/auth";
 
+
+// Authorization закоментированны руты, если разкометить ошибки по 45 строчке
+// import Library from "./pages/Library/Library";
 // import Header from "./components/Header";
 // import Hero from "./components/Hero/hero";
-// import RegistrationSection from "./components/Hero/registrationForm";
-import NumberBooks from "./components/NumberBooks/NumberBooks.jsx";
+// import RegistrationSection from "./components/Hero/hero";
 // import { Routes, Route } from "react-router-dom";
+
+import NumberBooks from "./components/NumberBooks/NumberBooks.jsx";
 import Modal from "./modal/modal.jsx";
 import React, { useState } from "react";
 import Resume from "./components/Modal/Resume.jsx";
@@ -46,14 +46,13 @@ const App = () => {
       </Modal>
       {/* <Hero /> */}
       <NumberBooks />
-      {/* { <Routes>
-        <Route path="/" element={<Header />}>
+      {/* {<Routes>
+          <Route path="/" element={<Header />} />
           <Route path="/Hero" element={<Hero />} />
-          {/* <Route path="/" element={<RegistrationSection />} /> */}
-        {/* <Route path="/library" element={<Library />} /> */}
-          {/* <Route path="/StartTraining" element={<NumberBooks />}/> */}
-        {/* </Route> */}
-      {/* </Routes> } */}
+          <Route path="/" element={<RegistrationSection />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/StartTraining" element={<NumberBooks />}/>
+      </Routes>} */}
     </>
   );
 };
