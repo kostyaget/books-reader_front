@@ -4,7 +4,7 @@
 // import { selectIsLoggedIn } from "./redux/auth/auth";
 
 
-// Authorization закоментированны руты, если разкометить ошибки по 45 строчке
+// Authorization закоментированны руты, если разкометить ошибки по 50 строчке
 // import Library from "./pages/Library/Library";
 // import Header from "./components/Header";
 // import Hero from "./components/Hero/hero";
