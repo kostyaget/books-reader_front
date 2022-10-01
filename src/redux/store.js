@@ -16,7 +16,7 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/auth";
 import { authApi } from "./auth/authApi";
 import { usersApi } from "./users/usersApi";
-import { booksApi } from "./books/booksApi";
+import { trainingsApi } from "./trainings/trainingsApi";
 
 const authPersistConfig = {
   key: "auth",
@@ -26,7 +26,7 @@ const authPersistConfig = {
 
 const store = configureStore({
   reducer: {
-    [booksApi.reducerPath]: booksApi.reducer,
+    [trainingsApi.reducerPath]: trainingsApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
@@ -36,7 +36,7 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    booksApi.middleware,
+    trainingsApi.middleware,
     usersApi.middleware,
     authApi.middleware,
   ],

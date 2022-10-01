@@ -8,6 +8,7 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isContactsPending: false,
+    link: null,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -23,7 +24,6 @@ const authSlice = createSlice({
         authApi.endpoints.createNewUser.matchFulfilled,
         (state, { payload }) => {
           state.user = payload.user;
-          state.token = payload.token;
           state.isLoggedIn = true;
           state.isError = false;
         }
@@ -56,18 +56,18 @@ const authSlice = createSlice({
           state.isError = true;
           state.isLoggedIn = false;
         }
-      ) 
+      )
       .addMatcher(
         authApi.endpoints.fetchGoogleAccount.matchFulfilled,
         (state, { payload }) => {
-          state.user = payload;
+          state.link = payload;
           state.isLoggedIn = true;
         }
       )
       .addMatcher(
         authApi.endpoints.fetchGoogleAccount.matchRejected,
         (state, _action) => {
-          state.user = null;
+          state.link = null;
           state.isLoggedIn = false;
         }
       )
