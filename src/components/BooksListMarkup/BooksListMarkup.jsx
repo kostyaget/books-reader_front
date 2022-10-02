@@ -58,15 +58,15 @@ export default function BooksListMarkup({
         <Tbody>
           {list.map(
             ({
-              id,
-              alreadyRead,
-              readingNow,
-              goingToRead,
-              book_name,
-              author,
-              year,
-              pages,
-              rating,
+              id = 0,
+              alreadyRead = false,
+              readingNow = false,
+              goingToRead = false,
+              book_name = "",
+              author = "",
+              year = 0,
+              pages = 0,
+              rating = 0,
             }) => (
               <Trbody key={id}>
                 <TdBookTitle>
