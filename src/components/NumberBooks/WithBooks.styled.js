@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from '../device/device';
+import { device } from "../device/device";
 
 export const Goal = styled.div`
   background: #b1b5c2;
@@ -9,15 +9,14 @@ export const Goal = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media ${device.mobileS} and (max-width: 767px)  {
+  @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
     height: 60px;
   }
   @media ${device.tablet} and (max-width: 1023px) {
     width: 275px;
     max-height: 60px;
-    margin: 23px 71px 23px 28px;
-
+    margin: 23px 8px 23px 28px;
   }
   @media ${device.laptop} {
     max-width: 288px;
@@ -26,17 +25,22 @@ export const Goal = styled.div`
 `;
 
 export const Number = styled.p`
-  width: 26px;
-  height: 38px;
-
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 45px;
+  font-size: 35px;
   line-height: 38px;
-
   color: #091e3f;
 `;
+
+export const NumberColor = styled.p`
+font-family: "Open Sans";
+font-style: normal;
+font-weight: 700;
+font-size: 35px;
+line-height: 38px;
+color: #FF6B08;
+`
 
 export const RoomArea = styled.div`
   display: flex;
@@ -47,56 +51,50 @@ export const RoomArea = styled.div`
   box-shadow: 4px 4px 8px rgba(36, 42, 55, 0.15);
 
   @media ${device.mobileS} {
-    width: 100px;
-    height: 100px; 
-    
+    width: 63px;
+    height: 63px;
   }
   @media ${device.tablet} {
     width: 100px;
     height: 60px;
   }
-  @media ${device.laptop} { 
-    width: 100px;
-    height: 100px;  
+  @media ${device.laptop} {
+    width: 66px;
+    height: 66px;
   }
 `;
 
 export const TextNumber = styled.p`
   margin-left: auto;
   margin-right: auto;
-
+  text-align: center;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-
   line-height: 17px;
-  text-align: center;
-
   color: #898f9f;
 
   @media ${device.mobileS} and (max-width: 767px) {
-    margin-top: 14px;
-    width: 66px;
-    height: 34px;
-    font-size: 14px;
+    margin-top: 8px;
+    max-height: 26px; 
+    font-size: 14px;    
   }
   @media ${device.tablet} and (max-width: 1023px) {
     margin-top: 4px;
-    display: flex;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 13px;
   }
   @media ${device.laptop} {
     margin-top: 14px;
-    width: 57px;
     height: 30px;
+    width: 80px;
+    margin-left: -7px;
   }
 `;
 
 export const TextTitle = styled.p`
   width: 220px;
   height: 24px;
-
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
@@ -105,59 +103,54 @@ export const TextTitle = styled.p`
   text-align: center;
 
   color: #ffffff;
-
 `;
 
 export const ResultItem = styled.ul`
   display: flex;
- 
-  // background: #ffffff;
-  // box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 `;
-
 
 export const ListNumbers = styled.li`
   list-style-type: none;
 
   @media ${device.mobileS} and (max-width: 767px) {
-    margin-top: 44px;
-    margin-bottom: 44px;
-    width: 100px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 63px;
     margin-left: 30px;
-    margin-right: -10px;
+    margin-right: -14px;
   }
-  @media ${device.tablet} and (max-width: 1023px){
-    margin-left: 40px;
+  @media ${device.tablet} and (max-width: 1023px) {
+    margin-left: 15px;
     margin-top: 20px;
     margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
   }
   @media ${device.laptop} {
-    margin-top: 48px;
-    margin-bottom: 48px;
-    width: 100px;
-    margin-left: 34px;
-    margin-right: -14px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 63px;
+    margin-left: 20px;
   }
 `;
 
-export const Container = styled.div`  
+export const Container = styled.div`
   display: block;
   margin: 20px;
-
   box-shadow: 4px 4px 8px rgba(80, 80, 55, 5);
 
   @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
-    max-height: 296px;
+    max-height: 221px;
   }
-  @media ${device.tablet} and (max-width: 1023px){
+  @media ${device.tablet} and (max-width: 1023px) {
     max-width: 704px;
-    max-height: 105px;
+    max-height: 125px;
     display: flex;
   }
   @media ${device.laptop} {
     max-width: 288px;
-    max-height: 329px;
+    height: 329px;
   }
 `;
 

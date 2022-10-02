@@ -8,9 +8,10 @@ import {
   TextTitle,
   Container,
   ListNumbers,
-} from "./NumberBooks";
+  NumberColor
+} from "./WithBooks.styled";
 
-const NumberBooks = () => (
+const WithBooks = () => (
   <Container>
     <Goal>
       <TextTitle>Моя мета прочитати</TextTitle>
@@ -19,19 +20,26 @@ const NumberBooks = () => (
     <ResultItem>
       <ListNumbers>
         <RoomArea>
-          <Number>0</Number>
+          <Number>100</Number>
         </RoomArea>
         <TextNumber>Кількість книжок</TextNumber>
       </ListNumbers>
 
       <ListNumbers>
         <RoomArea>
-          <Number>0</Number>
+          <Number>100</Number>
         </RoomArea>
         <TextNumber>Кількість днів</TextNumber>
+      </ListNumbers>
+
+      <ListNumbers>
+        <RoomArea>
+          <NumberColor>100</NumberColor>
+        </RoomArea>
+        <TextNumber>Залишилось книжок</TextNumber>
       </ListNumbers>
     </ResultItem>
   </Container>
 );
 
-export default NumberBooks;
+export default WithBooks;
