@@ -20,6 +20,7 @@ export default function LogInMenu() {
       <LogInContainer>
         <Logo>BR</Logo>
         <NavWrapper>
+          
           <NavList>
             <StyledNavLink to="/training">
               <Lib />
