@@ -8,8 +8,8 @@
 // Authorization закоментированны руты, если разкометить ошибки по 45 строчке
 import Library from "./pages/Library/Library";
 import Header from "./components/Header/Header";
-import Registration from "./pages/registration/Registration";
-import Login from "./pages/login/Login";
+import Registration from "./pages/registration/registration";
+import Login from "./pages/login/login";
 
 // import Hero from "./components/Hero/hero";
 // import RegistrationSection from "./components/Hero/hero";
