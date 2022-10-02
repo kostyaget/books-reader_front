@@ -84,9 +84,7 @@ const Login = () => {
                 ) : null}
 
                 <LogiBtn type="submit">Login</LogiBtn>
-                <Register href="..//..//components/Hero/registrationForm.js">
-                  Register
-                </Register>
+                <Register href="/">Register</Register>
               </SectionLogin>
             </form>
           )}

@@ -35,6 +35,43 @@ export const usersApi = createApi({
       },
       invalidatesTags: ["users"],
     }),
+    addBook: builder.mutation({
+      query: (body) => ({
+        url: "/api/books/add",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["users"],
+    }),
+    updateResume: builder.mutation({
+      query: (data) => {
+        const { id, ...body } = data;
+        return {
+          url: `/api/books/${id}/resume`,
+          method: "PATCH",
+          body,
+        };
+      },
+      invalidatesTags: ["users"],
+    }),
+    updateStatus: builder.mutation({
+      query: (data) => {
+        const { id, ...body } = data;
+        return {
+          url: `/api/books/${id}/status`,
+          method: "PATCH",
+          body,
+        };
+      },
+      invalidatesTags: ["users"],
+    }),
+    deleteBook: builder.mutation({
+      query: (bookId) => ({
+        url: `/api/books/${bookId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["users"],
+    }),
   }),
 });
 
@@ -42,4 +79,8 @@ export const {
   useFetchUserDataQuery,
   useLazyFetchUserDataQuery,
   useAddResultsMutation,
+  useAddBookMutation,
+  useUpdateResumeMutation,
+  useUpdateStatusMutation,
+  useDeleteBookMutation,
 } = usersApi;

@@ -64,7 +64,7 @@ export const options = {
       title: {
         align: "end",
         display: true,
-        text: "ЧАС",
+        text: "TIME",
         color: Colors.dark,
         font: {
           family: "Montserrat",
