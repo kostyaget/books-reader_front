@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const API_URL = "https://books-reader-project.herokuapp.com";
 
-export const booksApi = createApi({
-  reducerPath: "booksApi",
+export const trainingsApi = createApi({
+  reducerPath: "trainingsApi",
   baseQuery: fetchBaseQuery({
     baseUrl: API_URL,
     prepareHeaders: (headers, { getState }) => {
@@ -16,46 +16,38 @@ export const booksApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["books"],
+  tagTypes: ["trainings"],
   endpoints: (builder) => ({
-    fetchBooks: builder.query({
+    fetchTrainingsData: builder.query({
       query: () => ({
-        url: "/api/books",
+        url: "/api/trainings",
       }),
-      providesTags: ["books"],
+      providesTags: ["trainings"],
     }),
-    addBook: builder.mutation({
+    startTraining: builder.mutation({
       query: (body) => ({
-        url: "/api/books",
+        url: "/api/trainings/start",
         method: "POST",
         body,
       }),
-      invalidatesTags: ["books"],
+      invalidatesTags: ["trainings"],
     }),
-    updateResume: builder.mutation({
+    updateTrainingStatus: builder.mutation({
       query: (data) => {
         const { id, ...body } = data;
         return {
-          url: `/api/books/${id}/resume`,
+          url: `/api/trainings/${id}/status`,
           method: "PATCH",
           body,
         };
       },
-      invalidatesTags: ["books"],
-    }),
-    deleteBook: builder.mutation({
-      query: (bookId) => ({
-        url: `/api/books/${bookId}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["books"],
+      invalidatesTags: ["trainings"],
     }),
   }),
 });
 
 export const {
-  useFetchBooksQuery,
-  useAddBookMutation,
-  useUpdateResumeMutation,
-  useDeleteBookMutation,
-} = booksApi;
+  useFetchTrainingsDataQuery,
+  useStartTrainingMutation,
+  useUpdateTrainingStatusMutation,
+} = trainingsApi;
