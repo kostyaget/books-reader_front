@@ -19,6 +19,7 @@ export const Colors = {
   borderLineColor: "#B1B5C2",
   borderListColor: "#e0e5eb",
   headingGray: "#898F9F",
+  background: "#F6F7FB",
 };
 
 const TextParams = css`
@@ -41,6 +42,10 @@ const HeadingText = css`
   color: ${Colors.headingGray};
 `;
 
+export const ContainerT = styled.div`
+  padding: 40px;
+`;
+
 export const Wrapper = styled.div`
   box-sizing: border-box;
 
@@ -48,6 +53,11 @@ export const Wrapper = styled.div`
   max-width: 280px;
   @media screen and (${BreakPoint.tabletMin}) {
     max-width: 704px;
+    border-top: 1px solid ${Colors.borderListColor};
+    border-bottom: 1px solid ${Colors.borderListColor};
+
+    overflow: auto;
+    max-height: 280px;
   }
   @media screen and (${BreakPoint.desktopMin}) {
     max-width: 1248px;
@@ -59,10 +69,25 @@ export const Wrapper = styled.div`
 export const TableTraining = styled.table`
   width: 100%;
   border-collapse: collapse;
-  /* border: 1px solid red; */
-  /* border-spacing: 0 16px; */
-  @media screen and (${BreakPoint.tabletMin}) {
-    /* border-spacing: 0 8px; */
+`;
+
+const PaddingRL = css`
+  padding: 12px 20px;
+`;
+
+const TheadPosition = css`
+  position: sticky;
+  top: 0;
+  background: ${Colors.background};
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-bottom: 1px solid ${Colors.borderListColor};
   }
 `;
 
@@ -77,13 +102,9 @@ export const TrHead = styled.tr`
   border-bottom: 1px solid ${Colors.borderListColor};
 `;
 
-const PaddingRL = css`
-  padding-right: 20px;
-  padding-left: 20px;
-`;
-
 export const ThBookTitle = styled.th`
-  padding-right: 20px;
+  ${TheadPosition}
+  padding: 12px 20px 12px 0;
   text-align: left;
   ${HeadingText}
   @media screen and (${BreakPoint.tabletMin}) {
@@ -92,12 +113,14 @@ export const ThBookTitle = styled.th`
 `;
 
 export const ThAuthor = styled.th`
+  ${TheadPosition}
   text-align: left;
   ${PaddingRL}
   ${HeadingText}
 `;
 
 export const ThYear = styled.th`
+  ${TheadPosition}
   width: 15%;
   text-align: right;
   ${PaddingRL}
@@ -105,6 +128,7 @@ export const ThYear = styled.th`
 `;
 
 export const ThPages = styled.th`
+  ${TheadPosition}
   width: 15%;
   text-align: right;
   ${PaddingRL}
@@ -114,14 +138,11 @@ export const ThPages = styled.th`
   }
 `;
 
-export const ThDelete = styled.th``;
+export const ThDelete = styled.th`
+  ${TheadPosition}
+`;
 
 export const Tbody = styled.tbody``;
-
-export const Trbody = styled.tr`
-  background-color: ${Colors.white};
-  box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
-`;
 
 export const TrbodyTraining = styled.tr`
   border-top: 1px solid ${Colors.borderListColor};
@@ -135,7 +156,7 @@ export const TdBookTitle = styled.td`
   ${TextParams}
   color: ${Colors.grayBlue};
   @media screen and (${BreakPoint.tabletMin}) {
-    padding: 20px 20px 20px 0;
+    padding: 12px 20px 12px 0;
   }
 `;
 export const TdEmpty = styled.td.attrs({
@@ -147,7 +168,7 @@ export const TdEmpty = styled.td.attrs({
 `;
 
 export const TdAuthor = styled.td`
-  padding: 20px;
+  padding: 12px 20px;
   ${TextParams}
   color: ${Colors.grayBlue};
   @media screen and (${BreakPoint.mobileMax}) {
@@ -159,7 +180,7 @@ export const TdYear = styled.td`
   ${TextParams}
   color: ${Colors.grayBlue};
   text-align: right;
-  padding: 20px;
+  padding: 12px 20px;
   @media screen and (${BreakPoint.mobileMax}) {
     display: none;
   }
@@ -169,7 +190,7 @@ export const TdPages = styled.td`
   ${TextParams}
   color: ${Colors.grayBlue};
   text-align: right;
-  padding: 20px;
+  padding: 12px 20px;
   @media screen and (${BreakPoint.mobileMax}) {
     display: none;
   }
@@ -182,11 +203,11 @@ export const TdDelete = styled.td`
   padding: 20px 0;
   vertical-align: top;
   @media screen and (${BreakPoint.tabletMin}) {
-    padding: 20px 16px;
+    padding: 12px 16px;
     vertical-align: middle;
   }
   @media screen and (${BreakPoint.desktopMin}) {
-    padding: 20px 32px;
+    padding: 12px 32px;
     /* float: right; */
   }
 `;
