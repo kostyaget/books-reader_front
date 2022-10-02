@@ -1,0 +1,10 @@
+Як підключити
+
+import BooksListTraining from './components/BooksListTraining/BooksListTraining';
+
+Компонент:
+<BooksListTraining list={Масив книг користувача} training={false} />
+
+Передати два пропса:
+list={Масив книг користувача} - передати масив книг користувача.
+training={false} - передати бульове значення, якщо тренування розпочалося ставиться true, в інших випадках false.

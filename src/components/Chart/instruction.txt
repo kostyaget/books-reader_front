@@ -1,0 +1,11 @@
+Як підключити
+
+import Chartp from './components/Chart/Chart';
+
+Компонент:
+<Chart labelsData={array1} planValue={array2} actData={array3} />;
+
+Передати три пропса
+labelsData={array1} - передати масив дат.
+planValue={array2} - передати масив плану.
+actData={array3} - передати масив фактичного прочитання.

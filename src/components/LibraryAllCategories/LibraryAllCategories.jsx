@@ -6,11 +6,13 @@ import {
 } from "./LibraryAllCategories.styled";
 import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
 
-export default function LibraryAllCategories() {
+export default function LibraryAllCategories({
+  listAllCategories = BOOKSLIST_DATA_TEST,
+}) {
   let alreadyReadM = [];
   let readingNowM = [];
   let goingToReadM = [];
-  BOOKSLIST_DATA_TEST.forEach((el) => {
+  listAllCategories.forEach((el) => {
     if (el.alreadyRead) {
       alreadyReadM.push(el);
     }
