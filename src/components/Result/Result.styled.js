@@ -3,16 +3,20 @@ import { device } from "../device/device";
 
 export const Section = styled.section`
   margin-top: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: #f6f7fb;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #ffffff;
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 
   @media ${device.tablet} and (max-width: 1023px) {
-    padding: 30px 95px;
-  } ;
+    padding: 30px 55px;
+  }
+  @media ${device.laptop} {
+    width: 268px;
+    max-height: 340px;
+  }
 `;
 
 export const Title = styled.h2`
