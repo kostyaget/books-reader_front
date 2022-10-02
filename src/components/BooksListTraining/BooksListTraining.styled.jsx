@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import library from "../../images/svg/library.svg";
-import libraryActive from "../../images/svg/libraryActive.svg";
+import checkbox from "../../images/svg/checkbox.svg";
+import checkboxActive from "../../images/svg/checkboxActive.svg";
 
 const BreakPoint = {
   mobileMin: "min-width: 320px",
@@ -16,6 +17,7 @@ export const Colors = {
   lightGray: "#F5F7FA",
   grayBlue: "#242A37",
   borderLineColor: "#B1B5C2",
+  borderListColor: "#e0e5eb",
   headingGray: "#898F9F",
 };
 
@@ -52,26 +54,15 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SectionTitle = styled.h2`
-  margin-bottom: 4px;
-
-  font-family: "Montserrat";
-  font-weight: 600;
-  font-size: 19px;
-  line-height: 1.21;
-
-  color: ${Colors.grayBlue};
-  @media screen and (${BreakPoint.tabletMin}) {
-    margin-bottom: 16px;
-  }
-`;
-
 // table
-export const Table = styled.table`
+
+export const TableTraining = styled.table`
   width: 100%;
-  border-spacing: 0 16px;
+  border-collapse: collapse;
+  /* border: 1px solid red; */
+  /* border-spacing: 0 16px; */
   @media screen and (${BreakPoint.tabletMin}) {
-    border-spacing: 0 8px;
+    /* border-spacing: 0 8px; */
   }
 `;
 
@@ -81,7 +72,10 @@ export const THead = styled.thead`
   }
 `;
 
-export const TrHead = styled.tr``;
+export const TrHead = styled.tr`
+  border-top: 1px solid ${Colors.borderListColor};
+  border-bottom: 1px solid ${Colors.borderListColor};
+`;
 
 const PaddingRL = css`
   padding-right: 20px;
@@ -120,20 +114,18 @@ export const ThPages = styled.th`
   }
 `;
 
-export const ThRating = styled.th`
-  text-align: left;
-  ${PaddingRL}
-  ${HeadingText}
-  @media screen and (${BreakPoint.desktopMin}) {
-    padding-right: 80px;
-  }
-`;
+export const ThDelete = styled.th``;
 
 export const Tbody = styled.tbody``;
 
 export const Trbody = styled.tr`
   background-color: ${Colors.white};
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+`;
+
+export const TrbodyTraining = styled.tr`
+  border-top: 1px solid ${Colors.borderListColor};
+  border-bottom: 1px solid ${Colors.borderListColor};
 `;
 
 export const Text = styled.p``;
@@ -143,7 +135,7 @@ export const TdBookTitle = styled.td`
   ${TextParams}
   color: ${Colors.grayBlue};
   @media screen and (${BreakPoint.tabletMin}) {
-    padding: 20px;
+    padding: 20px 20px 20px 0;
   }
 `;
 export const TdEmpty = styled.td.attrs({
@@ -186,10 +178,16 @@ export const TdPages = styled.td`
   }
 `;
 
-export const TdRating = styled.td`
-  padding: 11px 20px;
-  @media screen and (${BreakPoint.mobileMax}) {
-    display: none;
+export const TdDelete = styled.td`
+  padding: 20px 0;
+  vertical-align: top;
+  @media screen and (${BreakPoint.tabletMin}) {
+    padding: 20px 16px;
+    vertical-align: middle;
+  }
+  @media screen and (${BreakPoint.desktopMin}) {
+    padding: 20px 32px;
+    /* float: right; */
   }
 `;
 
@@ -220,9 +218,16 @@ export const LibraryIco = styled.div`
   ${BackgroundIco}
 `;
 
-export const LibraryActiveIco = styled.div`
-  background-image: url(${libraryActive});
-  ${BackgroundIco};
+export const CheckboxIco = styled.div`
+  background-image: url(${checkbox});
+  ${BackgroundIco}
+  height: 15px;
+`;
+
+export const CheckboxActiveIco = styled.div`
+  background-image: url(${checkboxActive});
+  ${BackgroundIco}
+  height: 15px;
 `;
 
 // mobile table start
