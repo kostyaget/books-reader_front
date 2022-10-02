@@ -154,9 +154,9 @@ export default function BooksListMarkup({
 }
 
 BooksListMarkup.propTypes = {
-  titleSection: PropTypes.string.isRequired,
-  alreadyReadList: PropTypes.bool.isRequired,
-  list: PropTypes.array.isRequired,
+  titleSection: PropTypes.string,
+  alreadyReadList: PropTypes.bool,
+  list: PropTypes.array,
 };
 
 // how to connect
