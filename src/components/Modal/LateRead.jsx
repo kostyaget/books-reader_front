@@ -1,7 +1,5 @@
-// import { useState } from "react";
 import { Form, Formik } from "formik";
 import { Rating, BtnColor, Btn, ItemBtn, Container,Svg} from "./LateRead";
-// import styled from 'styled-components'
 import Like from '../../images/Vector2.svg'
 
 const ExitModal = () => (  
@@ -24,3 +22,5 @@ const ExitModal = () => (
 );
 
 export default ExitModal;
+
+
