@@ -1,0 +1,9 @@
+Як підключити
+
+import LibraryAllCategories from './components/LibraryAllCategories/LibraryAllCategories';
+
+Компонент:
+<LibraryAllCategories listAllCategories={Масив всіх книг користувача} />
+
+Передати пропс:
+listAllCategories={Масив всіх книг користувача} - передати масив усіх книг користувача.

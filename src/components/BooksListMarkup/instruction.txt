@@ -1,0 +1,11 @@
+Як підключити
+
+import BooksListMarkup from './components/BooksListMarkup/BooksListMarkup';
+
+Компонент:
+<BooksListMarkup titleSection={"Назва секції"} alreadyReadList={false} list={Масив книг користувача} />
+
+Передати три пропса:
+titleSection={"Назва секції"} - написати назву секції (строка).
+alreadyReadList={false} - передати бульове значення, якщо секція "Already read" бульове значення true, в інших секціях false.
+list={Масив книг користувача} - передати масив книг користувача.
