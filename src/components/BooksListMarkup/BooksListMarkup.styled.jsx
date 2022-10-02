@@ -45,12 +45,12 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
 
   margin: 0 auto;
-  width: 280px;
+  max-width: 280px;
   @media screen and (${BreakPoint.tabletMin}) {
-    width: 704px;
+    max-width: 704px;
   }
   @media screen and (${BreakPoint.desktopMin}) {
-    width: 1248px;
+    max-width: 1248px;
   }
 `;
 
@@ -91,6 +91,7 @@ const PaddingRL = css`
 `;
 
 export const ThBookTitle = styled.th`
+  width: 40%;
   padding-right: 20px;
   text-align: left;
   ${HeadingText}
@@ -103,12 +104,14 @@ export const ThAuthor = styled.th`
 `;
 
 export const ThYear = styled.th`
+  width: 15%;
   text-align: right;
   ${PaddingRL}
   ${HeadingText}
 `;
 
 export const ThPages = styled.th`
+  width: 15%;
   text-align: right;
   ${PaddingRL}
   ${HeadingText}
@@ -184,7 +187,7 @@ export const TdPages = styled.td`
 `;
 
 export const TdRating = styled.td`
-  padding: 20px;
+  padding: 11px 20px;
   @media screen and (${BreakPoint.mobileMax}) {
     display: none;
   }

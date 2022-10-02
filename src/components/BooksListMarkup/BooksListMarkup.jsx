@@ -30,6 +30,8 @@ import {
   Text,
 } from "./BooksListMarkup.styled";
 import PropTypes from "prop-types";
+import EllipsisText from "react-ellipsis-text";
+import ButtonResume from "./ButtonResume/ButtonResume";
 
 export default function BooksListMarkup({
   titleSection = "",
@@ -46,11 +48,11 @@ export default function BooksListMarkup({
       <Table>
         <THead>
           <TrHead>
-            <ThBookTitle>Назва книги</ThBookTitle>
-            <ThAuthor>Автор</ThAuthor>
-            <ThYear>Рік</ThYear>
-            <ThPages>Стор.</ThPages>
-            {alreadyReadList && <ThRating>Рейтинг</ThRating>}
+            <ThBookTitle>Book title</ThBookTitle>
+            <ThAuthor>Author</ThAuthor>
+            <ThYear>Year</ThYear>
+            <ThPages>Pages</ThPages>
+            {alreadyReadList && <ThRating>Rating</ThRating>}
           </TrHead>
         </THead>
         <Tbody>
@@ -75,26 +77,30 @@ export default function BooksListMarkup({
                       {goingToRead && <LibraryIco />}
                     </IconContainer>
                     <div>
-                      <Text>{book_name}</Text>
+                      <Text>
+                        <EllipsisText text={book_name} length={40} />
+                      </Text>
                       {/* mobile table start */}
                       <MobileTableWrapper>
                         <TableMobile>
                           <TbodyMobile>
                             <TrMobile>
-                              <ThMobile>Автор:</ThMobile>
-                              <TdMobile>{author}</TdMobile>
+                              <ThMobile>Author:</ThMobile>
+                              <TdMobile>
+                                <EllipsisText text={author} length={20} />
+                              </TdMobile>
                             </TrMobile>
                             <TrMobile>
-                              <ThMobile>Рік:</ThMobile>
+                              <ThMobile>Year:</ThMobile>
                               <TdMobile>{year}</TdMobile>
                             </TrMobile>
                             <TrMobile>
-                              <ThMobile>Стор.:</ThMobile>
+                              <ThMobile>Pages:</ThMobile>
                               <TdMobile>{pages}</TdMobile>
                             </TrMobile>
                             {alreadyReadList && (
                               <TrMobile>
-                                <ThMobile>Рейтинг:</ThMobile>
+                                <ThMobile>Rating:</ThMobile>
                                 <TdMobile>{rating}</TdMobile>
                               </TrMobile>
                             )}
@@ -105,10 +111,19 @@ export default function BooksListMarkup({
                     </div>
                   </FirstColumn>
                 </TdBookTitle>
-                <TdAuthor>{author}</TdAuthor>
+                <TdAuthor>
+                  <EllipsisText text={author} length={20} />
+                </TdAuthor>
                 <TdYear>{year}</TdYear>
                 <TdPages>{pages}</TdPages>
-                {alreadyReadList && <TdRating>{rating}</TdRating>}
+                {alreadyReadList && (
+                  <TdRating>
+                    <div>
+                      {rating}
+                      <ButtonResume />
+                    </div>
+                  </TdRating>
+                )}
               </Trbody>
             )
           )}
@@ -121,7 +136,7 @@ export default function BooksListMarkup({
                     <LibraryIco />
                   </IconContainer>
                   <div>
-                    <Text>Книг нема</Text>
+                    <Text>There are no books</Text>
                   </div>
                 </FirstColumn>
               </TdEmpty>
