@@ -32,6 +32,7 @@ const FormError = ({ name }) => {
     />
   );
 };
+
 export default function ResultForm() {
   const handleSubmit = (values, { resetForm }) => {
     const now = new Date();

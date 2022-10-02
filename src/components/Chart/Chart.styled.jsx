@@ -14,7 +14,7 @@ export const Container = styled.div`
 
   margin: 0 auto;
 
-  width: 280px;
+  width: 100%;
   height: 290px;
   padding: 20px;
 
@@ -22,13 +22,14 @@ export const Container = styled.div`
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.25);
 
   @media screen and (min-width: 768px) {
-    width: 704px;
+    // width: 704px;
     height: 340px;
     padding: 30px 47px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 928px;
+    width: 100%;
+    max-width: 928px;
     padding: 30px 36px;
   }
 `;
