@@ -6,7 +6,7 @@ import checkboxActive from "../../images/svg/checkboxActive.svg";
 const BreakPoint = {
   mobileMin: "min-width: 320px",
   tabletMin: "min-width: 768px",
-  desktopMin: "min-width: 1280px",
+  desktopMin: "min-width: 1024px",
   mobileMax: "max-width: 767px",
 };
 
@@ -42,10 +42,6 @@ const HeadingText = css`
   color: ${Colors.headingGray};
 `;
 
-export const ContainerT = styled.div`
-  padding: 40px;
-`;
-
 export const Wrapper = styled.div`
   box-sizing: border-box;
 
@@ -58,6 +54,15 @@ export const Wrapper = styled.div`
 
     overflow: auto;
     max-height: 280px;
+    &::-webkit-scrollbar-track {
+      background-color: ${Colors.borderListColor};
+    }
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${Colors.borderLineColor};
+    }
   }
   @media screen and (${BreakPoint.desktopMin}) {
     max-width: 1248px;

@@ -110,7 +110,7 @@ export default function BooksListTraining({
                 <TdPages>{pages}</TdPages>
                 {!training && (
                   <TdDelete>
-                    <DeleteButton />
+                    <DeleteButton idBook={id} />
                   </TdDelete>
                 )}
               </TrbodyTraining>

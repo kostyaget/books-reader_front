@@ -29,14 +29,14 @@ const DeleteIco = styled.button`
   }
 `;
 
-export default function DeleteButton({ idBook, titleBook }) {
+export default function DeleteButton({ idBook }) {
   //   const dispatch = useDispatch();
-  //   const infoDelete = { idBook, titleBook };
+
   return (
     <DeleteIco
       type="button"
       onClick={() => alert("Кнопка видалити тест")}
-      // onClick={() => dispatch(deleteBookThunk(infoDelete))}
+      // onClick={() => dispatch(deleteBookThunk(idBook))}
     ></DeleteIco>
   );
 }
