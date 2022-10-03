@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import pic from "../../images/pic.jpg";
 // import ico from "../../images/ico.jpg";

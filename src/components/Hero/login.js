@@ -6,7 +6,7 @@ import {
   Text,
   Author,
   LoginImg,
-} from "./hero.styled";
+} from "./login.styled";
 
 import LoginForm from "../../pages/login/login";
 import RegistrationForm from "../../pages/registration/registration";
@@ -32,6 +32,4 @@ export default function Hero() {
       </Container>
     </>
   );
-};
-
-
+}
