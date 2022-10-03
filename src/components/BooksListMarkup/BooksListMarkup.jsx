@@ -61,27 +61,28 @@ export default function BooksListMarkup({
         <Tbody>
           {list.map(
             ({
-              id = 0,
+              _id = "0",
               alreadyRead = false,
               readingNow = false,
               goingToRead = false,
-              book_name = "",
+              status = "completed",
+              title = "",
               author = "",
-              year = 0,
-              pages = 0,
+              publishingDate = 0,
+              pageAmount = 0,
               rating = 0,
             }) => (
-              <Trbody key={id}>
+              <Trbody key={_id}>
                 <TdBookTitle>
                   <FirstColumn>
                     <IconContainer>
-                      {alreadyRead && <LibraryIco />}
-                      {readingNow && <LibraryActiveIco />}
-                      {goingToRead && <LibraryIco />}
+                      {status === "completed" && <LibraryIco />}
+                      {status === "inprogress" && <LibraryActiveIco />}
+                      {status === "nex" && <LibraryIco />}
                     </IconContainer>
                     <div>
                       <Text>
-                        <EllipsisText text={book_name} length={40} />
+                        <EllipsisText text={title} length={40} />
                       </Text>
                       {/* mobile table start */}
                       <MobileTableWrapper>
@@ -95,24 +96,24 @@ export default function BooksListMarkup({
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Year:</ThMobile>
-                              <TdMobile>{year}</TdMobile>
+                              <TdMobile>{publishingDate}</TdMobile>
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Pages:</ThMobile>
-                              <TdMobile>{pages}</TdMobile>
+                              <TdMobile>{pageAmount}</TdMobile>
                             </TrMobile>
                             {alreadyReadList && (
                               <TrMobile>
                                 <ThMobile>Rating:</ThMobile>
                                 <TdMobile>
-                                  <RatingStars rating={rating} id={id} />
+                                  <RatingStars rating={rating} id={_id} />
                                 </TdMobile>
                               </TrMobile>
                             )}
                             {alreadyReadList && (
                               <TrMobile>
                                 <TdMobileButton>
-                                  <ButtonResume id={id} />
+                                  <ButtonResume id={_id} />
                                 </TdMobileButton>
                               </TrMobile>
                             )}
@@ -126,13 +127,13 @@ export default function BooksListMarkup({
                 <TdAuthor>
                   <EllipsisText text={author} length={20} />
                 </TdAuthor>
-                <TdYear>{year}</TdYear>
-                <TdPages>{pages}</TdPages>
+                <TdYear>{publishingDate}</TdYear>
+                <TdPages>{pageAmount}</TdPages>
                 {alreadyReadList && (
                   <TdRating>
                     <RatingWrapper>
-                      <RatingStars rating={rating} id={id} />
-                      <ButtonResume id={id} />
+                      <RatingStars rating={rating} id={_id} />
+                      <ButtonResume id={_id} />
                     </RatingWrapper>
                   </TdRating>
                 )}
@@ -170,9 +171,3 @@ BooksListMarkup.propTypes = {
   alreadyReadList: PropTypes.bool,
   list: PropTypes.array,
 };
-
-// how to connect
-// import BooksListMarkup from './components/BooksListMarkup/BooksListMarkup';
-// import BOOKSLIST_DATA_TEST from './components/BooksListMarkup/BOOKSLIST_DATA_TEST.json'
-
-// <BooksListMarkup titleSection={titleSection} alreadyReadList={false} list={booksListBase} />

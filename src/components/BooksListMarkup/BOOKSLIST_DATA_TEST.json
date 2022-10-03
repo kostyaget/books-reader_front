@@ -1,7 +1,7 @@
-[{"id":1,"book_name":"African Queen, The","author":"McKenzie Inc","year":1988,"pages":27,"rating":4.1,"alreadyRead":true,"readingNow":false,"goingToRead":false},
-{"id":2,"book_name":"Special 26","author":"Fritsch, Feil and Friesen","year":1990,"pages":117,"rating":1.6,"alreadyRead":false,"readingNow":true,"goingToRead":false},
-{"id":3,"book_name":"Miss You Can Do It","author":"Schiller and Sons","year":1965,"pages":121,"rating":3.9,"alreadyRead":false,"readingNow":true,"goingToRead":false},
-{"id":4,"book_name":"7th Floor","author":"Bergnaum and Sons","year":2005,"pages":105,"rating":3.3,"alreadyRead":false,"readingNow":false,"goingToRead":true},
-{"id":5,"book_name":"2 ou 3 choses que je sais d'elle (2 or 3 Things I Know About Her)","author":"Rempel LLC","year":2002,"pages":14,"rating":1.1,"alreadyRead":true,"readingNow":false,"goingToRead":false},
-{"id":6,"book_name":"Life is to Whistle (Vida es silbar, La)","author":"Stanton-Rath","year":2004,"pages":26,"rating":1.5,"alreadyRead":false,"readingNow":true,"goingToRead":false},
-{"id":7,"book_name":"Fantastic Four","author":"Ondricka, Heller and Gleason","year":1989,"pages":117,"rating":2.4,"alreadyRead":false,"readingNow":false,"goingToRead":true}]
+[{"_id":"1","title":"African Queen, The","author":"McKenzie Inc","publishingDate":1988,"pageAmount":27,"rating":4,"reader":"1234","status":"inprogress"},
+{"_id":"2","title":"Special 26","author":"Fritsch, Feil and Friesen","publishingDate":1990,"pageAmount":117,"rating":3,"reader":"325345","status":"nex"},
+{"_id":"3","title":"Miss You Can Do It","author":"Schiller and Sons","publishingDate":1965,"pageAmount":121,"rating":4,"reader":"efw34","status":"inprogress"},
+{"_id":"4","title":"7th Floor","author":"Bergnaum and Sons","publishingDate":2005,"pageAmount":105,"rating":3,"reader":"asdefe","status":"inprogress"},
+{"_id":"5","title":"2 ou 3 choses que je sais d'elle (2 or 3 Things I Know About Her)","author":"Rempel LLC","publishingDate":2002,"pageAmount":14,"rating":5,"reader":"edsdd","status":"completed"},
+{"_id":"6","title":"Life is to Whistle (Vida es silbar, La)","author":"Stanton-Rath","publishingDate":2004,"pageAmount":26,"rating":3,"reader":"dsfsdv","status":"completed"},
+{"_id":"7","title":"Fantastic Four","author":"Ondricka, Heller and Gleason","publishingDate":1989,"pageAmount":117,"rating":4,"reader":"sdfsdvv","status":"nex"}]

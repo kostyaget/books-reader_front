@@ -55,9 +55,9 @@ function Chart({ labelsData = ["time"], planData = [0], actData = [-1] }) {
 }
 
 Chart.propTypes = {
-  labelsData: PropTypes.array.isRequired,
-  planData: PropTypes.array.isRequired,
-  actData: PropTypes.array.isRequired,
+  labelsData: PropTypes.array,
+  planData: PropTypes.array,
+  actData: PropTypes.array,
 };
 
 export default Chart;

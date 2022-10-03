@@ -25,20 +25,21 @@ import {
   FirstColumn,
   IconContainer,
   LibraryIco,
-  CheckboxIco,
-  CheckboxActiveIco,
+  // CheckboxIco,
+  // CheckboxActiveIco,
   Text,
 } from "./BooksListTraining.styled";
 import PropTypes from "prop-types";
 import EllipsisText from "react-ellipsis-text";
 import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
 import DeleteButton from "./DeleteButton";
+import CheckboxTraning from "./CheckboxTraning/CheckboxTraning";
 
 const booksListBase = BOOKSLIST_DATA_TEST.filter((el) => el);
 
 export default function BooksListTraining({
-  list = booksListBase,
   training = false,
+  list = booksListBase,
 }) {
   let empty = false;
   if (!list.length) {
@@ -59,24 +60,28 @@ export default function BooksListTraining({
         <Tbody>
           {list.map(
             ({
-              id = 0,
-              book_name = "",
+              _id = "0",
+              title = "",
               author = "",
-              year = 0,
-              pages = 0,
-              read = false,
+              publishingDate = 0,
+              pageAmount = 0,
+              status,
+              // read = false,
             }) => (
-              <TrbodyTraining key={id}>
+              <TrbodyTraining key={_id}>
                 <TdBookTitle>
                   <FirstColumn>
                     <IconContainer>
                       {!training && <LibraryIco />}
-                      {training && !read && <CheckboxIco />}
-                      {training && read && <CheckboxActiveIco />}
+                      {/* {training && !read && <CheckboxIco />} */}
+                      {training && (
+                        <CheckboxTraning id={_id} statusBook={status} />
+                      )}
+                      {/* {training && read && <CheckboxActiveIco />} */}
                     </IconContainer>
                     <div>
                       <Text>
-                        <EllipsisText text={book_name} length={40} />
+                        <EllipsisText text={title} length={40} />
                       </Text>
                       {/* mobile table start */}
                       <MobileTableWrapper>
@@ -90,11 +95,11 @@ export default function BooksListTraining({
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Year:</ThMobile>
-                              <TdMobile>{year}</TdMobile>
+                              <TdMobile>{publishingDate}</TdMobile>
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Pages:</ThMobile>
-                              <TdMobile>{pages}</TdMobile>
+                              <TdMobile>{pageAmount}</TdMobile>
                             </TrMobile>
                           </TbodyMobile>
                         </TableMobile>
@@ -106,11 +111,11 @@ export default function BooksListTraining({
                 <TdAuthor>
                   <EllipsisText text={author} length={20} />
                 </TdAuthor>
-                <TdYear>{year}</TdYear>
-                <TdPages>{pages}</TdPages>
+                <TdYear>{publishingDate}</TdYear>
+                <TdPages>{pageAmount}</TdPages>
                 {!training && (
                   <TdDelete>
-                    <DeleteButton idBook={id} />
+                    <DeleteButton idBook={_id} />
                   </TdDelete>
                 )}
               </TrbodyTraining>
@@ -143,6 +148,3 @@ BooksListTraining.propTypes = {
   list: PropTypes.array,
   training: PropTypes.bool,
 };
-
-// how to connect
-// <BooksListTraining list={booksListBase} training={bool} />

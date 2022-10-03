@@ -84,6 +84,7 @@ const TheadPosition = css`
   position: sticky;
   top: 0;
   background: ${Colors.background};
+  z-index: 9;
 
   &::after {
     content: "";
@@ -157,7 +158,7 @@ export const TrbodyTraining = styled.tr`
 export const Text = styled.p``;
 
 export const TdBookTitle = styled.td`
-  padding: 20px 20px 14px;
+  padding: 20px 0 14px;
   ${TextParams}
   color: ${Colors.grayBlue};
   @media screen and (${BreakPoint.tabletMin}) {
