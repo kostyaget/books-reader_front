@@ -22,16 +22,19 @@ import {
   TbodyMobile,
   TrMobile,
   ThMobile,
+  TdMobileButton,
   TdMobile,
   FirstColumn,
   IconContainer,
   LibraryIco,
   LibraryActiveIco,
   Text,
+  RatingWrapper,
 } from "./BooksListMarkup.styled";
 import PropTypes from "prop-types";
 import EllipsisText from "react-ellipsis-text";
 import ButtonResume from "./ButtonResume/ButtonResume";
+import RatingStars from "../RatingStars/RatingStars";
 
 export default function BooksListMarkup({
   titleSection = "",
@@ -101,7 +104,16 @@ export default function BooksListMarkup({
                             {alreadyReadList && (
                               <TrMobile>
                                 <ThMobile>Rating:</ThMobile>
-                                <TdMobile>{rating}</TdMobile>
+                                <TdMobile>
+                                  <RatingStars rating={rating} id={id} />
+                                </TdMobile>
+                              </TrMobile>
+                            )}
+                            {alreadyReadList && (
+                              <TrMobile>
+                                <TdMobileButton>
+                                  <ButtonResume id={id} />
+                                </TdMobileButton>
                               </TrMobile>
                             )}
                           </TbodyMobile>
@@ -118,10 +130,10 @@ export default function BooksListMarkup({
                 <TdPages>{pages}</TdPages>
                 {alreadyReadList && (
                   <TdRating>
-                    <div>
-                      {rating}
-                      <ButtonResume />
-                    </div>
+                    <RatingWrapper>
+                      <RatingStars rating={rating} id={id} />
+                      <ButtonResume id={id} />
+                    </RatingWrapper>
                   </TdRating>
                 )}
               </Trbody>
