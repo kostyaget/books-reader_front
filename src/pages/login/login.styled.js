@@ -79,7 +79,7 @@ export const LogiBtn = styled.button`
   color: #ffffff;
   background: #ff6b08;
 `;
-export const Register = styled.a`
+export const Register = styled.span`
   font-family: "Montserrat";
   font-size: 13px;
   line-height: 16px;

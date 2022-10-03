@@ -19,6 +19,7 @@ import {
   Star,
   LoginLink,
 } from "./registration.styled";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   const [user, setUser] = useState({
@@ -154,7 +155,10 @@ const Registration = () => {
                 <RegisterBtn type="submit">Register</RegisterBtn>
                 <LoginLink>
                   <LogTitle>Already have an account?</LogTitle>
-                  <Login href="/">Log in</Login>
+                  {/* <Login href="/">Log in</Login> */}
+                  <Link to="/login">
+                    <Login>Log in</Login>{" "}
+                  </Link>
                 </LoginLink>
               </SectionRegistration>
             </form>

@@ -89,7 +89,7 @@ export const LogTitle = styled.span`
 
   color: #898f9f;
 `;
-export const Login = styled.a`
+export const Login = styled.span`
   font-size: 13px;
   line-height: 16px;
   margin-left: 5px;

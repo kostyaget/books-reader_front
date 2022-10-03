@@ -85,9 +85,10 @@ const Login = () => {
                 ) : null}
 
                 <LogiBtn type="submit">Login</LogiBtn>
-                <Register href="/">
-                  <Link to="/registration">Register</Link>
-                </Register>
+
+                <Link to="/registration">
+                  <Register>Register</Register>
+                </Link>
               </SectionLogin>
             </form>
           )}
