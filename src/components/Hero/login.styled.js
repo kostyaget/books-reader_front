@@ -3,19 +3,23 @@ import pic from "../../images/pic.jpg";
 import ico from "../../images/ico.jpg";
 
 export const Container = styled.div`
-  // width:1280px
-  display: flex;
-  height: 790px;
+  // width: 768px;
+  // height: 619px;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    height: 790px;
+    width: 1280px;
+  }
 `;
 export const SectionLogin = styled.div``;
 export const LoginImg = styled.div`
-  // width: 80%;
-  width: 549px;
-  height: 790px;
   background-image: url(${pic});
   background-repeat: no-repeat;
   background-size: cover;
-  // padding: 185px 82px 185px 83px;
+  @media screen and (min-width: 1280px) {
+    width: 549px;
+    height: 790px;
+  }
 `;
 
 export const SectionTitles = styled.div`

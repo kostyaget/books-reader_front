@@ -4,7 +4,6 @@ import pic from "../../images/pic.jpg";
 import img from "../../images/Vector.jpg";
 
 export const Container = styled.div`
-  // width:1280px
   display: flex;
   height: 790px;
 `;
