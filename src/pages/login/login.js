@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
 import { Link } from "react-router-dom";
+import { useLoginUserMutation } from "../../redux/auth/authApi";
 
 import {
   Error,
@@ -18,6 +19,7 @@ import {
 } from "./login.styled";
 
 const Login = () => {
+  const [loginUser] = useLoginUserMutation();
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -42,6 +44,7 @@ const Login = () => {
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
             console.log(values);
+            loginUser(values);
             resetForm();
           }}
         >
@@ -51,9 +54,7 @@ const Login = () => {
                 <GoogleSection>
                   <GoogleButton type="submit">
                     <GoogleLogo src={google} alt="google" />
-                    <a href="https://books-reader-project.herokuapp.com/api/auth/google">
-                      Google
-                    </a>
+                    Google
                   </GoogleButton>
                 </GoogleSection>
 

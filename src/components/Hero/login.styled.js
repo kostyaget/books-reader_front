@@ -3,24 +3,36 @@ import pic from "../../images/pic.jpg";
 import ico from "../../images/ico.jpg";
 
 export const Container = styled.div`
-  // width:1280px
-  display: flex;
-  height: 790px;
+  // width: 768px;
+  // height: 619px;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    height: 790px;
+    width: 1280px;
+  }
 `;
 export const SectionLogin = styled.div``;
 export const LoginImg = styled.div`
-  // width: 80%;
-  width: 549px;
-  height: 790px;
   background-image: url(${pic});
   background-repeat: no-repeat;
   background-size: cover;
-  // padding: 185px 82px 185px 83px;
+  @media screen and (min-width: 1280px) {
+    width: 549px;
+    height: 790px;
+  }
 `;
 
 export const SectionTitles = styled.div`
-  width: 485px;
-  padding-top: 130px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding-top: 30px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding-top: 65px;
+    width: 485px;
+    padding-top: 130px;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,12 +47,27 @@ export const Icon = styled.p`
   background-image: url(${ico});
   background-repeat: no-repeat;
   background-size: contain;
-  width: 27px;
-  height: 27px;
-  margin: 0px auto 15px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 23px;
+    height: 23px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1280px) {
+    width: 27px;
+    height: 27px;
+    margin: 0px auto 15px;
+  }
 `;
 
 export const Text = styled.p`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 229px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.23;
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
   width: 397px;
   height: 114px;
   font-size: 24px;
@@ -50,12 +77,23 @@ export const Text = styled.p`
 `;
 
 export const Author = styled.p`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2.71;
+    padding-bottom: 48px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding-bottom: 109px;
+    margin-top: 20px;
+  }
   width: 150px;
   height: 24px;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.9;
-  margin-top: 20px;
+
   color: #898f9f;
   border-top: 1px solid rgba(36, 42, 55, 0.5);
   text-align: center;

@@ -2,17 +2,23 @@ import styled from "styled-components";
 
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding: 70px 144px;
+    display: flex;
+    justify-content: center;
+  }
   padding: 108px 77px 74px 72px;
 `;
 export const SectionRegistration = styled.div`
   display: flex;
   flex-direction: column;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 400px;
-  height: 609px;
-  background: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: 609px;
+    background: #ffffff;
+  }
 `;
 export const GoogleSection = styled.div`
   padding-top: 41px;
@@ -56,12 +62,18 @@ export const LabelField = styled.label`
 `;
 
 export const InputField = styled.input`
-  width: 320px;
-  height: 42px;
-  border: none;
-
   background: #f5f7fa;
   box-shadow: inset 0px 1px 2px rgba(29, 29, 27, 0.15);
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 280px;
+    height: 42px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 42px;
+    border: none;
+  }
 `;
 
 export const RegisterBtn = styled.button`
