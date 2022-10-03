@@ -193,6 +193,14 @@ export const TdRating = styled.td`
   }
 `;
 
+export const RatingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (${BreakPoint.mobileMax}) {
+    display: none;
+  }
+`;
+
 export const FirstColumn = styled.div`
   display: flex;
   @media screen and (${BreakPoint.tabletMin}) {
@@ -240,13 +248,16 @@ export const TableMobile = styled.table`
 export const TbodyMobile = styled.tbody``;
 export const TrMobile = styled.tr``;
 
-export const ThMobile = styled.th`
+export const ThMobile = styled.td`
   width: 80px;
   text-align: left;
   vertical-align: top;
   ${TextParams}
   color: ${Colors.headingGray};
 `;
+export const TdMobileButton = styled.td.attrs({
+  colSpan: 2,
+})``;
 
 export const TdMobile = styled.td`
   ${TextParams}

@@ -9,6 +9,7 @@ const BreakPoint = {
 
 export const Button = styled.button`
   padding: 11px 35px;
+  margin-left: 20px;
 
   font-family: "Montserrat";
   font-weight: 500;
@@ -30,8 +31,10 @@ export const Button = styled.button`
 
   @media screen and (${BreakPoint.tabletMin}) {
     padding: 11px 10px;
+    margin-left: 32px;
   }
   @media screen and (${BreakPoint.desktopMin}) {
     padding: 11px 35px;
+    margin-left: 60px;
   }
 `;
