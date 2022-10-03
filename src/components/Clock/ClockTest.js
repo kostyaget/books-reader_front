@@ -7,7 +7,7 @@ export const GoalContainer = styled.div`
   font-weight: 100;
 
   @media screen and ${device.mobileS} and (max-width: 767px) {
-    width: 290px;
+    width: 280px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -15,7 +15,7 @@ export const GoalContainer = styled.div`
     width: 280px;
     margin-left: 32px;
   }
-  @media screen and ${device.laptop}{
+  @media screen and ${device.laptop} {
     margin-left: 74px;
   }
 `;
@@ -70,6 +70,8 @@ export const GoalBackground = styled.div`
 `;
 
 export const GoalGeneralClass = styled.div`
+  margin-bottom: 40px;
+
   @media screen and ${device.tablet} and (max-width: 1023px) {
     width: 612px;
     display: flex;
