@@ -2,18 +2,39 @@ import styled from "styled-components";
 
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
-  padding: 176px 79px 184px 70px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+    padding: 32px 20px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding: 70px 144px;
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 176px 79px 184px 70px;
+  }
 `;
 
 export const SectionLogin = styled.div`
-  display: flex;
-  flex-direction: column;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-  height: 430px;
-  background: #ffffff;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 320px;
+    height: 408px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 430px;
+    background: #ffffff;
+  }
 `;
 export const GoogleSection = styled.div`
   display: flex;
@@ -31,8 +52,6 @@ export const GoogleButton = styled.button`
   font-family: "Roboto";
   font-weight: 700;
   font-size: 16px;
-  //   line-height: 38px;
-
   text-align: center;
   color: #707375;
   background: #f5f7fa;
@@ -48,6 +67,10 @@ export const Error = styled.p`
   color: red;
 `;
 export const LabelField = styled.label`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding-left: 18px;
+  }
+
   padding-top: 20px;
   padding-bottom: 8px;
   font-size: 14px;
@@ -59,6 +82,9 @@ export const LabelField = styled.label`
 `;
 
 export const InputField = styled.input`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 280px;
+  }
   width: 320px;
   height: 42px;
   border: none;
@@ -67,6 +93,9 @@ export const InputField = styled.input`
   box-shadow: inset 0px 1px 2px rgba(29, 29, 27, 0.15);
 `;
 export const LogiBtn = styled.button`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 280px;
+  }
   width: 320px;
   height: 60px;
   margin-top: 32px;
