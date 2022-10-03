@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
+import { Link } from "react-router-dom";
 
 import {
   Error,
@@ -84,7 +85,9 @@ const Login = () => {
                 ) : null}
 
                 <LogiBtn type="submit">Login</LogiBtn>
-                <Register href="/">Register</Register>
+                <Register href="/">
+                  <Link to="/registration">Register</Link>
+                </Register>
               </SectionLogin>
             </form>
           )}

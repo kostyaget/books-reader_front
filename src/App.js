@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/registration" element={<RegistrationSection />}></Route>
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
-      <RegistrationSection />
+      {/* <RegistrationSection /> */}
     </>
   );
 };
