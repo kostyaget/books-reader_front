@@ -84,9 +84,7 @@ const Registration = () => {
                 <GoogleSection>
                   <GoogleButton type="submit">
                     <GoogleLogo src={google} alt="google" />
-                    <a href="https://books-reader-project.herokuapp.com/api/auth/google">
-                      Google
-                    </a>
+                    Google
                   </GoogleButton>
                 </GoogleSection>
 
