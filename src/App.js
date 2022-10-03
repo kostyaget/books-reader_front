@@ -1,3 +1,4 @@
+
 // Не используемые импорты
 // import { useEffect } from "react";
 // import { useSelector } from "react-redux";
@@ -24,10 +25,6 @@ const App = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
-<<<<<<< Updated upstream
-=======
-      <Hero />
->>>>>>> Stashed changes
     </>
   );
 };
