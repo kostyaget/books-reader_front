@@ -1,6 +1,8 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
+import { useState } from "react";
+import { useCreateNewUserMutation } from "../../redux/auth/authApi";
 
 import {
   Section,
@@ -17,10 +19,19 @@ import {
   Star,
   LoginLink,
 } from "./registration.styled";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    repeat_password: "",
+  });
+  const [createUser] = useCreateNewUserMutation();
+
   const validationSchema = yup.object().shape({
-    name: yup
+    username: yup
       .string()
       .typeError("Will be a string")
       .min(3)
@@ -35,7 +46,7 @@ const Registration = () => {
       .typeError("Will be a string")
       .min(6)
       .required("Required"),
-    confirmPassword: yup
+    repeat_password: yup
       .string()
       .min(6)
       .oneOf([yup.ref("password")], "Passwords doesn't match")
@@ -47,14 +58,17 @@ const Registration = () => {
       <Section>
         <Formik
           initialValues={{
-            name: "",
+            username: "",
             email: "",
             password: "",
-            confirmPassword: "",
+            repeat_password: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={({ name, email, password }) => {
-            console.log(name);
+          onSubmit={(values, { resetForm }) => {
+            setUser(values);
+            console.log(user);
+            resetForm();
+            createUser(user);
           }}
         >
           {({
@@ -80,7 +94,8 @@ const Registration = () => {
                 </LabelField>
                 <InputField
                   type="text"
-                  name="name"
+                  name="username"
+                  value={values.username}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="..."
@@ -96,6 +111,7 @@ const Registration = () => {
                 <InputField
                   type="email"
                   name="email"
+                  value={values.email}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="your@email.com"
@@ -111,6 +127,7 @@ const Registration = () => {
                 <InputField
                   type="password"
                   name="password"
+                  value={values.password}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="..."
@@ -125,7 +142,8 @@ const Registration = () => {
                 </LabelField>
                 <InputField
                   type="password"
-                  name="confirmPassword"
+                  name="repeat_password"
+                  value={values.repeat_password}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="..."
@@ -137,7 +155,9 @@ const Registration = () => {
                 <RegisterBtn type="submit">Register</RegisterBtn>
                 <LoginLink>
                   <LogTitle>Already have an account?</LogTitle>
-                  <Login href="/">Log in</Login>
+                  <Link to="/login">
+                    <Login>Log in</Login>{" "}
+                  </Link>
                 </LoginLink>
               </SectionRegistration>
             </form>
