@@ -6,8 +6,6 @@
 // Authorization закоментированны руты, если разкометить ошибки по 45 строчке
 import Library from "./pages/Library/Library";
 import Header from "./components/Header/Header";
-// import Registration from "./pages/registration/registration";
-// import Login from "./pages/login/login";
 
 import Login from "./components/Hero/login";
 import RegistrationSection from "./components/Hero/registrationForm";
@@ -21,13 +19,10 @@ const App = () => {
       <Routes>
         <Route path="/library" element={<Library />} />
         <Route path="/training" element={<Library />} />
-        {/* <Route path="/registration" element={<Registration />}></Route> */}
-        {/* <Route path="/login" element={<Login />}></Route> */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/registration" element={<RegistrationSection />}></Route>
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
-      {/* <RegistrationSection /> */}
     </>
   );
 };

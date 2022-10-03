@@ -155,7 +155,6 @@ const Registration = () => {
                 <RegisterBtn type="submit">Register</RegisterBtn>
                 <LoginLink>
                   <LogTitle>Already have an account?</LogTitle>
-                  {/* <Login href="/">Log in</Login> */}
                   <Link to="/login">
                     <Login>Log in</Login>{" "}
                   </Link>
