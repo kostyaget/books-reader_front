@@ -7,6 +7,7 @@ export const Header = styled.header`
   border-bottom: 1px ffffff solid;
   height: 60px;
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
+  background-color: #ffffff;
 
   @media screen and (max-width: 768px) {
     width: 320px;
