@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Chart from "../../components/Chart/Chart";
-import NumberBooks from "../../components/NumberBooks/NumberBooks.jsx";
+import NumberBooks from "../../components/NumberBooks/WithBooks";
 import RoundButton from "../../components/RoundButton/RoundButton";
 import TrainingAddBookModal from "../../components/TrainingAddBookModal/TrainingAddBookModal";
 import BooksListTraining from "../../components/BooksListTraining/BooksListTraining";
