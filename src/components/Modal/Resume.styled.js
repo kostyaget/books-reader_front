@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { device } from "../device/device";
 
-export const Rating = styled.p`
+export const Rating = styled.label`
+  display: block;
   width: 193px;
   height: 20px;
   font-family: "Montserrat";
@@ -16,7 +17,49 @@ export const Rating = styled.p`
   }
 `;
 
-export const Forms = styled.textarea`
+export const RatingArea = styled.div`
+  overflow: hidden;
+  width: 265px;
+  /* margin: 0 auto; */
+
+  &:not(:checked) > input {
+    display: none;
+  }
+  &:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 32px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+  }
+  &:not(:checked) > label:before {
+    content: "★";
+  }
+  & > input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px #c60;
+  }
+  &:not(:checked) > label:hover,
+  &:not(:checked) > label:hover ~ label {
+    color: gold;
+  }
+  & > input:checked + label:hover,
+  & > input:checked + label:hover ~ label,
+  & > input:checked ~ label:hover,
+  & > input:checked ~ label:hover ~ label,
+  & > label:hover ~ input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+  }
+  & > label:active {
+    position: relative;
+  }
+`;
+
+export const Summary = styled.textarea`
   width: 240px;
   height: 170px;
   font-family: "Montserrat";
