@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { device } from "../../components/device/device";
 
 export const Section = styled.section`
-  
   padding-top: 20px;
   padding-bottom: 50px;
   padding-left: 20px;
@@ -33,4 +32,5 @@ export const TrainingContent = styled.div`
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
