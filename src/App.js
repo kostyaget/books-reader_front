@@ -6,12 +6,11 @@
 // Authorization закоментированны руты, если разкометить ошибки по 45 строчке
 import Library from "./pages/Library/Library";
 import Header from "./components/Header/Header";
-import Registration from "./pages/registration/registration";
-import Login from "./pages/login/login";
+// import Registration from "./pages/registration/registration";
+// import Login from "./pages/login/login";
 
-import RegistrationForm from "./components/Hero/registrationForm";
-import Hero from "./components/Hero/hero";
-import RegistrationSection from "./components/Hero/hero";
+import Hero from "./components/Hero/login";
+import RegistrationSection from "./components/Hero/registrationForm";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
@@ -21,12 +20,13 @@ const App = () => {
       <Routes>
         <Route path="/library" element={<Library />} />
         <Route path="/training" element={<Library />} />
-        <Route path="/registration" element={<Registration />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        {/* <Route path="/registration" element={<Registration />}></Route> */}
+        {/* <Route path="/login" element={<Login />}></Route> */}
+        <Route path="/login" element={<Hero />}></Route>
+        {/* <Route path="/registration" element={<RegistrationSection />}></Route> */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
-      <Hero />
-      <RegistrationForm />
+      <RegistrationSection />
     </>
   );
 };
