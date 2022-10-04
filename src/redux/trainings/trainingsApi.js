@@ -43,6 +43,13 @@ export const trainingsApi = createApi({
       },
       invalidatesTags: ["trainings"],
     }),
+    deleteTrainingBook: builder.mutation({
+      query: (trainingId) => ({
+        url: `/contacts/${trainingId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["contacts"],
+    }),
   }),
 });
 
@@ -50,4 +57,5 @@ export const {
   useFetchTrainingsDataQuery,
   useStartTrainingMutation,
   useUpdateTrainingStatusMutation,
+  useDeleteTrainingBookMutation,
 } = trainingsApi;

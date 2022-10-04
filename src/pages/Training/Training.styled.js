@@ -26,6 +26,13 @@ export const DesktopTrainingWrapper = styled.div`
   display: flex;
   gap: 30px;
 `;
+export const MyTrainingWarp = styled.div`
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  width: 928px;
+`;
+
 export const TrainingContent = styled.div`
   flex-grow: 1;
 `;

@@ -22,7 +22,7 @@ export const Title = styled.caption`
   &:before {
     position: absolute;
     top: 50%;
-    right: 68%;
+    right: 75%;
     content: " ";
     display: inline-block;
     width: 74px;
@@ -32,7 +32,7 @@ export const Title = styled.caption`
   &:after {
     position: absolute;
     top: 50%;
-    left: 68%;
+    left: 75%;
     content: " ";
     display: inline-block;
     width: 74px;

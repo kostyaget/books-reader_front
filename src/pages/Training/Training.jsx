@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Chart from "../../components/Chart/Chart";
-import NumberBooks from "../../components/NumberBooks/NumberBooks.jsx";
+import NumberBooks from "../../components/NumberBooks";
 import RoundButton from "../../components/RoundButton/RoundButton";
 import TrainingAddBookModal from "../../components/TrainingAddBookModal/TrainingAddBookModal";
+import MyTraining from "../../components/MyTraining/MyTraining";
 import BooksListTraining from "../../components/BooksListTraining/BooksListTraining";
 import Result from "../../components/Result/Result";
 import ClockTimes from "../../components/Clock/index";
@@ -13,6 +14,7 @@ import {
   DesktopTrainingWrapper,
   TrainingContent,
   SideBar,
+  MyTrainingWarp,
 } from "./Training.styled";
 
 export default function Training() {
@@ -54,12 +56,15 @@ export default function Training() {
       )}
       {isDesktop && (
         <DesktopTrainingWrapper>
-          <TrainingContent>
-            <ClockTimes />
-            <BooksListTraining />
-            <StartTrainingBtn />
-            <Chart />
-          </TrainingContent>
+          <MyTrainingWarp>
+            <MyTraining />
+            <TrainingContent>
+              <ClockTimes />
+              <BooksListTraining />
+              <StartTrainingBtn />
+              <Chart />
+            </TrainingContent>
+          </MyTrainingWarp>
           <SideBar>
             <NumberBooks />
             <Result />
