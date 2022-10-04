@@ -17,7 +17,7 @@ export const Goal = styled.div`
     margin: 23px 8px 23px 28px;
   }
   @media ${device.laptop} {
-    max-width: 288px;
+    width: 288px;
     height: 60px;
   }
 `;
@@ -32,13 +32,13 @@ export const Number = styled.p`
 `;
 
 export const NumberColor = styled.p`
-font-family: "Open Sans";
-font-style: normal;
-font-weight: 700;
-font-size: 35px;
-line-height: 38px;
-color: #FF6B08;
-`
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 38px;
+  color: #ff6b08;
+`;
 
 export const RoomArea = styled.div`
   display: flex;
@@ -71,8 +71,8 @@ export const TextNumber = styled.p`
   color: #898f9f;
   @media ${device.mobileS} and (max-width: 767px) {
     margin-top: 8px;
-    max-height: 26px; 
-    font-size: 14px;    
+    max-height: 26px;
+    font-size: 14px;
   }
   @media ${device.tablet} and (max-width: 1023px) {
     margin-top: 4px;

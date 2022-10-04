@@ -1,26 +1,24 @@
-// import Library from "./pages/Library/Library";
-// import Header from "./components/Header/Header";
+import Library from "./pages/Library/Library";
+import Header from "./components/Header/Header";
 
-// import Training from "./pages/Training/Training";
+import Training from "./pages/Training/Training";
 
-// import Login from "./components/Hero/login";
-// import RegistrationSection from "./components/Hero/registrationForm";
-// import { Routes, Route, Navigate } from "react-router-dom";
-
-import NumberBooks from './components/NumberBooks/index'
+import Login from "./components/Hero/login";
+import RegistrationSection from "./components/Hero/registrationForm";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      {/* <Header /> */}
-      <NumberBooks/>
-      {/* <Routes>
+      <Header />
+
+      <Routes>
         <Route path="/library" element={<Library />} />
         <Route path="/training" element={<Training />} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/registration" element={<RegistrationSection />}></Route>
         <Route path="*" element={<Navigate to="/login" />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 };

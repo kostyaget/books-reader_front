@@ -6,6 +6,7 @@ import { Header } from "./Header.styled";
 
 export default function HeaderMenu() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (
     <>
       <Header>{isLoggedIn ? <LogInMenu /> : <LogOutMenu />}</Header>
