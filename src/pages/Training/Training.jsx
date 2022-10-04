@@ -9,6 +9,7 @@ import BooksListTraining from "../../components/BooksListTraining/BooksListTrain
 import Result from "../../components/Result/Result";
 import ClockTimes from "../../components/Clock/index";
 import StartTrainingBtn from "../../components/StartTrainingBtn/StartTrainingBtn";
+import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import {
   Section,
@@ -23,6 +24,8 @@ import {
 
 export default function Training() {
   const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
+  const { data } = useFetchTrainingsDataQuery();
+  console.log(data);
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -33,40 +36,74 @@ export default function Training() {
 
   return (
     <Section>
-      {isMobile && (
+      {isMobile && data?.data.length === 0 && (
         <>
           <WithoutBooks />
           <BooksListTraining />
+          <StartTrainingBtn />
           <Chart />
           <RoundButton openModal={openModal} />
           <TrainingAddBookModal
             isTrainingAddBookShown={isTrainingAddBookShown}
             setIsTrainingAddBookShown={setIsTrainingAddBookShown}
           />
-          <MyTraining />
+        </>
+      )}
+      {isMobile && data?.data.length > 0 && (
+        <>
+          <ClockTimes />
+          <WithBooks />
+          <BooksListTraining />
+          <Chart />
           <Result />
         </>
       )}
-      {isTablet && (
+
+      {isTablet && data?.data.length === 0 && (
         <>
-          <ClockTimes />
           <WithoutBooks />
           <MyTraining />
           <BooksListTraining />
+          <StartTrainingBtn />
           <Chart />
         </>
       )}
-      {isDesktop && (
+      {isTablet && data?.data.length > 0 && (
+        <>
+          <ClockTimes />
+          <WithBooks />
+          <BooksListTraining />
+          <Chart />
+          <Result />
+        </>
+      )}
+      {isDesktop && data?.data.length === 0 && (
         <DesktopTrainingWrapper>
           <MyTrainingWarp>
             <TrainingContent>
               <MyTraining />
               <BooksListTraining />
+              <StartTrainingBtn />
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>
           <SideBar>
             <WithoutBooks />
+          </SideBar>
+        </DesktopTrainingWrapper>
+      )}
+      {isDesktop && data?.data.length > 0 && (
+        <DesktopTrainingWrapper>
+          <MyTrainingWarp>
+            <TrainingContent>
+              <ClockTimes />
+              <BooksListTraining />
+              <Chart />
+            </TrainingContent>
+          </MyTrainingWarp>
+          <SideBar>
+            <WithBooks />
+            <Result />
           </SideBar>
         </DesktopTrainingWrapper>
       )}

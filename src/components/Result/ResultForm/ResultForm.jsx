@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { useSelector } from "react-redux";
 import React, { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import Resume from "../../Modal/Resume";
+import ExitModal from "../../Modal/LateRead";
 import { useAddResultsMutation } from "../../../redux/users/usersApi";
 import { selectCurrentUser } from "../../../redux/auth/auth";
 
@@ -67,11 +67,9 @@ export default function ResultForm() {
         in={showModal}
         unmountOnExit
       >
-        <Resume
-          ref={nodeRef}
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
+        <div ref={nodeRef}>
+          <ExitModal showModal={showModal} setShowModal={setShowModal} />
+        </div>
       </CSSTransition>
 
       <Formik

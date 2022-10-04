@@ -4,6 +4,7 @@ import { device } from "../../device/device";
 import { DatePickerField } from "./DatePickerField/DatePickerField";
 
 export const FormResult = styled(Form)`
+  position: relative;
   margin-bottom: 30px;
   align-items: center;
 

@@ -9,7 +9,7 @@ import {
 } from "./LateRead.styled";
 import Like from "../../images/Vector2.svg";
 
-const ExitModal = () => {
+const ExitModal = ({ showModal, setShowModal }) => {
   return (
     <Container>
       <div>
@@ -21,8 +21,12 @@ const ExitModal = () => {
       <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
         <Form>
           <ItemBtn>
-            <BtnColor type="submit">Готово</BtnColor>
-            <Btn type="button">Назад</Btn>
+            <BtnColor type="submit" onClick={() => setShowModal(!showModal)}>
+              Готово
+            </BtnColor>
+            <Btn type="button" onClick={() => setShowModal(!showModal)}>
+              Назад
+            </Btn>
           </ItemBtn>
         </Form>
       </Formik>
