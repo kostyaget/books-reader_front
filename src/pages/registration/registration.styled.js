@@ -2,12 +2,18 @@ import styled from "styled-components";
 
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
+  padding: 108px 77px 74px 72px;
+  @media (min-width: 320px) and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px 44px 20px;
+  }
   @media (min-width: 768px) and (max-width: 1279px) {
     padding: 70px 144px;
     display: flex;
     justify-content: center;
+    padding: 108px 77px 74px 72px;
   }
-  padding: 108px 77px 74px 72px;
 `;
 export const SectionRegistration = styled.div`
   display: flex;
@@ -21,6 +27,11 @@ export const SectionRegistration = styled.div`
   }
 `;
 export const GoogleSection = styled.div`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding-top: 33px;
+    padding-bottom: 28px;
+  }
+
   padding-top: 41px;
 `;
 export const GoogleButton = styled.button`
@@ -46,18 +57,21 @@ export const GoogleLogo = styled.img`
   margin-right: 16px;
   margin-left: 14px;
 `;
+export const ErrorMessage = styled.div`
+  height: 20px;
+`;
 
 export const Error = styled.p`
   color: red;
 `;
 export const LabelField = styled.label`
-  padding-top: 20px;
+  @media screen and (min-width: 768px) {
+    padding-left: 35px;
+  }
   padding-bottom: 8px;
   font-size: 14px;
   line-height: 17px;
   align-self: start;
-  padding-left: 35px;
-
   color: #898f9f;
 `;
 
@@ -77,11 +91,14 @@ export const InputField = styled.input`
 `;
 
 export const RegisterBtn = styled.button`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 280px;
+  }
   width: 320px;
   height: 60px;
   margin-top: 32px;
   margin-bottom: 20px;
-
+  border: none;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;

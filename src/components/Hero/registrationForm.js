@@ -23,6 +23,7 @@ export default function RegistrationSection() {
             <RegistrationForm />
           </LoginImg>
         </SectionLogin>
+
         <RegisterForm>
           <RegistrationTitles>
             <RegistrationTitle>Books Reading</RegistrationTitle>
