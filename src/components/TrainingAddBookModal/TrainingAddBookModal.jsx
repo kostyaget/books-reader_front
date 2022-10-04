@@ -1,4 +1,5 @@
 import { ReactComponent as Arrow } from "../../images/backArrow.svg";
+import MyTraining from "../MyTraining/MyTraining";
 import {
   ModalBackDrop,
   ModalWrapper,
@@ -19,6 +20,7 @@ export default function TrainingAddBookModal({
             >
               <Arrow />
             </Button>
+            <MyTraining />
           </ModalWrapper>
         </ModalBackDrop>
       )}

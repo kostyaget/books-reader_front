@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Chart from "../../components/Chart/Chart";
-import NumberBooks from "../../components/NumberBooks";
+import WithBooks from "../../components/NumberBooks/WithBooks";
+import WithoutBooks from "../../components/NumberBooks/WithoutBooks";
 import RoundButton from "../../components/RoundButton/RoundButton";
 import TrainingAddBookModal from "../../components/TrainingAddBookModal/TrainingAddBookModal";
 import MyTraining from "../../components/MyTraining/MyTraining";
@@ -31,43 +32,35 @@ export default function Training() {
     <Section>
       {isMobile && (
         <>
-          <ClockTimes />
-          <NumberBooks />
+          <WithoutBooks />
           <BooksListTraining />
-          <StartTrainingBtn />
           <Chart />
           <RoundButton openModal={openModal} />
           <TrainingAddBookModal
             isTrainingAddBookShown={isTrainingAddBookShown}
             setIsTrainingAddBookShown={setIsTrainingAddBookShown}
           />
-          <Result />
         </>
       )}
       {isTablet && (
         <>
-          <ClockTimes />
-          <NumberBooks />
+          <WithoutBooks />
+          <MyTraining />
           <BooksListTraining />
-          <StartTrainingBtn />
           <Chart />
-          <Result />
         </>
       )}
       {isDesktop && (
         <DesktopTrainingWrapper>
           <MyTrainingWarp>
-            <MyTraining />
             <TrainingContent>
-              <ClockTimes />
+              <MyTraining />
               <BooksListTraining />
-              <StartTrainingBtn />
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>
           <SideBar>
-            <NumberBooks />
-            <Result />
+            <WithoutBooks />
           </SideBar>
         </DesktopTrainingWrapper>
       )}
