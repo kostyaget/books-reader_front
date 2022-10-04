@@ -44,11 +44,18 @@ export const Wrapper = styled.div`
 
   margin: 0 auto;
   max-width: 280px;
+  margin-bottom: 12px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @media screen and (${BreakPoint.tabletMin}) {
     max-width: 704px;
+    margin-bottom: 32px;
   }
   @media screen and (${BreakPoint.desktopMin}) {
     max-width: 1248px;
+    margin-bottom: 24px;
   }
 `;
 

@@ -1,7 +1,7 @@
 import InfoModal from "./InfoModal";
 import LibraryForm from "./LibraryForm.js";
 import { LibrarySection } from "./Library.styled";
-import BooksListMarkup from "../../components/BooksListMarkup/BooksListMarkup";
+import LibraryAllCategories from "../../components/LibraryAllCategories/LibraryAllCategories";
 
 export default function Library() {
   return (
@@ -9,7 +9,7 @@ export default function Library() {
       <LibrarySection>
         <LibraryForm></LibraryForm>
         <InfoModal></InfoModal>
-        <BooksListMarkup></BooksListMarkup>
+        <LibraryAllCategories />
       </LibrarySection>
     </>
   );
