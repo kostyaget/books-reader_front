@@ -41,6 +41,7 @@ export default function Training() {
             isTrainingAddBookShown={isTrainingAddBookShown}
             setIsTrainingAddBookShown={setIsTrainingAddBookShown}
           />
+          <MyTraining />
           <Result />
         </>
       )}
@@ -48,6 +49,7 @@ export default function Training() {
         <>
           <ClockTimes />
           <NumberBooks />
+          <MyTraining />
           <BooksListTraining />
           <StartTrainingBtn />
           <Chart />

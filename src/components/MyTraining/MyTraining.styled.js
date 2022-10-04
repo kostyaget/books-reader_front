@@ -10,16 +10,18 @@ export const Container = styled.div`
   margin-right: auto;
   margin-bottom: 20px;
 
-  box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.25);
+  /* box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.25); */
 
   @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
-    max-height: 296px;
+    /* max-height: 296px; */
   }
   @media ${device.tablet} and (max-width: 1023px) {
     max-width: 704px;
-    max-height: 105px;
-    display: flex;
+    /* max-height: 105px; */
+    /* display: flex; */
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   @media ${device.laptop} {
     width: 928px;
@@ -35,12 +37,13 @@ export const MyTrainingWrap = styled.div`
 
   @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
-    height: 60px;
+    /* height: 60px; */
   }
   @media ${device.tablet} and (max-width: 1023px) {
     width: 275px;
-    max-height: 60px;
-    margin: 23px 71px 23px 28px;
+    /* max-height: 60px;
+    margin: 23px 71px 23px 28px; */
+    width: 100%;
   }
   @media ${device.laptop} {
     width: 100%;
@@ -69,44 +72,61 @@ export const TextTitle = styled.p`
   background: #b1b5c2;
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
 
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  @media ${device.tablet} {
+    margin-bottom: 24px;
+  }
 `;
 
 export const AddForm = styled.form`
-  display: flex;
-  flex-wrap: wrap;
-  width: 928px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  width: 280px;
+
+  @media ${device.tablet} and (max-width: 1023px) {
+    width: 704px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media ${device.laptop} {
+    width: 928px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 export const DatesWrap = styled.div`
-  ${device.tablet} {
+  @media ${device.tablet} and (max-width: 1023px) {
     display: flex;
     justify-content: start;
     width: 704px;
     margin-bottom: 24px;
   }
-
-  display: flex;
-  justify-content: center;
-  width: 928px;
-  margin-bottom: 24px;
+  @media ${device.laptop} {
+    display: flex;
+    justify-content: center;
+    width: 928px;
+    margin-bottom: 24px;
+  }
 `;
 
 export const InputDateWrap = styled.div`
   position: relative;
-  width: 250px;
-  &:not(:last-child) {
+  /* width: 250px; */
+  width: 280px;
+  margin-bottom: 20px;
+  /* &:not(:last-child) {
     margin-right: 44px;
-  }
+  } */
 
-  ${device.tablet} {
+  @media ${device.tablet} {
     width: 250px;
     margin-bottom: 0;
     & + & {
       margin-left: 40px;
     }
   }
-  ${device.desktop} {
+  @media ${device.desktop} {
     & + & {
       margin-left: 44px;
     }
@@ -129,11 +149,15 @@ export const LabelText = styled.span`
 
 export const Icon = styled.svg`
   position: absolute;
-  left: 230px;
+  left: 252px;
   top: 18px;
   z-index: 3;
 
   fill: #242a37;
+
+  @media ${device.tablet} {
+    left: 230px;
+  }
 `;
 
 export const CalendarIcon = styled.svg`
@@ -144,18 +168,25 @@ export const CalendarIcon = styled.svg`
 `;
 
 export const SelectsWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   margin-bottom: 23px;
+  @media ${device.tablet} {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const Button = styled.button`
-  width: 181px;
+  width: 171px;
   height: 42px;
   padding: 11px;
   font-weight: 500;
+  display: block;
+  margin: 0 auto;
   ${device.tablet} {
     font-size: 14px;
+    width: 181px;
   }
 `;
 
@@ -163,13 +194,15 @@ export const DateInputPiker = styled(DatePicker)`
   font-size: 14px;
   font-family: "Montserrat";
 
-  width: 120px;
+  width: 133px;
   height: 42px;
-  padding-left: 130px;
+  padding-left: 143px;
 
   color: #242a37;
-  ${device.tablet} {
-    width: 250px;
+  @media ${device.tablet} {
+    /* width: 250px; */
+    width: 120px;
+    padding-left: 130px;
   }
 
   line-height: 2.71;
@@ -190,22 +223,25 @@ export const Select = styled.select`
   font-size: 14px;
   font-family: "Montserrat";
 
-  width: 715px;
+  width: 280px;
   height: 42px;
   color: #898f9f;
 
-  margin-right: 32px;
+  /* margin-right: 32px; */
   border: 1px solid #a6abb9;
   outline: none;
   padding-left: 12px;
   padding-right: 11px;
+  @media ${device.mobileS} and (max-width: 767px) {
+    margin-bottom: 32px;
+  }
 
-  ${device.tablet} {
+  @media ${device.tablet} {
     width: 483px;
     margin-bottom: 0;
-    margin-right: 50px;
+    margin-right: 32px;
   }
-  ${device.laptop} {
+  @media ${device.laptop} {
     width: 715px;
     margin-right: 32px;
   }
