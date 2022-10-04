@@ -1,10 +1,13 @@
 import BooksListMarkup from "../BooksListMarkup/BooksListMarkup";
-import { Container, Section } from "./LibraryAllCategories.styled";
+import { Container, Section, NoBooks } from "./LibraryAllCategories.styled";
 import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
-export default function LibraryAllCategories({
-  listAllCategories = BOOKSLIST_DATA_TEST,
-}) {
+export default function LibraryAllCategories() {
+  const { data } = useFetchUserDataQuery();
+  // console.log(data);
+  const listAllCategories = data ? data.user.books : BOOKSLIST_DATA_TEST;
+  // console.log(listAllCategories);
   let completedList = [];
   let inprogressList = [];
   let nexList = [];
@@ -48,6 +51,11 @@ export default function LibraryAllCategories({
               list={nexList}
             />
           )}
+          {completedList.length < 1 &&
+            inprogressList.length < 1 &&
+            nexList.length < 1 && (
+              <NoBooks>Here will be a list of your books</NoBooks>
+            )}
         </Container>
       </Section>
     </>

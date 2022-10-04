@@ -33,6 +33,11 @@ export const Container = styled.div`
   }
 `;
 
+export const NoBooks = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  color: #898f9f;
+`;
 // export const CategoriesWrapper = styled.div`
 //   margin-bottom: 12px;
 //   &:last-child {
