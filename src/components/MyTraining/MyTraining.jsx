@@ -25,7 +25,7 @@ import { useStartTrainingMutation } from "../../redux/trainings/trainingsApi";
 
 const MyTraining = () => {
   const { data } = useFetchUserDataQuery();
-  const booksList = data ? data.books : [];
+  const booksList = data ? data.user.books : [];
 
   const [start, setStart] = useState("");
   const [finish, setFinish] = useState("");
@@ -44,7 +44,6 @@ const MyTraining = () => {
     .toLocaleString("en-US", options)
     .split("/")
     .join(".");
-  console.log(startDate);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -101,11 +100,16 @@ const MyTraining = () => {
               value={book}
               onChange={(e) => setBook(e.target.value)}
             >
-              {booksList.map(({ _id = "0", title = "" }) => (
-                <option value={_id} key={_id}>
-                  {title}
-                </option>
-              ))}
+              <option value="" default disabled>
+                {/* <option value="" default disabled selected> */}
+                Обрати книги з бібліотеки
+              </option>
+              {booksList &&
+                booksList.map(({ _id = "0", title = "" }) => (
+                  <option value={_id} key={_id}>
+                    {title}
+                  </option>
+                ))}
             </Select>
             <Button type="submit">Додати</Button>
           </SelectsWrap>
