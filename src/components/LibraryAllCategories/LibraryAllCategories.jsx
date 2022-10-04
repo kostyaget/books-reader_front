@@ -1,9 +1,5 @@
 import BooksListMarkup from "../BooksListMarkup/BooksListMarkup";
-import {
-  CategoriesWrapper,
-  Container,
-  Section,
-} from "./LibraryAllCategories.styled";
+import { Container, Section } from "./LibraryAllCategories.styled";
 import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
 
 export default function LibraryAllCategories({
@@ -28,27 +24,30 @@ export default function LibraryAllCategories({
     <>
       <Section>
         <Container>
-          <CategoriesWrapper>
+          {/* Already read */}
+          {completedList.length > 0 && (
             <BooksListMarkup
               titleSection={"Already read"}
               alreadyReadList={true}
               list={completedList}
             />
-          </CategoriesWrapper>
-          <CategoriesWrapper>
+          )}
+          {/* Reading now */}
+          {inprogressList.length > 0 && (
             <BooksListMarkup
               titleSection={"Reading now"}
               alreadyReadList={false}
               list={inprogressList}
             />
-          </CategoriesWrapper>
-          <CategoriesWrapper>
+          )}
+          {/* Going to read */}
+          {nexList.length > 0 && (
             <BooksListMarkup
               titleSection={"Going to read "}
               alreadyReadList={false}
               list={nexList}
             />
-          </CategoriesWrapper>
+          )}
         </Container>
       </Section>
     </>
