@@ -7,7 +7,6 @@ const authSlice = createSlice({
     user: null,
     token: null,
     isLoggedIn: false,
-    isContactsPending: false,
     link: null,
   },
   reducers: {},
