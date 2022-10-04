@@ -19,7 +19,7 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  /* background-color: red; */
+  box-sizing: border-box;
   margin: 0 auto;
   width: 320px;
   padding: 0 20px;
@@ -33,17 +33,21 @@ export const Container = styled.div`
   }
 `;
 
-export const CategoriesWrapper = styled.div`
-  /* background-color: red; */
-  margin-bottom: 12px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @media screen and (${BreakPoint.tabletMin}) {
-    margin-bottom: 32px;
-  }
-  @media screen and (${BreakPoint.desktopMin}) {
-    margin-bottom: 24px;
-  }
+export const NoBooks = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  color: #898f9f;
 `;
+// export const CategoriesWrapper = styled.div`
+//   margin-bottom: 12px;
+//   &:last-child {
+//     margin-bottom: 0;
+//   }
+
+//   @media screen and (${BreakPoint.tabletMin}) {
+//     margin-bottom: 32px;
+//   }
+//   @media screen and (${BreakPoint.desktopMin}) {
+//     margin-bottom: 24px;
+//   }
+// `;

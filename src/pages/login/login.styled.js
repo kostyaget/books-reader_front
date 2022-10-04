@@ -64,6 +64,9 @@ export const GoogleLogo = styled.img`
   margin-right: 16px;
   margin-left: 14px;
 `;
+export const ErrorMessage = styled.div`
+  height: 20px;
+`;
 export const Error = styled.p`
   color: red;
 `;
@@ -72,7 +75,7 @@ export const LabelField = styled.label`
     padding-left: 18px;
   }
 
-  padding-top: 20px;
+  // margin-top: 20px;
   padding-bottom: 8px;
   font-size: 14px;
   line-height: 17px;
