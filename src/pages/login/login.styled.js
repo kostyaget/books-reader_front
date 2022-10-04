@@ -38,8 +38,8 @@ export const SectionLogin = styled.div`
 `;
 export const GoogleSection = styled.div`
   display: flex;
-  padding-top: 40px;
-  padding-bottom: 8px;
+  margin-top: 40px;
+  margin-bottom: 8px;
 `;
 
 export const GoogleButton = styled.button`
@@ -55,7 +55,8 @@ export const GoogleButton = styled.button`
   text-align: center;
   color: #707375;
   background: #f5f7fa;
-  box-shadow: 0px 2px 2px rgba(9, 30, 63, 0.15); ;
+  box-shadow: 0px 2px 2px rgba(9, 30, 63, 0.15);
+  cursor: pointer;
 `;
 export const GoogleLogo = styled.img`
   width: 18px;
@@ -107,6 +108,7 @@ export const LogiBtn = styled.button`
 
   color: #ffffff;
   background: #ff6b08;
+  cursor: pointer;
 `;
 export const Register = styled.span`
   font-family: "Montserrat";
