@@ -1,22 +1,23 @@
-// import { useState } from "react";
 import { Form, Formik } from "formik";
-import { Rating, BtnColor, Btn, ItemBtn, Container } from "./ExitModal";
+import { Rating, BtnColor, Btn, ItemBtn, Container } from "./ExitModal.style";
 
-const ExitModal = () => (
-  <Container>
-    <Rating>Якщо Ви вийдете з програми незбережені дані будуть втрачені</Rating>
-    <Formik
-      initialValues={{}}
-      onSubmit={(values, actions) => {}}
-    >
-      <Form>
-        <ItemBtn>
-          <Btn type="button">Відміна</Btn>
-          <BtnColor type="submit">Вийти</BtnColor>
-        </ItemBtn>
-      </Form>
-    </Formik>
-  </Container>
-);
+const ExitModal = () => {
+  return (
+    <Container>
+      <Rating>
+        The changes you made will be lost if you navigate away from this
+        application
+      </Rating>
+      <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
+        <Form>
+          <ItemBtn>
+            <Btn type="button">Cancel</Btn>
+            <BtnColor type="submit">Leave this app</BtnColor>
+          </ItemBtn>
+        </Form>
+      </Formik>
+    </Container>
+  );
+};
 
 export default ExitModal;
