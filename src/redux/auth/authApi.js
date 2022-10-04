@@ -39,7 +39,7 @@ export const authApi = createApi({
       }),
       invalidatesTags: ["auth"],
     }),
-    logoutUser: builder.query({
+    logoutUser: builder.mutation({
       query: () => ({
         url: "/api/auth/logout",
       }),
@@ -52,5 +52,5 @@ export const {
   useFetchGoogleAccountQuery,
   useCreateNewUserMutation,
   useLoginUserMutation,
-  useLogoutUserQuery,
+  useLogoutUserMutation,
 } = authApi;
