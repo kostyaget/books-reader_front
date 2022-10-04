@@ -17,6 +17,10 @@ import {
   MyTrainingWarp,
 } from "./Training.styled";
 
+// ------------------------------
+// import ExitModal from '../../components/Modal/ExitModal'
+
+
 export default function Training() {
   const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
   const isMobile = useMediaQuery("(max-width: 767px)");
