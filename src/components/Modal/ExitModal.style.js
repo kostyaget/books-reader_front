@@ -44,7 +44,7 @@ export const Btn = styled.button`
   }
 `;
 
-export const BtnColor = styled.button` 
+export const BtnColor = styled.button`
   background: #ff6b08;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   color: #ffffff;
@@ -62,7 +62,7 @@ export const BtnColor = styled.button`
   }
 
   &:hover,
-  &:focus{
+  &:focus {
     border: 1px solid #242a37;
     color: #242a37;
     background: rgba(0, 0, 0, 0);
@@ -79,9 +79,19 @@ export const ItemBtn = styled.div`
 
 export const Container = styled.div`
   background: #ffffff;
-  // @media screen and ${device.mobileS} and (max-width: 767px) {}
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  width: 280px; /* Need a specific value to work */
+  @media screen and ${device.mobileS} and (max-width: 767px) {
+  }
   @media screen and ${device.tablet} {
     width: 354px;
-    max-height: 164px;
   }
 `;
