@@ -13,14 +13,17 @@ import {
 import { ReactComponent as Home } from "../../images/home.svg";
 import { ReactComponent as Lib } from "../../images/book.svg";
 import { ReactComponent as User } from "../../images/user.svg";
+import { useLogoutUserMutation } from "../../redux/auth/authApi";
 
 export default function LogInMenu() {
+  const [logoutUser] = useLogoutUserMutation();
+
   return (
     <>
+    
       <LogInContainer>
         <Logo>BR</Logo>
         <NavWrapper>
-          
           <NavList>
             <StyledNavLink to="/training">
               <Lib />
@@ -36,7 +39,9 @@ export default function LogInMenu() {
             <User width="40px" height="40px" />
           </Avatar>
         </NavWrapper>
-        <LogOutBtn type="submit">Logout</LogOutBtn>
+        <LogOutBtn type="button" onClick={() => logoutUser()}>
+          Logout
+        </LogOutBtn>
       </LogInContainer>
     </>
   );
