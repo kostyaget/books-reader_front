@@ -22,22 +22,33 @@ export const LoginImg = styled.div`
 `;
 
 export const RegisterForm = styled.div`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding-top: 50px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     padding-top: 64px;
     padding-bottom: 90px;
   }
   margin: 0px auto;
   padding-top: 170px;
-  background-color: rgb(255, 255, 255);
+  // background-color: rgb(255, 255, 255);
   width: 100%;
 `;
+
 export const RegistrationTitles = styled.div`
-  background-color: rgb(255, 255, 255);
-  width: 477px;
-  margin: 0px auto;
+  @media screen and (min-width: 768px) {
+    background-color: rgb(255, 255, 255);
+    width: 477px;
+    margin: 0px auto;
+  }
   text-align: center;
 `;
 export const RegistrationTitle = styled.h1`
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-bottom: 32px;
+  }
+
   font-family: "Abril Fatface";
   margin-bottom: 48px;
   font-weight: bold;
@@ -46,8 +57,18 @@ export const RegistrationTitle = styled.h1`
 `;
 export const RegistrationList = styled.ul`
   text-align: left;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding: 0 20px 60px 25px;
+  }
+
   :not(:last-child) {
-    margin-bottom: 12px;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      // margin-bottom: 24px;
+      padding: 0 20px 20px 25px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1280px) {
+      margin-bottom: 12px;
+    }
   }
 `;
 export const RegistrationHeading = styled.h2`
@@ -74,6 +95,12 @@ export const RegistrationDesc = styled.p`
 export const Arrow = styled.p`
   background-image: url(${img});
   background-repeat: no-repeat;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-right: 12px;
+    margin-top: 15px;
+    align-self: self-start;
+  }
+
   width: 10px;
   height: 10px;
   margin-right: 10px;
