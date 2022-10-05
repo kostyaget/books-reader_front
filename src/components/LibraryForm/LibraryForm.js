@@ -12,7 +12,7 @@ import {
   ValidMessege,
   InputWrapper,
   InputWrapperList,
-} from "./Library.styled";
+} from "./LibraryForm.styled";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { ReactComponent as BackArr } from "../../images/backArrow.svg";

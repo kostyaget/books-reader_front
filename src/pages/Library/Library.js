@@ -1,5 +1,5 @@
-import InfoModal from "./InfoModal";
-import LibraryForm from "./LibraryForm.js";
+import InfoModal from "../../components/Modal/InfoModal";
+import LibraryForm from "../../components/LibraryForm/LibraryForm";
 import { LibrarySection } from "./Library.styled";
 import LibraryAllCategories from "../../components/LibraryAllCategories/LibraryAllCategories";
 
