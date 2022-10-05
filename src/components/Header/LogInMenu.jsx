@@ -14,10 +14,12 @@ import ExitModal from "../Modal/ExitModal";
 import { ReactComponent as Home } from "../../images/home.svg";
 import { ReactComponent as Lib } from "../../images/book.svg";
 import { ReactComponent as User } from "../../images/user.svg";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 export default function LogInMenu() {
   const [modalState, setModalState] = useState(false);
-
+  const { data } = useFetchUserDataQuery();
+  const name =  data?.user.info.username
 
   const toggleModal = () => {
     setModalState((state) => !state);
@@ -37,7 +39,7 @@ export default function LogInMenu() {
               </StyledNavLink>
             </Border>
           </NavList>
-          <Name>Martha Stewart</Name>
+          <Name>{name}</Name>
           <Avatar>
             <User width="40px" height="40px" />
           </Avatar>
@@ -46,10 +48,7 @@ export default function LogInMenu() {
           Logout
         </LogOutBtn>
       </LogInContainer>
-      {modalState && (
-        <ExitModal onClose={toggleModal}>
-        </ExitModal>
-      )}
+      {modalState && <ExitModal onClose={toggleModal}></ExitModal>}
     </>
   );
 }
