@@ -44,7 +44,6 @@ export const GoogleButton = styled.button`
   font-family: "Roboto";
   font-weight: 700;
   font-size: 16px;
-  //   line-height: 38px;
 
   text-align: center;
   color: #707375;
