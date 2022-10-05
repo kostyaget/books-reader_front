@@ -4,7 +4,7 @@ import Training from "./pages/Training/Training";
 import { Suspense } from "react";
 import Login from "./components/Hero/login";
 import RegistrationSection from "./components/Hero/registrationForm";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import PrivateRoute from "./components/Routes/PrivateRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 
