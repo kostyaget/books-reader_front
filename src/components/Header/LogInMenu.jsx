@@ -34,7 +34,7 @@ export default function LogInMenu() {
               <Lib />
             </StyledNavLink>
             <Border>
-              <StyledNavLink to="/">
+              <StyledNavLink to="/library">
                 <Home />
               </StyledNavLink>
             </Border>
