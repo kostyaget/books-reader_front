@@ -131,7 +131,7 @@ export const Container = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  // margin: 20px;
+  margin-bottom: 20px;
   box-shadow: 4px 4px 8px rgba(80, 80, 55, 5);
   @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
