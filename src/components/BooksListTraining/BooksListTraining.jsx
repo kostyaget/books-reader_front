@@ -31,16 +31,18 @@ import {
 } from "./BooksListTraining.styled";
 import PropTypes from "prop-types";
 import EllipsisText from "react-ellipsis-text";
-import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
 import DeleteButton from "./DeleteButton";
 import CheckboxTraning from "./CheckboxTraning/CheckboxTraning";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
-const booksListBase = BOOKSLIST_DATA_TEST.filter((el) => el);
-
-export default function BooksListTraining({
-  training = false,
-  list = booksListBase,
-}) {
+export default function BooksListTraining({ training = false }) {
+  const { data } = useFetchUserDataQuery();
+  console.log(data);
+  const inprogressList = data?.user.books.filter(
+    (el) => el.status === "inprogress"
+  );
+  console.log(inprogressList);
+  const list = inprogressList ? inprogressList : [];
   let empty = false;
   if (!list.length) {
     empty = true;
@@ -66,7 +68,6 @@ export default function BooksListTraining({
               publishingDate = 0,
               pageAmount = 0,
               status,
-              // read = false,
             }) => (
               <TrbodyTraining key={_id}>
                 <TdBookTitle>
@@ -95,7 +96,7 @@ export default function BooksListTraining({
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Year:</ThMobile>
-                              <TdMobile>{publishingDate}</TdMobile>
+                              <TdMobile>{publishingDate.slice(0, 4)}</TdMobile>
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Pages:</ThMobile>
@@ -111,7 +112,7 @@ export default function BooksListTraining({
                 <TdAuthor>
                   <EllipsisText text={author} length={20} />
                 </TdAuthor>
-                <TdYear>{publishingDate}</TdYear>
+                <TdYear>{publishingDate.slice(0, 4)}</TdYear>
                 <TdPages>{pageAmount}</TdPages>
                 {!training && (
                   <TdDelete>

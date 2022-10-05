@@ -20,7 +20,6 @@ import {
 } from "./Training.styled";
 
 // ------------------------------
-// import ExitModal from '../../components/Modal/ExitModal'
 
 export default function Training() {
   const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);

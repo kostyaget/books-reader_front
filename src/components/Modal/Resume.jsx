@@ -32,7 +32,7 @@ const Resume = ({ id }) => {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <Rating>Обрати рейтинг книги</Rating>
+        <Rating>Choose rating of the book</Rating>
         <RatingArea>
           <input
             type="radio"
@@ -75,7 +75,7 @@ const Resume = ({ id }) => {
           />
           <label htmlFor="star-1" title="Оценка «1»"></label>
         </RatingArea>
-        <Rating htmlFor="resume">Резюме</Rating>
+        <Rating htmlFor="resume">Resume</Rating>
         <Summary
           type="text"
           name="text"
@@ -86,8 +86,8 @@ const Resume = ({ id }) => {
         />
 
         <ItemBtn>
-          <Btn type="button">Назад</Btn>
-          <BtnColor type="submit">Зберегти</BtnColor>
+          <Btn type="button">Back</Btn>
+          <BtnColor type="submit">Save</BtnColor>
         </ItemBtn>
       </form>
     </Container>

@@ -51,4 +51,4 @@ export default function LogInMenu() {
       {modalState && <ExitModal onClose={toggleModal}></ExitModal>}
     </>
   );
-}
+} 
