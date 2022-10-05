@@ -17,6 +17,7 @@ import {
   Login,
   Star,
   LoginLink,
+  GLink,
   ErrorMessage,
 } from "./registration.styled";
 import { Link } from "react-router-dom";
@@ -76,7 +77,9 @@ const Registration = () => {
                 <GoogleSection>
                   <GoogleButton type="submit">
                     <GoogleLogo src={google} alt="google" />
-                    Google
+                    <GLink href="https://books-reader-project.herokuapp.com/api/auth/google">
+                      Google{" "}
+                    </GLink>
                   </GoogleButton>
                 </GoogleSection>
 
