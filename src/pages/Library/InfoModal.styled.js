@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const ІnfModal = styled.div`
   position: absolute;
+  left: 0;
+  right: 0;
   top: 160px;
-  right: 20px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 240px;
   padding-left: 22px;
   padding-right: 22px;
