@@ -116,14 +116,7 @@ export const BookBnt = styled.button`
     padding-right: 77px;
   }
 `;
-export const BackArrow = styled(Link)`
-  display: inline-block;
-  margin-bottom: 32px;
 
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-`;
 
 export const ValidMessege = styled.span`
   color: red;

@@ -1,21 +1,34 @@
 import { useAddBookMutation } from "../../redux/users/usersApi";
+import { useState } from "react";
+import { createPortal } from "react-dom";
 
 import {
-  BookForm,
-  BookInputTitle,
-  BookInputAuthor,
-  BookInput,
-  BookLabel,
-  BookBnt,
-  ValidMessege,
-  InputWrapper,
-  InputWrapperList,
-} from "./LibraryForm.styled";
+  BookFormMobile,
+  BookInputTitleMobile,
+  BookInputAuthorMobile,
+  BookInputMobile,
+  BackArrowMobile,
+  BookLabelMobile,
+  BookBntMobile,
+  ValidMessegeMobile,
+  InputWrapperMobile,
+  InputWrapperListMobile,
+  WrapperMobail
+} from "./LibraryFormMobile.styled";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { ReactComponent as BackArr } from "../../images/backArrow.svg";
 
-export default function LibraryForm() {
+export default function LibraryFormMobail() {
   const [createBook] = useAddBookMutation();
+  const modal = document.querySelector("#modal-root");
+
+  const [active, setActive] = useState(true);
+  const onStart = () => {
+    setActive(false);
+  };
+
+
 
   const validationsSchema = yup.object().shape({
     title: yup.string().typeError("").required("*").min(3),
@@ -28,8 +41,8 @@ export default function LibraryForm() {
       .min(1),
   });
 
-  return (
-    <div>
+  return createPortal (
+    <WrapperMobail style={active ? { display: "block" } : { display: "none" }}>
       <Formik
         initialValues={{
           title: "",
@@ -54,83 +67,88 @@ export default function LibraryForm() {
           isValid,
           dirty,
         }) => (
-          <BookForm>
-            <InputWrapperList>
-              <InputWrapper>
-                <BookLabel htmlFor="title">
+          <BookFormMobile>
+            <InputWrapperListMobile>
+              <BackArrowMobile>
+                <BackArr onClick={onStart} />
+              </BackArrowMobile>
+              <InputWrapperMobile>
+                <BookLabelMobile htmlFor="title">
                   Book title
                   {touched.title && errors.title && (
-                    <ValidMessege>{errors.title}</ValidMessege>
+                    <ValidMessegeMobile>{errors.title}</ValidMessegeMobile>
                   )}
-                </BookLabel>
+                </BookLabelMobile>
 
-                <BookInputTitle
+                <BookInputTitleMobile
                   type={"text"}
                   name={"title"}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.title}
-                ></BookInputTitle>
-              </InputWrapper>
-              <InputWrapper>
-                <BookLabel htmlFor="author">
+                ></BookInputTitleMobile>
+              </InputWrapperMobile>
+              <InputWrapperMobile>
+                <BookLabelMobile htmlFor="author">
                   Author{" "}
                   {touched.author && errors.author && (
-                    <ValidMessege>{errors.author}</ValidMessege>
+                    <ValidMessegeMobile>{errors.author}</ValidMessegeMobile>
                   )}
-                </BookLabel>
+                </BookLabelMobile>
 
-                <BookInputAuthor
+                <BookInputAuthorMobile
                   type={"text"}
                   name={"author"}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.author}
-                ></BookInputAuthor>
-              </InputWrapper>
-              <InputWrapper>
-                <BookLabel htmlFor="publishingDate">
+                ></BookInputAuthorMobile>
+              </InputWrapperMobile>
+              <InputWrapperMobile>
+                <BookLabelMobile htmlFor="publishingDate">
                   Publication date
                   {touched.publishingDate && errors.publishingDate && (
-                    <ValidMessege>{errors.publishingDate}</ValidMessege>
+                    <ValidMessegeMobile>
+                      {errors.publishingDate}
+                    </ValidMessegeMobile>
                   )}
-                </BookLabel>
+                </BookLabelMobile>
 
-                <BookInput
+                <BookInputMobile
                   type={"text"}
                   name={"publishingDate"}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.publishingDate}
-                ></BookInput>
-              </InputWrapper>
-              <InputWrapper>
-                <BookLabel htmlFor="pageAmount">
+                ></BookInputMobile>
+              </InputWrapperMobile>
+              <InputWrapperMobile>
+                <BookLabelMobile htmlFor="pageAmount">
                   Amount of pages
                   {touched.pageAmount && errors.pageAmount && (
-                    <ValidMessege>{errors.pageAmount}</ValidMessege>
+                    <ValidMessegeMobile>{errors.pageAmount}</ValidMessegeMobile>
                   )}
-                </BookLabel>
+                </BookLabelMobile>
 
-                <BookInput
+                <BookInputMobile
                   type={"number"}
                   name={"pageAmount"}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.pageAmount}
-                ></BookInput>
-              </InputWrapper>
-              <BookBnt
+                ></BookInputMobile>
+              </InputWrapperMobile>
+              <BookBntMobile
                 type="submit"
                 disabled={!isValid && !dirty}
                 onClick={handleSubmit}
               >
                 Add
-              </BookBnt>
-            </InputWrapperList>
-          </BookForm>
+              </BookBntMobile>
+            </InputWrapperListMobile>
+          </BookFormMobile>
         )}
       </Formik>
-    </div>
+    </WrapperMobail>,modal
   );
 }
