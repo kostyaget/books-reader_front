@@ -40,7 +40,7 @@ export const GoogleSection = styled.div`
   display: flex;
   margin-bottom: 28px;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     margin-top: 40px;
   }
 
@@ -64,6 +64,14 @@ export const GoogleButton = styled.button`
   background: #f5f7fa;
   box-shadow: 0px 2px 2px rgba(9, 30, 63, 0.15);
   cursor: pointer;
+
+  transition: 1s;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
 `;
 export const GoogleLogo = styled.img`
   width: 18px;
@@ -73,6 +81,18 @@ export const GoogleLogo = styled.img`
 `;
 export const ErrorMessage = styled.div`
   height: 20px;
+
+  font-size: 20px;
+  font-weight: normal;
+  cursor: pointer;
+  text-shadow: 0 0 15px #999;
+  color: transparent;
+  transition: all 0.5s;
+
+  &:hover,
+  &:focus {
+    text-shadow: 0 0 0 #333;
+  }
 `;
 export const Error = styled.p`
   color: red;
@@ -89,6 +109,12 @@ export const LabelField = styled.label`
   padding-left: 35px;
 
   color: #898f9f;
+
+  transition: 1s;
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
 `;
 
 export const InputField = styled.input`
@@ -105,6 +131,11 @@ export const InputField = styled.input`
 export const LogiBtn = styled.button`
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 280px;
+    &:hover,
+    &:focus {
+      background-color: #d15807;
+      transition: background-color 0.25s ease-in-out;
+    }
   }
   width: 320px;
   height: 60px;
@@ -118,14 +149,31 @@ export const LogiBtn = styled.button`
   color: #ffffff;
   background: #ff6b08;
   cursor: pointer;
+  border: none;
+
+  &:hover,
+  &:focus {
+    background-color: #d15807;
+    transition: background-color 0.25s ease-in-out;
+  }
 `;
-export const Register = styled.span`
+export const Register = styled.p`
   font-family: "Montserrat";
   font-size: 13px;
   line-height: 16px;
   color: #ff6b08;
+  text-decoration: none;
+
+  transition: transform 0.8s ease-in-out;
+  &:hover,
+  &:focus {
+    transform: rotate(360deg);
+  }
 `;
 export const Star = styled.span`
   padding-left: 3px;
   color: #ff6b08;
+`;
+export const GLink = styled.a`
+  text-decoration: none;
 `;

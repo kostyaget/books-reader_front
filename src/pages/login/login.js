@@ -7,6 +7,7 @@ import { useLoginUserMutation } from "../../redux/auth/authApi";
 import {
   Error,
   ErrorMessage,
+  GLink,
   GoogleButton,
   GoogleLogo,
   GoogleSection,
@@ -56,9 +57,9 @@ const Login = () => {
                   <GoogleButton>
                     {" "}
                     <GoogleLogo src={google} alt="google" />{" "}
-                    <a href="https://books-reader-project.herokuapp.com/api/auth/google">
+                    <GLink href="https://books-reader-project.herokuapp.com/api/auth/google">
                       Google{" "}
-                    </a>
+                    </GLink>
                   </GoogleButton>
                 </GoogleSection>
 
@@ -93,7 +94,9 @@ const Login = () => {
                     <Error>{errors.password}</Error>
                   ) : null}
                 </ErrorMessage>
-                <LogiBtn tn type="submit">Login</LogiBtn>
+                <LogiBtn tn type="submit">
+                  Login
+                </LogiBtn>
 
                 <Link to="/registration">
                   <Register>Register</Register>
