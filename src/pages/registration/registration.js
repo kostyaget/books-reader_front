@@ -1,7 +1,6 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
-import { useState } from "react";
 import { useCreateNewUserMutation } from "../../redux/auth/authApi";
 
 import {
@@ -23,12 +22,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Registration = () => {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-    repeat_password: "",
-  });
   const [createUser] = useCreateNewUserMutation();
 
   const validationSchema = yup.object().shape({
@@ -66,10 +59,8 @@ const Registration = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
-            setUser(values);
-            console.log(user);
             resetForm();
-            createUser(user);
+            createUser(values);
           }}
         >
           {({
