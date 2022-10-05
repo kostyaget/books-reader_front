@@ -73,9 +73,9 @@ export default function BooksListMarkup({
                 <TdBookTitle>
                   <FirstColumn>
                     <IconContainer>
-                      {status === "completed" && <LibraryIco />}
+                      {status !== "inprogress" && <LibraryIco />}
                       {status === "inprogress" && <LibraryActiveIco />}
-                      {status === "nex" && <LibraryIco />}
+                      {/* {status === "next" && <LibraryIco />} */}
                     </IconContainer>
                     <div>
                       <Text>
@@ -93,7 +93,7 @@ export default function BooksListMarkup({
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Year:</ThMobile>
-                              <TdMobile>{publishingDate}</TdMobile>
+                              <TdMobile>{publishingDate.slice(0, 4)}</TdMobile>
                             </TrMobile>
                             <TrMobile>
                               <ThMobile>Pages:</ThMobile>
@@ -124,7 +124,7 @@ export default function BooksListMarkup({
                 <TdAuthor>
                   <EllipsisText text={author} length={20} />
                 </TdAuthor>
-                <TdYear>{publishingDate}</TdYear>
+                <TdYear>{publishingDate.slice(0, 4)}</TdYear>
                 <TdPages>{pageAmount}</TdPages>
                 {alreadyReadList && (
                   <TdRating>
