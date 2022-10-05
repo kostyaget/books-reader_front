@@ -18,8 +18,6 @@ export default function Library() {
 
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(min-width: 768px)");
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-
   const isBook = useSelector(selectCurrentUserBook);
 
   return (
