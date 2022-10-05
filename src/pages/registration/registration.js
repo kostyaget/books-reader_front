@@ -1,7 +1,6 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
-import { useState } from "react";
 import { useCreateNewUserMutation } from "../../redux/auth/authApi";
 
 import {
@@ -18,16 +17,11 @@ import {
   Login,
   Star,
   LoginLink,
+  ErrorMessage,
 } from "./registration.styled";
 import { Link } from "react-router-dom";
 
 const Registration = () => {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-    repeat_password: "",
-  });
   const [createUser] = useCreateNewUserMutation();
 
   const validationSchema = yup.object().shape({
@@ -65,10 +59,8 @@ const Registration = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
-            setUser(values);
-            console.log(user);
             resetForm();
-            createUser(user);
+            createUser(values);
           }}
         >
           {({
@@ -100,10 +92,11 @@ const Registration = () => {
                   onChange={handleChange}
                   placeholder="..."
                 />
-                {errors.name && touched.name ? (
-                  <Error>{errors.name}</Error>
-                ) : null}
-
+                <ErrorMessage>
+                  {errors.username && touched.username ? (
+                    <Error>{errors.username}</Error>
+                  ) : null}
+                </ErrorMessage>
                 <LabelField>
                   Email
                   <Star>*</Star>
@@ -116,10 +109,11 @@ const Registration = () => {
                   onChange={handleChange}
                   placeholder="your@email.com"
                 />
-                {errors.email && touched.email ? (
-                  <Error>{errors.email}</Error>
-                ) : null}
-
+                <ErrorMessage>
+                  {errors.email && touched.email ? (
+                    <Error>{errors.email}</Error>
+                  ) : null}
+                </ErrorMessage>
                 <LabelField>
                   Password
                   <Star>*</Star>
@@ -132,10 +126,11 @@ const Registration = () => {
                   onChange={handleChange}
                   placeholder="..."
                 />
-                {errors.password && touched.password ? (
-                  <Error>{errors.password}</Error>
-                ) : null}
-
+                <ErrorMessage>
+                  {errors.password && touched.password ? (
+                    <Error>{errors.password}</Error>
+                  ) : null}
+                </ErrorMessage>
                 <LabelField>
                   Confirm password
                   <Star>*</Star>
@@ -148,10 +143,11 @@ const Registration = () => {
                   onChange={handleChange}
                   placeholder="..."
                 />
-                {errors.confirmPassword && touched.confirmPassword ? (
-                  <Error>{errors.confirmPassword}</Error>
-                ) : null}
-
+                <ErrorMessage>
+                  {errors.repeat_password && touched.repeat_password ? (
+                    <Error>{errors.repeat_password}</Error>
+                  ) : null}
+                </ErrorMessage>
                 <RegisterBtn type="submit">Register</RegisterBtn>
                 <LoginLink>
                   <LogTitle>Already have an account?</LogTitle>

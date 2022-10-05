@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const ІnfModal = styled.div`
   position: absolute;
+  left: 0;
+  right: 0;
   top: 160px;
-  right: 20px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 240px;
   padding-left: 22px;
   padding-right: 22px;
@@ -76,7 +78,7 @@ export const InfoBtn = styled.button`
   padding-bottom: 12px;
   padding-left: 54px;
   padding-right: 54px;
-
+  cursor: pointer;
   border: none;
   background: #ff6b08;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);

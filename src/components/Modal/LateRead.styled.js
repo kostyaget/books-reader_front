@@ -96,14 +96,25 @@ export const ItemBtn = styled.div`
 `;
 
 export const Container = styled.div`
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 12%;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
   background: #ffffff;
   @media screen and ${device.mobileS} and (max-width: 767px) {
     width: 240px;
     max-height: 318px;
   }
   @media screen and ${device.tablet} {
+    left: 25%;
     width: 394px;
     max-height: 286px;
+  }
+  @media screen and ${device.laptop} {
+    top: 80%;
+    left: 30%;
   }
 `;
 

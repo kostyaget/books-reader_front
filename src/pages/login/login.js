@@ -6,6 +6,7 @@ import { useLoginUserMutation } from "../../redux/auth/authApi";
 
 import {
   Error,
+  ErrorMessage,
   GoogleButton,
   GoogleLogo,
   GoogleSection,
@@ -67,10 +68,11 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="your@email.com"
                 />
-                {errors.email && touched.email ? (
-                  <Error>{errors.email}</Error>
-                ) : null}
-
+                <ErrorMessage>
+                  {errors.email && touched.email ? (
+                    <Error>{errors.email}</Error>
+                  ) : null}
+                </ErrorMessage>
                 <LabelField>
                   Password
                   <Star>*</Star>
@@ -82,10 +84,11 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Password"
                 />
-                {errors.password && touched.password ? (
-                  <Error>{errors.password}</Error>
-                ) : null}
-
+                <ErrorMessage>
+                  {errors.password && touched.password ? (
+                    <Error>{errors.password}</Error>
+                  ) : null}
+                </ErrorMessage>
                 <LogiBtn type="submit">Login</LogiBtn>
 
                 <Link to="/registration">

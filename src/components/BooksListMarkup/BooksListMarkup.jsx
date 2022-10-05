@@ -62,9 +62,6 @@ export default function BooksListMarkup({
           {list.map(
             ({
               _id = "0",
-              alreadyRead = false,
-              readingNow = false,
-              goingToRead = false,
               status = "completed",
               title = "",
               author = "",
@@ -153,9 +150,6 @@ export default function BooksListMarkup({
                   </div>
                 </FirstColumn>
               </TdEmpty>
-              {/* <TdAuthor></TdAuthor>
-              <TdYear></TdYear>
-              <TdPages></TdPages> */}
               {alreadyReadList && <TdRating></TdRating>}
             </Trbody>
           )}

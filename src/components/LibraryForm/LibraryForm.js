@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { useAddBookMutation } from "../../redux/users/usersApi";
 
 import {
@@ -13,19 +12,12 @@ import {
   ValidMessege,
   InputWrapper,
   InputWrapperList,
-} from "./Library.styled";
+} from "./LibraryForm.styled";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { ReactComponent as BackArr } from "../../images/backArrow.svg";
 
 export default function LibraryForm() {
-  const [book, setBook] = useState({
-    bookTitle: "",
-    author: "",
-    publicationDate: "",
-    amountOfPages: "",
-  });
-
   const [createBook] = useAddBookMutation();
   let navigate = useNavigate();
 
@@ -34,10 +26,10 @@ export default function LibraryForm() {
   }
 
   const validationsSchema = yup.object().shape({
-    bookTitle: yup.string().typeError("").required("*").min(3),
+    title: yup.string().typeError("").required("*").min(3),
     author: yup.string().typeError("").required("*").min(3),
-    publicationDate: yup.number().typeError("should be a number").required("*"),
-    amountOfPages: yup
+    publishingDate: yup.string().typeError("").required("*"),
+    pageAmount: yup
       .number()
       .typeError("should be a number")
       .required("*")
@@ -48,17 +40,15 @@ export default function LibraryForm() {
     <div>
       <Formik
         initialValues={{
-          bookTitle: "",
+          title: "",
           author: "",
-          publicationDate: "",
-          amountOfPages: "",
+          publishingDate: "",
+          pageAmount: "",
         }}
         validateOnBlur
         onSubmit={(values, { resetForm }) => {
-          setBook(values);
           resetForm({ values: "" });
-          console.log(book);
-          createBook(book);
+          createBook(values);
         }}
         validationSchema={validationsSchema}
       >
@@ -78,19 +68,19 @@ export default function LibraryForm() {
                 <BackArr onClick={handleClick} />
               </BackArrow>
               <InputWrapper>
-                <BookLabel htmlFor="bookTitle">
+                <BookLabel htmlFor="title">
                   Book title
-                  {touched.bookTitle && errors.bookTitle && (
-                    <ValidMessege>{errors.bookTitle}</ValidMessege>
+                  {touched.title && errors.title && (
+                    <ValidMessege>{errors.title}</ValidMessege>
                   )}
                 </BookLabel>
 
                 <BookInputTitle
                   type={"text"}
-                  name={"bookTitle"}
+                  name={"title"}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.bookTitle}
+                  value={values.title}
                 ></BookInputTitle>
               </InputWrapper>
               <InputWrapper>
@@ -110,35 +100,35 @@ export default function LibraryForm() {
                 ></BookInputAuthor>
               </InputWrapper>
               <InputWrapper>
-                <BookLabel htmlFor="publicationDate">
+                <BookLabel htmlFor="publishingDate">
                   Publication date
-                  {touched.publicationDate && errors.publicationDate && (
-                    <ValidMessege>{errors.publicationDate}</ValidMessege>
+                  {touched.publishingDate && errors.publishingDate && (
+                    <ValidMessege>{errors.publishingDate}</ValidMessege>
                   )}
                 </BookLabel>
 
                 <BookInput
-                  type={"number"}
-                  name={"publicationDate"}
+                  type={"text"}
+                  name={"publishingDate"}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.publicationDate}
+                  value={values.publishingDate}
                 ></BookInput>
               </InputWrapper>
               <InputWrapper>
-                <BookLabel htmlFor="amountOfPages">
+                <BookLabel htmlFor="pageAmount">
                   Amount of pages
-                  {touched.amountOfPages && errors.amountOfPages && (
-                    <ValidMessege>{errors.amountOfPages}</ValidMessege>
+                  {touched.pageAmount && errors.pageAmount && (
+                    <ValidMessege>{errors.pageAmount}</ValidMessege>
                   )}
                 </BookLabel>
 
                 <BookInput
                   type={"number"}
-                  name={"amountOfPages"}
+                  name={"pageAmount"}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.amountOfPages}
+                  value={values.pageAmount}
                 ></BookInput>
               </InputWrapper>
               <BookBnt

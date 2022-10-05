@@ -1,15 +1,16 @@
-import InfoModal from "./InfoModal";
-import LibraryForm from "./LibraryForm.js";
+import InfoModal from "../../components/Modal/InfoModal";
+import LibraryForm from "../../components/LibraryForm/LibraryForm";
 import { LibrarySection } from "./Library.styled";
-import BooksListMarkup from "../../components/BooksListMarkup/BooksListMarkup";
-
+import LibraryAllCategories from "../../components/LibraryAllCategories/LibraryAllCategories";
+import { selectCurrentUserBook } from "../../redux/auth/auth";
+import { useSelector } from "react-redux";
 export default function Library() {
+  const isBook = useSelector(selectCurrentUserBook);
   return (
     <>
       <LibrarySection>
         <LibraryForm></LibraryForm>
-        <InfoModal></InfoModal>
-        <BooksListMarkup></BooksListMarkup>
+        {isBook ? <InfoModal></InfoModal> : <LibraryAllCategories />}
       </LibrarySection>
     </>
   );

@@ -1,25 +1,24 @@
 import BooksListMarkup from "../BooksListMarkup/BooksListMarkup";
-import {
-  CategoriesWrapper,
-  Container,
-  Section,
-} from "./LibraryAllCategories.styled";
+import { Container, Section, NoBooks } from "./LibraryAllCategories.styled";
 import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
-export default function LibraryAllCategories({
-  listAllCategories = BOOKSLIST_DATA_TEST,
-}) {
+export default function LibraryAllCategories() {
+  const { data } = useFetchUserDataQuery();
+  console.log(data?.user.books);
+  const listAllCategories = data?.user.books;
+  console.log(listAllCategories);
   let completedList = [];
   let inprogressList = [];
   let nexList = [];
-  listAllCategories.forEach((el) => {
+  listAllCategories?.forEach((el) => {
     if (el.status === "completed") {
       completedList.push(el);
     }
     if (el.status === "inprogress") {
       inprogressList.push(el);
     }
-    if (el.status === "nex") {
+    if (el.status === "next") {
       nexList.push(el);
     }
   });
@@ -28,27 +27,35 @@ export default function LibraryAllCategories({
     <>
       <Section>
         <Container>
-          <CategoriesWrapper>
+          {/* Already read */}
+          {completedList.length > 0 && (
             <BooksListMarkup
               titleSection={"Already read"}
               alreadyReadList={true}
               list={completedList}
             />
-          </CategoriesWrapper>
-          <CategoriesWrapper>
+          )}
+          {/* Reading now */}
+          {inprogressList.length > 0 && (
             <BooksListMarkup
               titleSection={"Reading now"}
               alreadyReadList={false}
               list={inprogressList}
             />
-          </CategoriesWrapper>
-          <CategoriesWrapper>
+          )}
+          {/* Going to read */}
+          {nexList.length > 0 && (
             <BooksListMarkup
               titleSection={"Going to read "}
               alreadyReadList={false}
               list={nexList}
             />
-          </CategoriesWrapper>
+          )}
+          {completedList.length < 1 &&
+            inprogressList.length < 1 &&
+            nexList.length < 1 && (
+              <NoBooks>Here will be a list of your books</NoBooks>
+            )}
         </Container>
       </Section>
     </>
