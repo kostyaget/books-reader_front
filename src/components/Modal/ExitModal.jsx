@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useLogoutUserMutation } from "../../redux/auth/authApi";
 import { createPortal } from "react-dom";
+import { useDispatch } from "react-redux";
 
 import { Form, Formik } from "formik";
 import { Rating, BtnColor, Btn, ItemBtn, Container } from "./ExitModal.style";
 
 const ExitModal = () => {
   const modal = document.querySelector("#modal-root");
+  const dispatch = useDispatch();
 
   const [logoutUser] = useLogoutUserMutation();
   const [active, setActive] = useState(true);
@@ -25,7 +27,7 @@ const ExitModal = () => {
             <Btn type="button" onClick={onStart}>
               Cancel
             </Btn>
-            <BtnColor type="button" onClick={() => logoutUser()}>
+            <BtnColor type="button" onClick={() =>dispatch(logoutUser) }>
               Leave this app
             </BtnColor>
           </ItemBtn>
