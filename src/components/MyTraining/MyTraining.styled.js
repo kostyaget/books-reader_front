@@ -112,6 +112,7 @@ export const DatesWrap = styled.div`
 
 export const InputDateWrap = styled.div`
   position: relative;
+  z-index: 20;
   /* width: 250px; */
   width: 280px;
   margin-bottom: 20px;
@@ -197,7 +198,7 @@ export const DateInputPiker = styled(DatePicker)`
   width: 133px;
   height: 42px;
   padding-left: 143px;
-
+  z-index: 20;
   color: #242a37;
   @media ${device.tablet} {
     /* width: 250px; */
