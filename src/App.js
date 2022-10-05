@@ -9,9 +9,6 @@ import PrivateRoute from "./components/Routes/PrivateRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 
 const App = () => {
-
-
-
   return (
     <>
       <Header />

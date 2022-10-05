@@ -38,8 +38,15 @@ export const SectionLogin = styled.div`
 `;
 export const GoogleSection = styled.div`
   display: flex;
-  margin-top: 40px;
-  margin-bottom: 8px;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: 768px){
+    margin-top: 40px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: 12px;
+  }
 `;
 
 export const GoogleButton = styled.button`
@@ -75,7 +82,6 @@ export const LabelField = styled.label`
     padding-left: 18px;
   }
 
-  // margin-top: 20px;
   padding-bottom: 8px;
   font-size: 14px;
   line-height: 17px;
@@ -102,7 +108,7 @@ export const LogiBtn = styled.button`
   }
   width: 320px;
   height: 60px;
-  margin-top: 32px;
+  margin-top: 12px;
   margin-bottom: 20px;
 
   font-weight: 600;
