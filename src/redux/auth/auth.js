@@ -89,3 +89,5 @@ export const selectCurrentToken = (state) => state.auth.token;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectIsError = (state) => state.auth.isError;
 export const selectIsPending = (state) => state.auth.isPending;
+export const selectCurrentUserBook = (state) => state.auth.user.books;
+
