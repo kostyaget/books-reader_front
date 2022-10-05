@@ -60,7 +60,7 @@ const MyTraining = () => {
   return (
     <Container>
       <MyTrainingWrap>
-        <TextTitle>Моє тренування</TextTitle>
+        <TextTitle>My training</TextTitle>
 
         <AddForm autoComplete="off" onSubmit={handleSubmit}>
           <DatesWrap>
@@ -68,7 +68,7 @@ const MyTraining = () => {
               <CalendarIcon width="17" height="17">
                 <use href={`${icons}#icon-calendar`} />
               </CalendarIcon>
-              <LabelText>Початок</LabelText>
+              <LabelText>Start</LabelText>
               <Icon width="13" height="7">
                 <use href={`${icons}#icon-polygon`} />
               </Icon>
@@ -82,7 +82,7 @@ const MyTraining = () => {
               <CalendarIcon width="17" height="17">
                 <use href={`${icons}#icon-calendar`} />
               </CalendarIcon>
-              <LabelText>Завершення</LabelText>
+              <LabelText>Finish</LabelText>
               <Icon width="13" height="7">
                 <use href={`${icons}#icon-polygon`} />
               </Icon>
@@ -101,8 +101,7 @@ const MyTraining = () => {
               onChange={(e) => setBook(e.target.value)}
             >
               <option value="" default disabled>
-                {/* <option value="" default disabled selected> */}
-                Обрати книги з бібліотеки
+                Choose books from the library
               </option>
               {booksList &&
                 booksList.map(({ _id = "0", title = "" }) => (
@@ -111,7 +110,7 @@ const MyTraining = () => {
                   </option>
                 ))}
             </Select>
-            <Button type="submit">Додати</Button>
+            <Button type="submit">Add</Button>
           </SelectsWrap>
         </AddForm>
       </MyTrainingWrap>
