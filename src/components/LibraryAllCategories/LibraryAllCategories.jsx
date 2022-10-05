@@ -5,20 +5,20 @@ import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 export default function LibraryAllCategories() {
   const { data } = useFetchUserDataQuery();
-  // console.log(data);
-  const listAllCategories = data ? data.user.books : BOOKSLIST_DATA_TEST;
-  // console.log(listAllCategories);
+  console.log(data?.user.books);
+  const listAllCategories = data?.user.books;
+  console.log(listAllCategories);
   let completedList = [];
   let inprogressList = [];
   let nexList = [];
-  listAllCategories.forEach((el) => {
+  listAllCategories?.forEach((el) => {
     if (el.status === "completed") {
       completedList.push(el);
     }
     if (el.status === "inprogress") {
       inprogressList.push(el);
     }
-    if (el.status === "nex") {
+    if (el.status === "next") {
       nexList.push(el);
     }
   });
