@@ -53,9 +53,13 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               <SectionLogin>
                 <GoogleSection>
-                 
-                    <GoogleButton> <GoogleLogo src={google} alt="google" /> <a href="https://books-reader-project.herokuapp.com/api/auth/google">Google </a></GoogleButton>
-                 
+                  <GoogleButton>
+                    {" "}
+                    <GoogleLogo src={google} alt="google" />{" "}
+                    <a href="https://books-reader-project.herokuapp.com/api/auth/google">
+                      Google{" "}
+                    </a>
+                  </GoogleButton>
                 </GoogleSection>
 
                 <LabelField>
@@ -89,7 +93,7 @@ const Login = () => {
                     <Error>{errors.password}</Error>
                   ) : null}
                 </ErrorMessage>
-                <LogiBtn type="submit">Login</LogiBtn>
+                <LogiBtn tn type="submit">Login</LogiBtn>
 
                 <Link to="/registration">
                   <Register>Register</Register>

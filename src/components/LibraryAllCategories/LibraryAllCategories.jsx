@@ -1,6 +1,6 @@
 import BooksListMarkup from "../BooksListMarkup/BooksListMarkup";
 import { Container, Section, NoBooks } from "./LibraryAllCategories.styled";
-import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
+// import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 export default function LibraryAllCategories() {
