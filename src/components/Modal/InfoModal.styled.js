@@ -78,7 +78,7 @@ export const InfoBtn = styled.button`
   padding-bottom: 12px;
   padding-left: 54px;
   padding-right: 54px;
-
+  cursor: pointer;
   border: none;
   background: #ff6b08;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);

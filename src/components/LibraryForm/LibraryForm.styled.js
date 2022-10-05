@@ -92,6 +92,7 @@ export const BookBnt = styled.button`
   padding-bottom: 12px;
   padding-left: 72px;
   padding-right: 72px;
+  cursor: pointer;
 
   border: 1px solid #242a37;
   background: #f6f7fb;
