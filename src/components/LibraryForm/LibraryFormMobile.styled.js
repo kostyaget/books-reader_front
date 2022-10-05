@@ -88,17 +88,4 @@ padding:0px;
 export const InputWrapperMobile = styled.li`
   display: inline-block;
 `;
-export const ToFormBtn = styled.button`
-  bottom: 12px;
-  left: 45%;
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-  border-radius: 50%;
-  border: none;
-  display: block;
-  padding: 18px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  background-color: #ff6b08;
-`;
+
