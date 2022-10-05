@@ -3,12 +3,24 @@ import pic from "../../images/pic.jpg";
 import ico from "../../images/ico.jpg";
 
 export const Container = styled.div`
-  // width: 768px;
-  // height: 619px;
+    margin-left: auto;
+    margin-right: auto;
   @media screen and (min-width: 1280px) {
-    display: flex;
+    display: flex;   
+    
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    min-width: 320px;
+    height: 400px;
+  }
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    min-width: 768px;
+    height: 560px;
+  }
+  @media screen and (min-width: 1024px){
+    max-width: 1280px;
     height: 790px;
-    width: 1280px;
   }
 `;
 export const SectionLogin = styled.div``;
@@ -51,7 +63,7 @@ export const Icon = styled.p`
     width: 23px;
     height: 23px;
   }
-  @media screen and (min-width: 768px) and (max-width: 1280px) {
+  @media screen and (min-width: 768px){
     width: 27px;
     height: 27px;
     margin: 0px auto 15px;

@@ -32,13 +32,11 @@ export const RegisterForm = styled.div`
   }
   margin: 0px auto;
   padding-top: 170px;
-  // background-color: rgb(255, 255, 255);
   width: 100%;
 `;
 
 export const RegistrationTitles = styled.div`
   @media screen and (min-width: 768px) {
-    background-color: rgb(255, 255, 255);
     width: 477px;
     margin: 0px auto;
   }

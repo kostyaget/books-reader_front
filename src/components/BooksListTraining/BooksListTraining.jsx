@@ -34,6 +34,7 @@ import EllipsisText from "react-ellipsis-text";
 import BOOKSLIST_DATA_TEST from "../BooksListMarkup/BOOKSLIST_DATA_TEST.json";
 import DeleteButton from "./DeleteButton";
 import CheckboxTraning from "./CheckboxTraning/CheckboxTraning";
+import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 
 const booksListBase = BOOKSLIST_DATA_TEST.filter((el) => el);
 
@@ -41,6 +42,8 @@ export default function BooksListTraining({
   training = false,
   list = booksListBase,
 }) {
+  const { data } = useFetchTrainingsDataQuery();
+  console.log(data);
   let empty = false;
   if (!list.length) {
     empty = true;
