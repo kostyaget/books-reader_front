@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import deleteIc from "../../images/svg/delete.svg";
 import deleteActiveIc from "../../images/svg/deleteActive.svg";
+import { useDeleteTrainingBookMutation } from "../../redux/trainings/trainingsApi";
 
 const BreakPoint = {
   mobileMin: "min-width: 320px",
@@ -29,14 +30,14 @@ const DeleteIco = styled.button`
   }
 `;
 
-export default function DeleteButton({ idBook }) {
-  //   const dispatch = useDispatch();
+export default function DeleteButton({ idTraning }) {
+  const [deleteBook] = useDeleteTrainingBookMutation();
 
   return (
     <DeleteIco
       type="button"
-      onClick={() => alert("Кнопка видалити тест")}
-      // onClick={() => dispatch(deleteBookThunk(idBook))}
+      // onClick={() => alert("Кнопка видалити тест")}
+      onClick={() => deleteBook(idTraning)}
     ></DeleteIco>
   );
 }

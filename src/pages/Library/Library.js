@@ -1,12 +1,11 @@
 import InfoModal from "../../components/Modal/InfoModal";
 import LibraryForm from "../../components/LibraryForm/LibraryForm";
 import LibraryFormMobail from "../../components/LibraryForm/LibraryFormMobail";
-import { LibrarySection } from "./Library.styled";
+import { LibrarySection, ToFormBtn, LibraryBnt } from "./Library.styled";
 import LibraryAllCategories from "../../components/LibraryAllCategories/LibraryAllCategories";
 import { selectCurrentUserBook } from "../../redux/auth/auth";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { ToFormBtn } from "../../components/LibraryForm/LibraryFormMobile.styled";
 import { ReactComponent as Plus } from "../../images/IconP.svg";
 import { useState } from "react";
 
@@ -22,7 +21,6 @@ export default function Library() {
 
   return (
     <>
-
       {isMobile && (
         <>
           <LibrarySection>
@@ -30,6 +28,7 @@ export default function Library() {
               <LibraryFormMobail onClose={toggleModal}></LibraryFormMobail>
             )}
             {isBook ? <InfoModal></InfoModal> : <LibraryAllCategories />}
+            <LibraryBnt to="/training">My training</LibraryBnt>
             <ToFormBtn onClick={toggleModal}>
               <Plus />
             </ToFormBtn>
@@ -41,6 +40,7 @@ export default function Library() {
           <LibrarySection>
             <LibraryForm></LibraryForm>
             {isBook ? <InfoModal></InfoModal> : <LibraryAllCategories />}
+            <LibraryBnt to="/training">My training</LibraryBnt>
           </LibrarySection>
         </>
       )}

@@ -45,10 +45,10 @@ export const trainingsApi = createApi({
     }),
     deleteTrainingBook: builder.mutation({
       query: (trainingId) => ({
-        url: `/contacts/${trainingId}`,
+        url: `/api/trainings/${trainingId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["contacts"],
+      invalidatesTags: ["trainings"],
     }),
   }),
 });

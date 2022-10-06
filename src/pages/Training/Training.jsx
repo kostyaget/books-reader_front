@@ -57,7 +57,7 @@ export default function Training() {
         <>
           <ClockTimes />
           <WithBooks />
-          <BooksListTraining />
+          <BooksListTraining training={isTrainingActive} />
           <Chart />
           <Result />
         </>
@@ -78,7 +78,7 @@ export default function Training() {
         <>
           <ClockTimes />
           <WithBooks />
-          <BooksListTraining />
+          <BooksListTraining training={isTrainingActive} />
           <Chart />
           <Result />
         </>
@@ -105,7 +105,7 @@ export default function Training() {
           <MyTrainingWarp>
             <TrainingContent>
               <ClockTimes />
-              <BooksListTraining />
+              <BooksListTraining training={isTrainingActive} />
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>
