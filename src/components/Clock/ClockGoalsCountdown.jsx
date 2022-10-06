@@ -13,13 +13,13 @@ const ClockGoalsCountdown = ({ days, hours, minutes, seconds }) => {
       <GoalTitle>Goals countdown</GoalTitle>
 
       <GoalBackground>
-        <GoalCountdownTime>{days} 100</GoalCountdownTime>
+        <GoalCountdownTime>{days}</GoalCountdownTime>
         <GoalCountdownTime>:</GoalCountdownTime>
-        <GoalCountdownTime>{hours}100</GoalCountdownTime>
+        <GoalCountdownTime>{hours}</GoalCountdownTime>
         <GoalCountdownTime>:</GoalCountdownTime>
-        <GoalCountdownTime>{minutes}100</GoalCountdownTime>
+        <GoalCountdownTime>{minutes}</GoalCountdownTime>
         <GoalCountdownTime>:</GoalCountdownTime>
-        <GoalCountdownTime>{seconds}100</GoalCountdownTime>
+        <GoalCountdownTime>{seconds}</GoalCountdownTime>
 
         <GoalItemTime>
           <GoalText>DAYS</GoalText>
