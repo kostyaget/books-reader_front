@@ -1,6 +1,7 @@
 import { useAddBookMutation } from "../../redux/users/usersApi";
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import Notiflix from "notiflix";
 
 import {
   BookFormMobile,
@@ -54,6 +55,7 @@ export default function LibraryFormMobail() {
         onSubmit={(values, { resetForm }) => {
           resetForm({ values: "" });
           createBook(values);
+          Notiflix.Notify.success("Book Added");
         }}
         validationSchema={validationsSchema}
       >
