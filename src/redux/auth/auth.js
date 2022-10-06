@@ -60,6 +60,7 @@ const authSlice = createSlice({
         authApi.endpoints.fetchGoogleAccount.matchFulfilled,
         (state, { payload }) => {
           state.link = payload;
+          state.token = payload.token;
           state.isLoggedIn = true;
         }
       )
