@@ -8,11 +8,42 @@ import {
 } from "./chartCustomPlugins";
 import { Colors } from "./Chart.styled";
 import PropTypes from "prop-types";
+import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 export const PLAN_LINE_NAME = "PLAN";
 export const ACT_LINE_NAME = "ACT";
 
-function Chart({ labelsData = ["time"], planData = [0], actData = [-1] }) {
+function Chart() {
+  const user = useFetchUserDataQuery();
+  const fetch = useFetchTrainingsDataQuery();
+  const OneDay = 86400000;
+  let labelsData = [];
+  let planData = [];
+  let actData = [];
+  let averageAmount = 0;
+  const arrayBooks = fetch?.data?.data;
+  const userProgress = user?.data?.user?.info?.progress;
+
+  userProgress?.forEach(({ trainingDate, pagesAmount }) => {
+    labelsData.push(trainingDate);
+    actData.push(pagesAmount);
+  });
+
+  arrayBooks?.forEach(({ finishDate, startDate, book }) => {
+    const counterDays = Number(
+      (Date.parse(finishDate) - Date.parse(startDate)) / OneDay
+    );
+    // console.log("Кількість днів", counterDays);
+    const counterPages = Math.round(book.pageAmount / counterDays);
+    // console.log("К-ть сторінок/д", counterPages);
+    return (averageAmount += counterPages);
+  });
+
+  for (let i = 0; i < labelsData.length; i += 1) {
+    planData.push(averageAmount);
+  }
+
   if (!labelsData.length) {
     labelsData = ["time"];
   }
@@ -27,17 +58,17 @@ function Chart({ labelsData = ["time"], planData = [0], actData = [-1] }) {
     labels: labelsData,
     datasets: [
       {
-        label: ACT_LINE_NAME,
-        data: actData,
-        borderColor: Colors.accent,
-        pointBackgroundColor: Colors.accent,
-        fill: false,
-      },
-      {
         label: PLAN_LINE_NAME,
         data: planData,
         borderColor: Colors.dark,
         pointBackgroundColor: Colors.dark,
+        fill: false,
+      },
+      {
+        label: ACT_LINE_NAME,
+        data: actData,
+        borderColor: Colors.accent,
+        pointBackgroundColor: Colors.accent,
         fill: false,
       },
     ],
@@ -61,5 +92,3 @@ Chart.propTypes = {
 };
 
 export default Chart;
-// how to connect
-// <Chart labelsData={array1} planValue={number} actData={array2} />;

@@ -11,24 +11,24 @@ import {
   Container,
 } from "./Resume.styled";
 
-const Resume = ({ id, ratingBook, summaryBook }) => {
-  const [rating, setRating] = useState(1);
-  const [summary, setSummary] = useState("");
+const Resume = ({ id, ratingBook, summaryBook = "" }) => {
+  // const [rating, setRating] = useState(1);
+  const [summary, setSummary] = useState(summaryBook);
 
   const [updateResume] = useUpdateResumeMutation();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    updateResume({ id, rating, summary });
+    updateResume({ id, summary });
 
-    reset();
+    // reset();
   };
 
-  const reset = () => {
-    setRating(1);
-    setSummary("");
-  };
+  // const reset = () => {
+  //   setRating(1);
+  //   setSummary("");
+  // };
 
   return (
     <Container>
