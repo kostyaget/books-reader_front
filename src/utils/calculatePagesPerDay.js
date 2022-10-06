@@ -10,3 +10,9 @@ export const calculatePagesPerDay = (startDate, finishDate, numOfPages) => {
 //   (a, e, i) => a.concat(i === 0 ? e.pagesAmount : e.pagesAmount + a.at(-1)),
 //   []
 // );
+//  const progressDate = userDate?.data?.user?.info?.progress.map(
+//    (i) => i.trainingDate
+//  );
+//  const progressPage = userDate?.data?.user?.info?.progress.map(
+//    (e) => e.pagesAmount
+//  );

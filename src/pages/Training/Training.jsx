@@ -10,7 +10,6 @@ import Result from "../../components/Result/Result";
 import ClockTimes from "../../components/Clock/index";
 import StartTrainingBtn from "../../components/StartTrainingBtn/StartTrainingBtn";
 import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
-import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import {
   Section,
@@ -26,14 +25,6 @@ export default function Training() {
   const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
   const [isTrainingActive, setIsTrainingActive] = useState(false);
   const { data } = useFetchTrainingsDataQuery();
-  const userDate = useFetchUserDataQuery();
-
-  const progressDate = userDate?.data?.user?.info?.progress.map(
-    (i) => i.trainingDate
-  );
-  const progressPage = userDate?.data?.user?.info?.progress.map(
-    (e) => e.pagesAmount
-  );
 
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
@@ -115,11 +106,7 @@ export default function Training() {
             <TrainingContent>
               <ClockTimes />
               <BooksListTraining />
-              <Chart
-                labelsData={progressDate}
-                actData={progressPage}
-                planData={[25, 25, 25, 25, 25, 25]}
-              />
+              <Chart />
             </TrainingContent>
           </MyTrainingWarp>
           <SideBar>
