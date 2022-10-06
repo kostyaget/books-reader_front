@@ -8,11 +8,11 @@ const ExitModal = () => {
       <div>
         <Svg src={Like} alt="like" />
       </div>
-      <Rating>Вітаю! Ще одна книга прочитана.</Rating>
+      <Rating>Congratulations! Another book read.</Rating>
       <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
         <Form>
           <ItemBtn>
-            <BtnColor type="submit">Готово</BtnColor>
+            <BtnColor type="submit">Done</BtnColor>
           </ItemBtn>
         </Form>
       </Formik>

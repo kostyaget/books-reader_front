@@ -8,16 +8,6 @@ export const Header = styled.header`
   height: 60px;
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
   background-color: #ffffff;
-
-  @media screen and (max-width: 768px) {
-    width: 320px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
-  }
 `;
 export const Logo = styled.a`
   width: 28px;

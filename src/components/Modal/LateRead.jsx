@@ -1,5 +1,6 @@
 import { Form, Formik } from "formik";
 import {
+  Backdrop,
   Rating,
   BtnColor,
   Btn,
@@ -11,26 +12,28 @@ import Like from "../../images/Vector2.svg";
 
 const ExitModal = ({ showModal, setShowModal }) => {
   return (
-    <Container>
-      <div>
-        <Svg src={Like} alt="like" />
-      </div>
-      <Rating>
-        Ти молодчина, але потрібно швидше! Наступного разу тобі все вдасться
-      </Rating>
-      <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
-        <Form>
-          <ItemBtn>
-            <BtnColor type="submit" onClick={() => setShowModal(!showModal)}>
-              Готово
-            </BtnColor>
-            <Btn type="button" onClick={() => setShowModal(!showModal)}>
-              Назад
-            </Btn>
-          </ItemBtn>
-        </Form>
-      </Formik>
-    </Container>
+    <Backdrop>
+      <Container>
+        <div>
+          <Svg src={Like} alt="like" />
+        </div>
+        <Rating>
+          Well done! but you need to be a little bit faster. You can do it
+        </Rating>
+        <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
+          <Form>
+            <ItemBtn>
+              <BtnColor type="submit" onClick={() => setShowModal(!showModal)}>
+                Done
+              </BtnColor>
+              <Btn type="button" onClick={() => setShowModal(!showModal)}>
+                Back
+              </Btn>
+            </ItemBtn>
+          </Form>
+        </Formik>
+      </Container>
+    </Backdrop>
   );
 };
 
