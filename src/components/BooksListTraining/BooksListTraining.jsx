@@ -33,18 +33,13 @@ import PropTypes from "prop-types";
 import EllipsisText from "react-ellipsis-text";
 import DeleteButton from "./DeleteButton";
 import CheckboxTraning from "./CheckboxTraning/CheckboxTraning";
-import { useFetchUserDataQuery } from "../../redux/users/usersApi";
+import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 
 export default function BooksListTraining({ training = false }) {
-  const { data } = useFetchUserDataQuery();
-  console.log(data);
-  const inprogressList = data?.user.books.filter(
-    (el) => el.status === "inprogress"
-  );
-  console.log(inprogressList);
-  const list = inprogressList ? inprogressList : [];
+  const { data } = useFetchTrainingsDataQuery();
+  console.log(data?.data);
   let empty = false;
-  if (!list.length) {
+  if (!data?.data?.length) {
     empty = true;
   }
   return (
@@ -60,68 +55,61 @@ export default function BooksListTraining({ training = false }) {
           </TrHead>
         </THead>
         <Tbody>
-          {list.map(
-            ({
-              _id = "0",
-              title = "",
-              author = "",
-              publishingDate = 0,
-              pageAmount = 0,
-              status,
-            }) => (
-              <TrbodyTraining key={_id}>
-                <TdBookTitle>
-                  <FirstColumn>
-                    <IconContainer>
-                      {!training && <LibraryIco />}
-                      {/* {training && !read && <CheckboxIco />} */}
-                      {training && (
-                        <CheckboxTraning id={_id} statusBook={status} />
-                      )}
-                      {/* {training && read && <CheckboxActiveIco />} */}
-                    </IconContainer>
-                    <div>
-                      <Text>
-                        <EllipsisText text={title} length={40} />
-                      </Text>
-                      {/* mobile table start */}
-                      <MobileTableWrapper>
-                        <TableMobile>
-                          <TbodyMobile>
-                            <TrMobile>
-                              <ThMobile>Author:</ThMobile>
-                              <TdMobile>
-                                <EllipsisText text={author} length={20} />
-                              </TdMobile>
-                            </TrMobile>
-                            <TrMobile>
-                              <ThMobile>Year:</ThMobile>
-                              <TdMobile>{publishingDate.slice(0, 4)}</TdMobile>
-                            </TrMobile>
-                            <TrMobile>
-                              <ThMobile>Pages:</ThMobile>
-                              <TdMobile>{pageAmount}</TdMobile>
-                            </TrMobile>
-                          </TbodyMobile>
-                        </TableMobile>
-                      </MobileTableWrapper>
-                      {/* mobile table end */}
-                    </div>
-                  </FirstColumn>
-                </TdBookTitle>
-                <TdAuthor>
-                  <EllipsisText text={author} length={20} />
-                </TdAuthor>
-                <TdYear>{publishingDate.slice(0, 4)}</TdYear>
-                <TdPages>{pageAmount}</TdPages>
-                {!training && (
-                  <TdDelete>
-                    <DeleteButton idBook={_id} />
-                  </TdDelete>
-                )}
-              </TrbodyTraining>
-            )
-          )}
+          {data?.data?.map(({ _id = "007", book = [] }) => (
+            <TrbodyTraining key={_id}>
+              <TdBookTitle>
+                <FirstColumn>
+                  <IconContainer>
+                    {!training && <LibraryIco />}
+                    {/* {training && !read && <CheckboxIco />} */}
+                    {training && (
+                      <CheckboxTraning id={book._id} statusBook={book.status} />
+                    )}
+                    {/* {training && read && <CheckboxActiveIco />} */}
+                  </IconContainer>
+                  <div>
+                    <Text>
+                      <EllipsisText text={book.title} length={40} />
+                    </Text>
+                    {/* mobile table start */}
+                    <MobileTableWrapper>
+                      <TableMobile>
+                        <TbodyMobile>
+                          <TrMobile>
+                            <ThMobile>Author:</ThMobile>
+                            <TdMobile>
+                              <EllipsisText text={book.author} length={20} />
+                            </TdMobile>
+                          </TrMobile>
+                          <TrMobile>
+                            <ThMobile>Year:</ThMobile>
+                            <TdMobile>
+                              {book.publishingDate.slice(0, 4)}
+                            </TdMobile>
+                          </TrMobile>
+                          <TrMobile>
+                            <ThMobile>Pages:</ThMobile>
+                            <TdMobile>{book.pageAmount}</TdMobile>
+                          </TrMobile>
+                        </TbodyMobile>
+                      </TableMobile>
+                    </MobileTableWrapper>
+                    {/* mobile table end */}
+                  </div>
+                </FirstColumn>
+              </TdBookTitle>
+              <TdAuthor>
+                <EllipsisText text={book.author} length={20} />
+              </TdAuthor>
+              <TdYear>{book.publishingDate.slice(0, 4)}</TdYear>
+              <TdPages>{book.pageAmount}</TdPages>
+              {!training && (
+                <TdDelete>
+                  <DeleteButton idTraning={_id} />
+                </TdDelete>
+              )}
+            </TrbodyTraining>
+          ))}
           {/* empty start */}
           {empty && (
             <TrbodyTraining>
@@ -146,6 +134,5 @@ export default function BooksListTraining({ training = false }) {
 }
 
 BooksListTraining.propTypes = {
-  list: PropTypes.array,
   training: PropTypes.bool,
 };
