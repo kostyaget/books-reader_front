@@ -55,7 +55,7 @@ export default function Training() {
       )}
       {isMobile && isTrainingActive && (
         <>
-          <ClockTimes />
+          <ClockTimes data={data} />
           <WithBooks />
           <BooksListTraining training={isTrainingActive} />
           <Chart />
@@ -76,7 +76,7 @@ export default function Training() {
       )}
       {isTablet && isTrainingActive && (
         <>
-          <ClockTimes />
+          <ClockTimes data={data} />
           <WithBooks />
           <BooksListTraining training={isTrainingActive} />
           <Chart />
@@ -104,7 +104,7 @@ export default function Training() {
         <DesktopTrainingWrapper>
           <MyTrainingWarp>
             <TrainingContent>
-              <ClockTimes />
+              <ClockTimes data={data} />
               <BooksListTraining training={isTrainingActive} />
               <Chart />
             </TrainingContent>
