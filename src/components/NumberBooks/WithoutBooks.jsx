@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Goal,
   ResultItem,
@@ -14,21 +15,21 @@ const WithoutBooks = () => {
   return (
     <Container>
       <Goal>
-        <TextTitle>Моя мета прочитати</TextTitle>
+        <TextTitle>My goals</TextTitle>
       </Goal>
       <ResultItem>
         <ListNumbers>
           <RoomArea>
-            <Number>100</Number>
+            <Number>0</Number>
           </RoomArea>
-          <TextNumber>Кількість книжок</TextNumber>
+          <TextNumber>Amount of books</TextNumber>
         </ListNumbers>
 
         <ListNumbers>
           <RoomArea>
-            <Number>100</Number>
+            <Number>0</Number>
           </RoomArea>
-          <TextNumber>Кількість днів</TextNumber>
+          <TextNumber>Amount of days</TextNumber>
         </ListNumbers>
       </ResultItem>
     </Container>

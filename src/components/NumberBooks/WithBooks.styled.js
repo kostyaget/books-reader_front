@@ -101,6 +101,7 @@ export const TextTitle = styled.p`
 
 export const ResultItem = styled.ul`
   display: flex;
+  justify-content: center;
 `;
 
 export const ListNumbers = styled.li`
@@ -132,14 +133,14 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  box-shadow: 4px 4px 8px rgba(80, 80, 55, 5);
+  box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.25);
   @media ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
     max-height: 221px;
   }
   @media ${device.tablet} and (max-width: 1023px) {
     max-width: 704px;
-    max-height: 125px;
+    max-height: 105px;
     display: flex;
   }
   @media ${device.laptop} {
