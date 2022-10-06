@@ -6,8 +6,7 @@ export const Container = styled.div`
     margin-left: auto;
     margin-right: auto;
   @media screen and (min-width: 1280px) {
-    display: flex;   
-    
+    display: flex;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
