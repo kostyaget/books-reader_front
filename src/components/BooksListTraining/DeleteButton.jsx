@@ -4,6 +4,8 @@ import deleteIc from "../../images/svg/delete.svg";
 import deleteActiveIc from "../../images/svg/deleteActive.svg";
 import { useDeleteTrainingBookMutation } from "../../redux/trainings/trainingsApi";
 import { useUpdateStatusMutation } from "../../redux/users/usersApi";
+import Notiflix from "notiflix";
+
 
 const BreakPoint = {
   mobileMin: "min-width: 320px",
@@ -47,6 +49,8 @@ export default function DeleteButton({ idTraning, idBook }) {
       onClick={() => {
         updateStatus(newStatus);
         deleteBook(idTraning);
+        Notiflix.Notify.success("Book Deleted Successfully");
+
       }}
     ></DeleteIco>
   );

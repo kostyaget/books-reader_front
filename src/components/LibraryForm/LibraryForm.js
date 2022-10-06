@@ -1,4 +1,5 @@
 import { useAddBookMutation } from "../../redux/users/usersApi";
+import Notiflix from "notiflix";
 
 import {
   BookForm,
@@ -41,6 +42,7 @@ export default function LibraryForm() {
         onSubmit={(values, { resetForm }) => {
           resetForm({ values: "" });
           createBook(values);
+          Notiflix.Notify.success("Book Added");
         }}
         validationSchema={validationsSchema}
       >
