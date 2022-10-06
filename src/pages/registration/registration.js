@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
 import { useCreateNewUserMutation } from "../../redux/auth/authApi";
+import Notiflix from "notiflix";
 
 import {
   Section,
@@ -60,8 +61,9 @@ const Registration = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
-            resetForm();
             createUser(values);
+            resetForm();
+            Notiflix.Notify.warning("Confirm Registration by Mail");
           }}
         >
           {({

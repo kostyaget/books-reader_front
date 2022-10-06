@@ -3,6 +3,8 @@ import * as yup from "yup";
 import google from "../../images/google icon.svg";
 import { Link } from "react-router-dom";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
+import Notiflix from "notiflix";
+
 
 import {
   Error,
@@ -48,6 +50,7 @@ const Login = () => {
             console.log(values);
             loginUser(values);
             resetForm();
+            Notiflix.Notify.success("LogIn Success");
           }}
         >
           {({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
