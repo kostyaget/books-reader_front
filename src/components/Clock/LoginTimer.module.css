@@ -1,0 +1,9 @@
+.changePage {
+    padding: 10px;
+    color: var(--accent-active-cl);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  
