@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
+import Notiflix from "notiflix";
 
 import queryString from "query-string";
 import { Link, useLocation } from "react-router-dom";
@@ -65,6 +66,7 @@ const Login = () => {
           onSubmit={(values, { resetForm }) => {
             console.log(values);
             loginUser(values);
+            Notiflix.Notify.success("LogIn Success");
             resetForm();
           }}
         >
