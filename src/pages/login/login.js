@@ -4,10 +4,7 @@ import google from "../../images/google icon.svg";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
 import Notiflix from "notiflix";
 
-import queryString from "query-string";
-import { Link, useLocation } from "react-router-dom";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+
 import {
   Error,
   ErrorMessage,
@@ -47,7 +44,7 @@ const Login = () => {
       .min(10, "Must be more than 10 characters")
       .max(63, "Must be no more than 63 characters")
       .required("Email is required"),
-      
+
     password: yup
       .string()
       .matches(/^[a-zA-Z0-9]/, "Password must start with letter or number")

@@ -1,3 +1,5 @@
+import { useCountdown } from '../../hooks/useCountdown';
+import { useTranslation } from 'react-i18next';
 import {
   GoalContainer,
   GoalTitle,
@@ -7,9 +9,11 @@ import {
   GoalBackground,
 } from "./ClockTest";
 
-const ClockGoalsCountdown = ({ days, hours, minutes, seconds }) => {
+const ClockGoalsCountdown = ({ header, days, hours, minutes, seconds }) => {
+  const { t } = useTranslation();
   return (
     <GoalContainer>
+       <GoalTitle>{header}</GoalTitle>
       <GoalTitle>Goals countdown</GoalTitle>
 
       <GoalBackground>

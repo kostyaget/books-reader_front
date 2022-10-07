@@ -1,0 +1,86 @@
+.countdownTimers {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .countdownTimer {
+    text-align: -webkit-center;
+  }
+  
+  .countdownTimer:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  
+  .countdownTimer h3 {
+    margin: 0;
+    color: var(--secondary-text-color);
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17.07px;
+  }
+  
+  .showCounter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 60px;
+    margin-top: 9px;
+    background: var(--main-color);
+    box-shadow: 4px 4px 8px rgba(36, 42, 55, 0.15);
+  }
+  
+  .showCounter > p {
+    align-self: start;
+    margin: 1px 10px;
+    color: var(--goals-amount-color);
+    font-family: var(--countdown-font);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 38px;
+  }
+  
+  .countdown > p {
+    margin: 1px 0;
+    color: var(--goals-amount-color);
+    font-family: var(--countdown-font);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 38px;
+  }
+  
+  .countdown > span {
+    vertical-align: top;
+    color: var(--secondary-text-color);
+    font-family: var(--main-font);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 12px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .countdownTimers {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+  
+    .countdownTimer:not(:last-child) {
+      margin-bottom: 0;
+      margin-right: 32px;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .countdownTimers {
+      margin:0;
+      grid-column: 1;
+        grid-row: 1;
+    }
+  
+    .countdownTimer:not(:last-child) {
+      margin-right: 74px;
+    }
+  }
+  
