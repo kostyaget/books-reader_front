@@ -32,7 +32,7 @@ const ClockYearsCountdown = ({ deadline, startDate }) => {
 
   return (
     <GoalContainer>
-      <GoalTitle>Years countdown</GoalTitle>
+      <GoalTitle>Goals countdown</GoalTitle>
 
       <GoalBackground>
         <GoalCountdownTime>{makeMeTwoDigits(days)}</GoalCountdownTime>
