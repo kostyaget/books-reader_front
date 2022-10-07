@@ -5,9 +5,9 @@ import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 export default function LibraryAllCategories() {
   const { data } = useFetchUserDataQuery();
-  console.log(data?.user.books);
+  // console.log(data?.user.books);
   const listAllCategories = data?.user.books;
-  console.log(listAllCategories);
+  // console.log(listAllCategories);
   let completedList = [];
   let inprogressList = [];
   let nexList = [];
