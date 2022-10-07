@@ -14,6 +14,8 @@ export const Section = styled.section`
     padding: 30px 55px;
   }
   @media ${device.laptop} {
+    padding: 19px 10px;
+    margin-top: 0;
     width: 268px;
     max-height: 340px;
   }

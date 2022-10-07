@@ -19,9 +19,9 @@ import {
   Star,
   LoginLink,
   GLink,
+  RLink,
   ErrorMessage,
 } from "./registration.styled";
-import { Link } from "react-router-dom";
 
 const Registration = () => {
   const [createUser] = useCreateNewUserMutation();
@@ -63,10 +63,14 @@ const Registration = () => {
             repeat_password: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={(values, { resetForm }) => {
-            createUser(values);
+          onSubmit={async (values, { resetForm }) => {
             resetForm({ values: "" });
-            Notiflix.Notify.warning("Confirm Registration by Mail");
+            const res = await createUser(values);
+            if (res.error) {
+              Notiflix.Notify.failure("You can't use this email");
+            } else {
+              Notiflix.Notify.warning("Confirmation email has been sent");
+            }
           }}
         >
           {({
@@ -160,9 +164,9 @@ const Registration = () => {
                 <RegisterBtn type="submit">Register</RegisterBtn>
                 <LoginLink>
                   <LogTitle>Already have an account?</LogTitle>
-                  <Link to="/login">
-                    <Login>Log in</Login>{" "}
-                  </Link>
+                  <RLink to="/login">
+                    <Login>Log in</Login>
+                  </RLink>
                 </LoginLink>
               </SectionRegistration>
             </form>
