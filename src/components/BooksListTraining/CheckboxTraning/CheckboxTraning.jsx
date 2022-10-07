@@ -1,27 +1,39 @@
 import * as React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import { useUpdateStatusMutation } from "../../../redux/users/usersApi";
-import { useDeleteTrainingBookMutation } from "../../../redux/trainings/trainingsApi";
 
 export default function CheckboxTraning({ id, statusBook, idTraning }) {
   const [updateStatus] = useUpdateStatusMutation();
-  const [deleteBook] = useDeleteTrainingBookMutation();
-  //   const [value, setValue] = React.useState(false);
-  //   console.log("Chackbox:", value);
-  // console.log(updateStatus);
-  const newStatus = {
+
+  let statusLoad = false;
+  if (statusBook === "completed") {
+    statusLoad = true;
+  }
+  if (statusBook === "inprogress") {
+    statusLoad = false;
+  }
+  const [value, setValue] = React.useState(statusLoad);
+
+  const statusCompleted = {
     id,
     status: "completed",
+  };
+  const statusInprogress = {
+    id,
+    status: "inprogress",
   };
   return (
     <div>
       <Checkbox
-        // onChange={(event, newValue) => {
-        //   setValue(newValue);
-        // }}
-        onChange={() => {
-          updateStatus(newStatus);
-          deleteBook(idTraning);
+        checked={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+          if (newValue) {
+            updateStatus(statusCompleted);
+          }
+          if (!newValue) {
+            updateStatus(statusInprogress);
+          }
         }}
         size="small"
         sx={{
