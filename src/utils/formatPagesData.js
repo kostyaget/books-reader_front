@@ -7,3 +7,4 @@ export const formatPagesDate = (date) => {
 export const formatPagesTime = (date) => {
   return format(Date.parse(date), "hh:mm:ss");
 };
+
