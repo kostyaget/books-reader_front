@@ -25,10 +25,10 @@ const schema = yup.object().shape({
     .required("Enter a date"),
   pagesAmount: yup
     .number()
-    .positive("Enter a whole number between 1 and 1000")
-    .integer("Enter a whole number between 1 and 1000")
-    .max(999, "Enter a whole number between 1 and 1000")
-    .required("Enter a whole number between 1 and 1000"),
+    .positive("Enter valid number of pages")
+    .integer("Enter valid number of pages")
+    .max(999, "Enter number less than 1000")
+    .required("Amount of pages is required"),
 });
 
 const FormError = ({ name }) => {

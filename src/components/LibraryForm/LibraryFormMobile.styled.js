@@ -79,6 +79,8 @@ export const BackArrowMobile = styled(Link)`
 `;
 
 export const ValidMessegeMobile = styled.span`
+  margin-left: 5px;
+  font-size: 10px;
   color: red;
 `;
 export const InputWrapperListMobile = styled.ul`
@@ -88,4 +90,3 @@ padding:0px;
 export const InputWrapperMobile = styled.li`
   display: inline-block;
 `;
-

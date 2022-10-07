@@ -83,6 +83,7 @@ export const Container = styled.div`
   left: 0;
   right: 0;
   top: 50%;
+  z-index: 20;
   margin-left: auto;
   margin-right: auto;
   padding-top: 24px;

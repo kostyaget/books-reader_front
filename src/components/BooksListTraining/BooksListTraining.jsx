@@ -37,7 +37,7 @@ import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 
 export default function BooksListTraining({ training = false }) {
   const { data } = useFetchTrainingsDataQuery();
-  console.log(data?.data);
+  // console.log(data?.data);
   let empty = false;
   if (!data?.data?.length) {
     empty = true;
