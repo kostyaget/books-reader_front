@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
 import Notiflix from "notiflix";
 
-
 import {
   Error,
   ErrorMessage,
@@ -27,13 +26,17 @@ const Login = () => {
   const validationSchema = yup.object().shape({
     email: yup
       .string()
-      .typeError("Will be a string")
-      .min(4)
-      .required("Required"),
+      .email("Email should be valid")
+      .min(10, "Must be more than 10 characters")
+      .max(63, "Must be no more than 63 characters")
+      .required("Email is required"),
+
     password: yup
       .string()
-      .typeError("Will be a string")
-      .min(6)
+      .matches(/^[a-zA-Z0-9]/, "Password must start with letter or number")
+      .matches(/^\S+$/, "Password  can't contain spaces")
+      .min(5, "Must be more than 5 characters")
+      .max(30, "Must be no more than 30 characters")
       .required("Required"),
   });
 
@@ -47,13 +50,19 @@ const Login = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
-            console.log(values);
+            resetForm({ values: "" });
             loginUser(values);
-            resetForm();
             Notiflix.Notify.success("LogIn Success");
           }}
         >
-          {({ errors, touched, handleBlur, handleChange, handleSubmit }) => (
+          {({
+            values,
+            errors,
+            touched,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+          }) => (
             <form onSubmit={handleSubmit}>
               <SectionLogin>
                 <GoogleSection>
@@ -72,6 +81,7 @@ const Login = () => {
                 <InputField
                   type="email"
                   name="email"
+                  value={values.email}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="your@email.com"
@@ -88,6 +98,7 @@ const Login = () => {
                 <InputField
                   type="password"
                   name="password"
+                  value={values.password}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="Password"
