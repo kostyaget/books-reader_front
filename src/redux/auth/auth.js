@@ -7,9 +7,15 @@ const authSlice = createSlice({
     user: null,
     token: null,
     isLoggedIn: false,
-    link: null,
   },
-  reducers: {},
+  // reducers: {},
+  reducers: {
+    googleLogIn(state, action) {
+      state.user = action?.payload.user;
+      state.token = action?.payload.token;
+      state.isLoggedIn = true;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addMatcher(
@@ -59,14 +65,14 @@ const authSlice = createSlice({
       .addMatcher(
         authApi.endpoints.fetchGoogleAccount.matchFulfilled,
         (state, { payload }) => {
-          state.link = payload;
+          state.user = payload;
           state.isLoggedIn = true;
         }
       )
       .addMatcher(
         authApi.endpoints.fetchGoogleAccount.matchRejected,
         (state, _action) => {
-          state.link = null;
+          state.user = null;
           state.isLoggedIn = false;
         }
       )
@@ -81,6 +87,7 @@ const authSlice = createSlice({
   },
 });
 
+export const { googleLogIn } = authSlice.actions;
 export default authSlice.reducer;
 
 //  selectors
@@ -90,4 +97,3 @@ export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectIsError = (state) => state.auth.isError;
 export const selectIsPending = (state) => state.auth.isPending;
 export const selectCurrentUserBook = (state) => state.auth.user.books;
-

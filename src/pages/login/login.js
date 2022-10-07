@@ -1,10 +1,13 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
-import { Link } from "react-router-dom";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
 import Notiflix from "notiflix";
 
+import queryString from "query-string";
+import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import {
   Error,
   ErrorMessage,
@@ -21,8 +24,22 @@ import {
   Star,
 } from "./login.styled";
 
+import { googleLogIn } from "../../redux/auth/auth";
+
 const Login = () => {
   const [loginUser] = useLoginUserMutation();
+
+  const location = useLocation();
+  const query = queryString.parse(location.search);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (query.token) {
+      const { name, email, token } = query;
+      const user = { name, email };
+      dispatch(googleLogIn({ user, token }));
+    }
+  });
+
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -30,7 +47,7 @@ const Login = () => {
       .min(10, "Must be more than 10 characters")
       .max(63, "Must be no more than 63 characters")
       .required("Email is required"),
-
+      
     password: yup
       .string()
       .matches(/^[a-zA-Z0-9]/, "Password must start with letter or number")
