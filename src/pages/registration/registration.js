@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
 import { useCreateNewUserMutation } from "../../redux/auth/authApi";
+import Notiflix from "notiflix";
 
 import {
   Section,
@@ -28,24 +29,27 @@ const Registration = () => {
   const validationSchema = yup.object().shape({
     username: yup
       .string()
-      .typeError("Will be a string")
-      .min(3)
-      .required("Required"),
+      .matches(/^[a-zA-Z0-9]/, "Username must start with letter or number")
+      .min(3, "Must be more than 3 characters")
+      .max(100, "Must be no more than 100 characters")
+      .required("Username is required"),
     email: yup
       .string()
-      .typeError("Will be a string")
-      .min(4)
-      .required("Required"),
+      .email("Email should be valid")
+      .min(10, "Must be more than 10 characters")
+      .max(63, "Must be no more than 63 characters")
+      .required("Email is required"),
     password: yup
       .string()
-      .typeError("Will be a string")
-      .min(6)
+      .matches(/^[a-zA-Z0-9]/, "Password must start with letter or number")
+      .matches(/^\S+$/, "Password  can't contain spaces")
+      .min(5, "Must be more than 5 characters")
+      .max(30, "Must be no more than 30 characters")
       .required("Required"),
     repeat_password: yup
       .string()
-      .min(6)
-      .oneOf([yup.ref("password")], "Passwords doesn't match")
-      .required("Required"),
+      .oneOf([yup.ref("password")], "Passwords must match")
+      .required("Password confirmation is a required"),
   });
 
   return (
@@ -60,8 +64,9 @@ const Registration = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
-            resetForm();
             createUser(values);
+            resetForm({ values: "" });
+            Notiflix.Notify.warning("Confirm Registration by Mail");
           }}
         >
           {({
@@ -145,6 +150,7 @@ const Registration = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="..."
+                  onPaste={(e) => e.preventDefault()}
                 />
                 <ErrorMessage>
                   {errors.repeat_password && touched.repeat_password ? (

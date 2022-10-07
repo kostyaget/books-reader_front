@@ -1,4 +1,5 @@
 import React from "react";
+import { calculateTrainigDuration } from "../../utils/formatTrainigData";
 import {
   Goal,
   ResultItem,
@@ -11,33 +12,39 @@ import {
   NumberColor,
 } from "./WithBooks.styled";
 
-const WithBooks = () => {
+const WithBooks = ({ data }) => {
+  const startDates = data.data.map((e) => new Date(e.startDate));
+  const finishDates = data.data.map((e) => new Date(e.finishDate));
+  const minDate = new Date(Math.min(...startDates));
+  const maxDate = new Date(Math.max(...finishDates));
+  const { days } = calculateTrainigDuration(minDate, maxDate);
+
   return (
     <Container>
       <Goal>
-        <TextTitle>Моя мета прочитати</TextTitle>
+        <TextTitle>My goals</TextTitle>
       </Goal>
 
       <ResultItem>
         <ListNumbers>
           <RoomArea>
-            <Number>100</Number>
+            <Number>{data.data.length}</Number>
           </RoomArea>
-          <TextNumber>Кількість книжок</TextNumber>
+          <TextNumber>Amount of books</TextNumber>
         </ListNumbers>
 
         <ListNumbers>
           <RoomArea>
-            <Number>100</Number>
+            <Number>{days}</Number>
           </RoomArea>
-          <TextNumber>Кількість днів</TextNumber>
+          <TextNumber>Amount of days</TextNumber>
         </ListNumbers>
 
         <ListNumbers>
           <RoomArea>
-            <NumberColor>100</NumberColor>
+            <NumberColor>{data.data.length}</NumberColor>
           </RoomArea>
-          <TextNumber>Залишилось книжок</TextNumber>
+          <TextNumber>Books left</TextNumber>
         </ListNumbers>
       </ResultItem>
     </Container>

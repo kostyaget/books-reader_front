@@ -37,7 +37,7 @@ import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 
 export default function BooksListTraining({ training = false }) {
   const { data } = useFetchTrainingsDataQuery();
-  console.log(data?.data);
+  // console.log(data?.data);
   let empty = false;
   if (!data?.data?.length) {
     empty = true;
@@ -63,7 +63,11 @@ export default function BooksListTraining({ training = false }) {
                     {!training && <LibraryIco />}
                     {/* {training && !read && <CheckboxIco />} */}
                     {training && (
-                      <CheckboxTraning id={book._id} statusBook={book.status} />
+                      <CheckboxTraning
+                        id={book._id}
+                        statusBook={book.status}
+                        idTraning={_id}
+                      />
                     )}
                     {/* {training && read && <CheckboxActiveIco />} */}
                   </IconContainer>
@@ -105,7 +109,7 @@ export default function BooksListTraining({ training = false }) {
               <TdPages>{book.pageAmount}</TdPages>
               {!training && (
                 <TdDelete>
-                  <DeleteButton idTraning={_id} />
+                  <DeleteButton idTraning={_id} idBook={book._id} />
                 </TdDelete>
               )}
             </TrbodyTraining>

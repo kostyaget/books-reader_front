@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { device } from "../device/device";
 
+export const Backdrop = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgba(43, 43, 43, 0.25);
+`;
+
 export const Rating = styled.p`
   font-family: "Montserrat";
   font-style: normal;
@@ -96,11 +106,12 @@ export const ItemBtn = styled.div`
 `;
 
 export const Container = styled.div`
-  position: absolute;
   z-index: 20;
-  top: 100%;
-  left: 12%;
-  transform: translateX(0);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   transition: opacity 300ms, transform 300ms;
   background: #ffffff;
   @media screen and ${device.mobileS} and (max-width: 767px) {
@@ -108,13 +119,8 @@ export const Container = styled.div`
     max-height: 318px;
   }
   @media screen and ${device.tablet} {
-    left: 25%;
     width: 394px;
     max-height: 286px;
-  }
-  @media screen and ${device.laptop} {
-    top: 80%;
-    left: 30%;
   }
 `;
 

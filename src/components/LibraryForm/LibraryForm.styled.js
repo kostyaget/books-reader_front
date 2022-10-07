@@ -30,7 +30,6 @@ export const BookInputTitle = styled.input`
   width: 274px;
   height: 42px;
   border: 1px solid #a6abb9;
-  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     width: 698px;
@@ -39,12 +38,12 @@ export const BookInputTitle = styled.input`
   @media screen and (min-width: 1280px) {
     width: 340px;
   }
+  }
 `;
 export const BookInputAuthor = styled.input`
   width: 274px;
   height: 42px;
   border: 1px solid #a6abb9;
-  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     width: 330px;
@@ -58,7 +57,6 @@ export const BookInput = styled.input`
   width: 274px;
   height: 42px;
   border: 1px solid #a6abb9;
-  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     width: 146px;
@@ -116,8 +114,8 @@ export const BookBnt = styled.button`
   }
 `;
 
-
 export const ValidMessege = styled.span`
+  font-size: 12px;
   color: red;
 `;
 export const InputWrapperList = styled.ul`
@@ -134,8 +132,8 @@ padding:0px;
   }
 `;
 export const InputWrapper = styled.li`
-  display: inline-block;
-
+  display: flex;
+  flex-direction: column;
   @media screen and (min-width: 768px) {
     margin-right: 31px;
   }

@@ -68,6 +68,7 @@ export default function BooksListMarkup({
               publishingDate = 0,
               pageAmount = 0,
               rating = 0,
+              summary = "",
             }) => (
               <Trbody key={_id}>
                 <TdBookTitle>
@@ -110,7 +111,11 @@ export default function BooksListMarkup({
                             {alreadyReadList && (
                               <TrMobile>
                                 <TdMobileButton>
-                                  <ButtonResume id={_id} />
+                                  <ButtonResume
+                                    id={_id}
+                                    rating={rating}
+                                    summaryBook={summary}
+                                  />
                                 </TdMobileButton>
                               </TrMobile>
                             )}
@@ -130,7 +135,11 @@ export default function BooksListMarkup({
                   <TdRating>
                     <RatingWrapper>
                       <RatingStars rating={rating} id={_id} />
-                      <ButtonResume id={_id} />
+                      <ButtonResume
+                        id={_id}
+                        rating={rating}
+                        summaryBook={summary}
+                      />
                     </RatingWrapper>
                   </TdRating>
                 )}

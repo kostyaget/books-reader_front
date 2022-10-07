@@ -3,7 +3,7 @@ import { device } from "../device/device";
 
 export const Rating = styled.label`
   display: block;
-  width: 193px;
+  width: 100%;
   height: 20px;
   font-family: "Montserrat";
   font-style: normal;

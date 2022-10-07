@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useUpdateResumeMutation } from "../../redux/users/usersApi";
+import RatingStars from "../RatingStars/RatingStars";
 import {
   Rating,
-  RatingArea,
+  // RatingArea,
   Summary,
   BtnColor,
   Btn,
@@ -10,30 +11,31 @@ import {
   Container,
 } from "./Resume.styled";
 
-const Resume = ({ id }) => {
-  const [rating, setRating] = useState(1);
-  const [summary, setSummary] = useState("");
+const Resume = ({ id, ratingBook, summaryBook = "" }) => {
+  // const [rating, setRating] = useState(1);
+  const [summary, setSummary] = useState(summaryBook);
 
   const [updateResume] = useUpdateResumeMutation();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    updateResume({ id, rating, summary });
+    updateResume({ id, summary });
 
-    reset();
+    // reset();
   };
 
-  const reset = () => {
-    setRating(1);
-    setSummary("");
-  };
+  // const reset = () => {
+  //   setRating(1);
+  //   setSummary("");
+  // };
 
   return (
     <Container>
       <form onSubmit={handleSubmit}>
         <Rating>Choose rating of the book</Rating>
-        <RatingArea>
+        <RatingStars id={id} rating={ratingBook} />
+        {/* <RatingArea>
           <input
             type="radio"
             id="star-5"
@@ -74,7 +76,7 @@ const Resume = ({ id }) => {
             onChange={(e) => setRating(1)}
           />
           <label htmlFor="star-1" title="Оценка «1»"></label>
-        </RatingArea>
+        </RatingArea> */}
         <Rating htmlFor="resume">Resume</Rating>
         <Summary
           type="text"

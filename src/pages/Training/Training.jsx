@@ -55,8 +55,8 @@ export default function Training() {
       )}
       {isMobile && isTrainingActive && (
         <>
-          <ClockTimes data={data} />
-          <WithBooks />
+          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
+          {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
           <Chart />
           <Result />
@@ -76,8 +76,8 @@ export default function Training() {
       )}
       {isTablet && isTrainingActive && (
         <>
-          <ClockTimes data={data} />
-          <WithBooks />
+          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
+          {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
           <Chart />
           <Result />
@@ -88,7 +88,7 @@ export default function Training() {
           <MyTrainingWarp>
             <TrainingContent>
               <MyTraining />
-              <BooksListTraining />
+              <BooksListTraining training={isTrainingActive} />
               {data?.data.length > 0 && (
                 <StartTrainingBtn openStatistics={openStatistics} />
               )}
@@ -104,13 +104,21 @@ export default function Training() {
         <DesktopTrainingWrapper>
           <MyTrainingWarp>
             <TrainingContent>
-              <ClockTimes data={data} />
+              {data?.data.length > 0 ? (
+                <ClockTimes data={data} />
+              ) : (
+                <MyTraining />
+              )}
               <BooksListTraining training={isTrainingActive} />
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>
           <SideBar>
-            <WithBooks />
+            {data?.data.length > 0 ? (
+              <WithBooks data={data} />
+            ) : (
+              <WithoutBooks />
+            )}
             <Result />
           </SideBar>
         </DesktopTrainingWrapper>
