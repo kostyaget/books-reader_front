@@ -43,7 +43,7 @@ export default function RegistrationSection() {
               </RegistrationItem>
               <RegistrationItem>
                 <Arrow></Arrow>
-                <RegistrationDesc>CTrack your success</RegistrationDesc>
+                <RegistrationDesc>Track your success</RegistrationDesc>
               </RegistrationItem>
             </RegistrationList>
 

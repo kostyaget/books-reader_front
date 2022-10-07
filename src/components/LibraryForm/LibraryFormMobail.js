@@ -14,7 +14,7 @@ import {
   ValidMessegeMobile,
   InputWrapperMobile,
   InputWrapperListMobile,
-  WrapperMobail
+  WrapperMobail,
 } from "./LibraryFormMobile.styled";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -29,20 +29,31 @@ export default function LibraryFormMobail() {
     setActive(false);
   };
 
-
-
   const validationsSchema = yup.object().shape({
-    title: yup.string().typeError("").required("*").min(3),
-    author: yup.string().typeError("").required("*").min(3),
-    publishingDate: yup.string().typeError("").required("*"),
+    title: yup
+      .string()
+      .max(50, "Must be no more than 50 characters")
+      .matches(/^[^\s-]/, "Title can't start with space or dash")
+      .required("*"),
+    author: yup
+      .string()
+      .max(50, "Must be no more than 50 characters")
+      .matches(/^[^\s-]/, "Author can't start with space or dash")
+      .matches(/^\D+$/, "Author can't contain digits")
+      .required("*"),
+    publishingDate: yup
+      .string()
+      .matches(/^[12]\d{3}$/, "Enter a valid year")
+      .required("*"),
     pageAmount: yup
       .number()
-      .typeError("should be a number")
-      .required("*")
-      .min(1),
+      .positive("Enter valid number of pages")
+      .integer("Enter valid number of pages")
+      .max(9999, "Enter number less than 10000")
+      .required("*"),
   });
 
-  return createPortal (
+  return createPortal(
     <WrapperMobail style={active ? { display: "block" } : { display: "none" }}>
       <Formik
         initialValues={{
@@ -151,6 +162,7 @@ export default function LibraryFormMobail() {
           </BookFormMobile>
         )}
       </Formik>
-    </WrapperMobail>,modal
+    </WrapperMobail>,
+    modal
   );
 }

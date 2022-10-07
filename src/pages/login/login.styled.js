@@ -95,6 +95,7 @@ export const ErrorMessage = styled.div`
   }
 `;
 export const Error = styled.p`
+  font-size: 12px;
   color: red;
 `;
 export const LabelField = styled.label`
