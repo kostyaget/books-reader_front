@@ -17,32 +17,34 @@ export const ACT_LINE_NAME = "ACT";
 function Chart() {
   const user = useFetchUserDataQuery();
   const fetch = useFetchTrainingsDataQuery();
-  const OneDay = 86400000;
+  const oneDay = 86400000;
   let labelsData = [];
   let planData = [];
   let actData = [];
-  let averageAmount = 0;
   const arrayBooks = fetch?.data?.data;
   const userProgress = user?.data?.user?.info?.progress;
-
-  userProgress?.forEach(({ trainingDate, pagesAmount }) => {
-    labelsData.push(trainingDate);
-    actData.push(pagesAmount);
-  });
+  let totalPages = 0;
+  let longDays = [];
 
   arrayBooks?.forEach(({ finishDate, startDate, book }) => {
     const counterDays = Number(
-      (Date.parse(finishDate) - Date.parse(startDate)) / OneDay
+      (Date.parse(finishDate) - Date.parse(startDate)) / oneDay
     );
-    // console.log("Кількість днів", counterDays);
-    const counterPages = Math.round(book.pageAmount / counterDays);
-    // console.log("К-ть сторінок/д", counterPages);
-    return (averageAmount += counterPages);
+    longDays.push(counterDays);
+    totalPages += book.pageAmount;
   });
 
-  for (let i = 0; i < labelsData.length; i += 1) {
-    planData.push(averageAmount);
-  }
+  let maxLongNumb = Math.max(...longDays);
+  let ser = totalPages;
+
+  userProgress?.forEach(({ trainingDate, pagesAmount }) => {
+    ser -= pagesAmount;
+    const planDay = Math.round(ser / maxLongNumb);
+
+    planData.push(planDay);
+    labelsData.push(trainingDate);
+    actData.push(pagesAmount);
+  });
 
   if (!labelsData.length) {
     labelsData = ["time"];
