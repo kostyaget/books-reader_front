@@ -1,14 +1,18 @@
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as yup from "yup";
 import google from "../../images/google icon.svg";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
 import Notiflix from "notiflix";
 
-
 import {
   Error,
   ErrorMessage,
   GLink,
+  RLink,
   GoogleButton,
   GoogleLogo,
   GoogleSection,
@@ -63,10 +67,14 @@ const Login = () => {
             password: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={(values, { resetForm }) => {
+          onSubmit={async (values, { resetForm }) => {
             resetForm({ values: "" });
-            loginUser(values);
-            Notiflix.Notify.success("LogIn Success");
+            const res = await loginUser(values);
+            if (res.error) {
+              Notiflix.Notify.failure("Wrong password or email");
+            } else {
+              Notiflix.Notify.success("LogIn Success");
+            }
           }}
         >
           {({
@@ -126,9 +134,9 @@ const Login = () => {
                   Login
                 </LogiBtn>
 
-                <Link to="/registration">
+                <RLink to="/registration">
                   <Register>Register</Register>
-                </Link>
+                </RLink>
               </SectionLogin>
             </form>
           )}

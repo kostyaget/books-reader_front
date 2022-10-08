@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
   padding: 108px 77px 74px 72px;
@@ -102,9 +102,17 @@ export const LabelField = styled.label`
 `;
 
 export const InputField = styled.input`
+  padding-left: 5px;
   background: #f5f7fa;
   box-shadow: inset 0px 1px 2px rgba(29, 29, 27, 0.15);
 
+  color: #242a37;
+  border: 1px solid #a6abb9;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    outline: 1px solid #091e3f;
+  }
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 280px;
     height: 42px;
@@ -117,6 +125,7 @@ export const InputField = styled.input`
 `;
 
 export const RegisterBtn = styled.button`
+  cursor: pointer;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 280px;
     &:hover,
@@ -158,15 +167,16 @@ export const LogTitle = styled.span`
   color: #898f9f;
 `;
 export const Login = styled.p`
+  font-family: "Montserrat";
   font-size: 13px;
-  line-height: 16px;
+  line-height: 1.231;
   margin-left: 5px;
   color: #ff6b08;
 
   transition: transform 0.8s ease-in-out;
   &:hover,
   &:focus {
-    transform: rotate(360deg);
+    color: #d15807;
   }
 `;
 export const Star = styled.span`
@@ -174,5 +184,18 @@ export const Star = styled.span`
   color: #ff6b08;
 `;
 export const GLink = styled.a`
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 38px;
+
+  color: #707375;
   text-decoration: none;
+`;
+export const RLink = styled(Link)`
+  text-decoration-color: #ff6b08;
+  &:hover,
+  &:focus {
+    text-decoration-color: #d15807;
+  }
 `;
