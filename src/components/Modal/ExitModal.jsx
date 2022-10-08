@@ -11,6 +11,9 @@ const ExitModal = () => {
   const dispatch = useDispatch();
 
   const [logoutUser] = useLogoutUserMutation();
+
+
+  
   const [active, setActive] = useState(true);
   const onStart = () => {
     setActive(false);

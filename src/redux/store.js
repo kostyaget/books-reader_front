@@ -29,6 +29,7 @@ const store = configureStore({
     [trainingsApi.reducerPath]: trainingsApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
     auth: persistReducer(authPersistConfig, authReducer),
+    [authApi.reducerPath]:authApi.reducer,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { authApi } from "./authApi";
+import { usersApi } from "../users/usersApi";
 
 const authSlice = createSlice({
   name: "auth",
@@ -86,7 +87,21 @@ const authSlice = createSlice({
           state.isLoggedIn = false;
           state.isError = false;
         }
-      );
+      )
+      .addMatcher(
+        usersApi.endpoints.fetchUserData.matchFulfilled,
+        (state, { payload }) => {
+          state.user = payload;
+          state.isLoggedIn = true;
+        }
+      )
+    // .addMatcher(
+    //   usersApi.endpoints.fetchUserData.matchRejected,
+    //   (state, _action) => {
+    //     state.user = null;
+    //     state.isLoggedIn = false;
+    //   }
+    // )
   },
 });
 
