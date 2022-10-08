@@ -14,7 +14,7 @@ export const Section = styled.section`
   }
 
   @media ${device.laptop} {
-    max-width: 1228px;
+    max-width: 1280px;
     margin: 0 auto;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -24,7 +24,7 @@ export const Section = styled.section`
 `;
 export const DesktopTrainingWrapper = styled.div`
   display: flex;
-  gap: 30px;
+  justify-content: space-around;
 `;
 export const MyTrainingWarp = styled.div`
   display: flex;
@@ -34,7 +34,11 @@ export const MyTrainingWarp = styled.div`
 `;
 
 export const TrainingContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex-grow: 1;
+  gap: 15px;
 `;
 export const SideBar = styled.div`
   display: flex;
