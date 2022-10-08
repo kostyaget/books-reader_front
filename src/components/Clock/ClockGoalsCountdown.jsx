@@ -26,10 +26,10 @@ const ClockYearsCountdown = ({ deadline, startDate }) => {
   };
   useEffect(() => {
     let interval = setInterval(() => getTime(deadline), 1000);
-    // if (days + hours + minutes + seconds <= 0) {
-    //   clearInterval(interval);
-    //   setRunning(true);
-    // }
+    if (days + hours + minutes + seconds <= 0) {
+      clearInterval(interval);
+      // setRunning(true);
+    }
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
