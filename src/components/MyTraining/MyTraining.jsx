@@ -20,7 +20,10 @@ import {
 } from "./MyTraining.styled";
 import icons from "../../images/svg/date.svg";
 
-import { useFetchUserDataQuery } from "../../redux/users/usersApi";
+import {
+  useFetchUserDataQuery,
+  useUpdateStatusMutation,
+} from "../../redux/users/usersApi";
 import { useStartTrainingMutation } from "../../redux/trainings/trainingsApi";
 
 const MyTraining = () => {
@@ -32,11 +35,17 @@ const MyTraining = () => {
   const [book, setBook] = useState("");
 
   const [addTrainingBook] = useStartTrainingMutation();
+  const [updateStatus] = useUpdateStatusMutation();
 
   const options = {
     day: "numeric",
     month: "numeric",
     year: "numeric",
+  };
+
+  const bookStatus = {
+    id: book,
+    status: "inprogress",
   };
 
   const startDate = start.toLocaleString("en-US", options).split("/").join(".");
@@ -48,12 +57,13 @@ const MyTraining = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     addTrainingBook({ startDate, finishDate, book });
+    updateStatus(bookStatus);
     reset();
   };
 
   const reset = () => {
-    setStart("");
-    setFinish("");
+    // setStart("");
+    // setFinish("");
     setBook("");
   };
 
@@ -76,6 +86,7 @@ const MyTraining = () => {
               <DateInputPiker
                 selected={start}
                 onChange={(date: Date) => setStart(date)}
+                required
               />
             </InputDateWrap>
             <InputDateWrap>
@@ -90,6 +101,7 @@ const MyTraining = () => {
               <DateInputPiker
                 selected={finish}
                 onChange={(date: Date) => setFinish(date)}
+                required
               />
             </InputDateWrap>
           </DatesWrap>
@@ -99,16 +111,20 @@ const MyTraining = () => {
               name="book"
               value={book}
               onChange={(e) => setBook(e.target.value)}
+              required
             >
               <option value="" default disabled>
                 Choose books from the library
               </option>
               {booksList &&
-                booksList.map(({ _id = "0", title = "" }) => (
-                  <option value={_id} key={_id}>
-                    {title}
-                  </option>
-                ))}
+                booksList.map(
+                  ({ _id = "0", title = "", status }) =>
+                    status === "next" && (
+                      <option value={_id} key={_id}>
+                        {title}
+                      </option>
+                    )
+                )}
             </Select>
             <Button type="submit">Add</Button>
           </SelectsWrap>
