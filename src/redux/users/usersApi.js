@@ -35,6 +35,13 @@ export const usersApi = createApi({
       },
       invalidatesTags: ["users"],
     }),
+    deleteProgress: builder.mutation({
+      query: (progressId) => ({
+        url: `/api/users/${progressId}/progress`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["users"],
+    }),
     addBook: builder.mutation({
       query: (body) => ({
         url: "/api/books/add",
@@ -79,6 +86,7 @@ export const {
   useFetchUserDataQuery,
   useLazyFetchUserDataQuery,
   useAddResultsMutation,
+  useDeleteProgressMutation,
   useAddBookMutation,
   useUpdateResumeMutation,
   useUpdateStatusMutation,
