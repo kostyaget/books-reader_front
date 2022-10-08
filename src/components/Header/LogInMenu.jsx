@@ -19,7 +19,7 @@ import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 export default function LogInMenu() {
   const [modalState, setModalState] = useState(false);
   const { data } = useFetchUserDataQuery();
-  const name =  data?.user.info.username
+  const name = data?.user.info.username;
 
   const toggleModal = () => {
     setModalState((state) => !state);
@@ -51,4 +51,4 @@ export default function LogInMenu() {
       {modalState && <ExitModal onClose={toggleModal}></ExitModal>}
     </>
   );
-} 
+}

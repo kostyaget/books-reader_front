@@ -60,7 +60,7 @@ export const RatingArea = styled.div`
 `;
 
 export const Summary = styled.textarea`
-  width: 240px;
+  width: 256px;
   height: 170px;
   font-family: "Montserrat";
   font-style: normal;
@@ -78,7 +78,7 @@ export const Summary = styled.textarea`
 
   @media ${device.tablet} {
     margin: -8px 0 28px 0;
-    width: 568px;
+    width: 548px;
     height: 170px;
   }
 `;
@@ -132,15 +132,31 @@ export const ItemBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
 `;
 
 export const Container = styled.div`
+width:568px;
+display:flex;
+// background: #ffffff;
+// position: absolute;
+// left: 0;
+// right: 0;
+// top: 50%;
+z-index: 2000;
+// margin-left: auto;
+// margin-right: auto;
+// // padding-top: 24px;
+// // padding-bottom: 24px;
+// padding:20px;
+
   @media screen and ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
     max-height: 395px;
   }
   @media screen and ${device.tablet} {
-    max-width: 608px;
+    max-width: 568px;
     max-height: 399px;
   }
 `;

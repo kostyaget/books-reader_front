@@ -20,11 +20,11 @@ const ExitModal = ({ showModal, setShowModal }) => {
         <Rating>
           Well done! but you need to be a little bit faster. You can do it
         </Rating>
-        <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
+        <Formik>
           <Form>
             <ItemBtn>
               <BtnColor type="submit" onClick={() => setShowModal(!showModal)}>
-                Done
+                New training
               </BtnColor>
               <Btn type="button" onClick={() => setShowModal(!showModal)}>
                 Back
