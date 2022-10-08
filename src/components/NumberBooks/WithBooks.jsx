@@ -1,5 +1,6 @@
 import React from "react";
 import { calculateTrainigDuration } from "../../utils/formatTrainigData";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 import {
   Goal,
   ResultItem,
@@ -13,11 +14,15 @@ import {
 } from "./WithBooks.styled";
 
 const WithBooks = ({ data }) => {
+  const user = useFetchUserDataQuery();
   const startDates = data.data.map((e) => new Date(e.startDate));
   const finishDates = data.data.map((e) => new Date(e.finishDate));
   const minDate = new Date(Math.min(...startDates));
   const maxDate = new Date(Math.max(...finishDates));
   const { days } = calculateTrainigDuration(minDate, maxDate);
+  const traningBooksArray = user.data.user.books.filter(
+    (e) => e.status === "inprogress"
+  );
 
   return (
     <Container>
@@ -42,7 +47,7 @@ const WithBooks = ({ data }) => {
 
         <ListNumbers>
           <RoomArea>
-            <NumberColor>{data.data.length}</NumberColor>
+            <NumberColor>{traningBooksArray.length}</NumberColor>
           </RoomArea>
           <TextNumber>Books left</TextNumber>
         </ListNumbers>

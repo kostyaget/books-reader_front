@@ -51,6 +51,8 @@ const Registration = () => {
     repeat_password: yup
       .string()
       .oneOf([yup.ref("password")], "Passwords must match")
+      .min(5, "Must be more than 5 characters")
+      .max(30, "Must be no more than 30 characters")
       .required("Password confirmation is a required"),
   });
 
