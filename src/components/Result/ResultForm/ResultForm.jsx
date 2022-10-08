@@ -1,9 +1,7 @@
 import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
+import Notiflix from "notiflix";
 import { useSelector } from "react-redux";
-import React, { useState, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
-import ExitModal from "../../Modal/LateRead";
 import { useAddResultsMutation } from "../../../redux/users/usersApi";
 import { selectCurrentUser } from "../../../redux/auth/auth";
 
@@ -41,58 +39,44 @@ const FormError = ({ name }) => {
 };
 
 export default function ResultForm() {
-  const [showModal, setShowModal] = useState(false);
-  const isShowModal = () => {
-    setShowModal(!showModal);
-  };
   const [addResult] = useAddResultsMutation();
   const { _id } = useSelector(selectCurrentUser);
   const id = _id;
-
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const now = new Date();
     values.trainingDate.setHours(now.getHours());
     values.trainingDate.setMinutes(now.getMinutes());
     values.trainingDate.setSeconds(now.getSeconds());
     resetForm();
-    addResult({ id, ...values });
-    isShowModal();
+    const res = await addResult({ id, ...values });
+    if (res.error) {
+      Notiflix.Notify.failure("Please, sign in again");
+    } else {
+      Notiflix.Notify.success("Good job");
+    }
   };
-  const nodeRef = useRef(null);
-  return (
-    <>
-      <CSSTransition
-        nodeRef={nodeRef}
-        timeout={300}
-        in={showModal}
-        unmountOnExit
-      >
-        <div ref={nodeRef}>
-          <ExitModal showModal={showModal} setShowModal={setShowModal} />
-        </div>
-      </CSSTransition>
 
-      <Formik
-        initialValues={{ trainingDate: "", pagesAmount: "" }}
-        validationSchema={schema}
-        onSubmit={handleSubmit}
-      >
-        <FormResult autoComplete="off">
-          <InputWrapper>
-            <Label>
-              <LabelText>Date</LabelText>
-              <DateInput name="trainingDate" />
-              <FormError name="trainingDate" />
-            </Label>
-            <Label>
-              <LabelText>Amount of pages</LabelText>
-              <Input type="number" name="pagesAmount" />
-              <FormError name="pagesAmount" />
-            </Label>
-          </InputWrapper>
-          <Button type="submit">Add result</Button>
-        </FormResult>
-      </Formik>
-    </>
+  return (
+    <Formik
+      initialValues={{ trainingDate: "", pagesAmount: "" }}
+      validationSchema={schema}
+      onSubmit={handleSubmit}
+    >
+      <FormResult autoComplete="off">
+        <InputWrapper>
+          <Label>
+            <LabelText>Date</LabelText>
+            <DateInput name="trainingDate" />
+            <FormError name="trainingDate" />
+          </Label>
+          <Label>
+            <LabelText>Amount of pages</LabelText>
+            <Input type="number" name="pagesAmount" />
+            <FormError name="pagesAmount" />
+          </Label>
+        </InputWrapper>
+        <Button type="submit">Add result</Button>
+      </FormResult>
+    </Formik>
   );
 }

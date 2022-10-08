@@ -14,6 +14,7 @@ const ClockYearsCountdown = ({ deadline, startDate }) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  // const [running, setRunning] = useState(false);
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now(startDate);
@@ -24,33 +25,38 @@ const ClockYearsCountdown = ({ deadline, startDate }) => {
     setSeconds(Math.floor((time / 1000) % 60));
   };
   useEffect(() => {
-    const interval = setInterval(() => getTime(deadline), 1000);
-
+    let interval = setInterval(() => getTime(deadline), 1000);
+    if (days + hours + minutes + seconds <= 0) {
+      clearInterval(interval);
+      // setRunning(true);
+    }
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <GoalContainer>
-      <GoalTitle>Goals countdown</GoalTitle>
+    <>
+      <GoalContainer>
+        <GoalTitle>Goals countdown</GoalTitle>
 
-      <GoalBackground>
-        <GoalCountdownTime>{makeMeTwoDigits(days)}</GoalCountdownTime>
-        <GoalCountdownTime>:</GoalCountdownTime>
-        <GoalCountdownTime>{makeMeTwoDigits(hours)}</GoalCountdownTime>
-        <GoalCountdownTime>:</GoalCountdownTime>
-        <GoalCountdownTime>{makeMeTwoDigits(minutes)}</GoalCountdownTime>
-        <GoalCountdownTime>:</GoalCountdownTime>
-        <GoalCountdownTime>{makeMeTwoDigits(seconds)}</GoalCountdownTime>
+        <GoalBackground>
+          <GoalCountdownTime>{makeMeTwoDigits(days)}</GoalCountdownTime>
+          <GoalCountdownTime>:</GoalCountdownTime>
+          <GoalCountdownTime>{makeMeTwoDigits(hours)}</GoalCountdownTime>
+          <GoalCountdownTime>:</GoalCountdownTime>
+          <GoalCountdownTime>{makeMeTwoDigits(minutes)}</GoalCountdownTime>
+          <GoalCountdownTime>:</GoalCountdownTime>
+          <GoalCountdownTime>{makeMeTwoDigits(seconds)}</GoalCountdownTime>
 
-        <GoalItemTime>
-          <GoalText>DAYS</GoalText>
-          <GoalText>HRS</GoalText>
-          <GoalText>MINS</GoalText>
-          <GoalText>SECS</GoalText>
-        </GoalItemTime>
-      </GoalBackground>
-    </GoalContainer>
+          <GoalItemTime>
+            <GoalText>DAYS</GoalText>
+            <GoalText>HRS</GoalText>
+            <GoalText>MINS</GoalText>
+            <GoalText>SECS</GoalText>
+          </GoalItemTime>
+        </GoalBackground>
+      </GoalContainer>
+    </>
   );
 };
 
