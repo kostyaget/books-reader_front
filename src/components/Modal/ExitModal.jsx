@@ -21,7 +21,7 @@ const ExitModal = () => {
         The changes you made will be lost if you navigate away from this
         application
       </Rating>
-      <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
+      <Formik>
         <Form>
           <ItemBtn>
             <Btn type="button" onClick={onStart}>
