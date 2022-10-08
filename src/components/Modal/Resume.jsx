@@ -12,6 +12,10 @@ import {
 } from "./Resume.styled";
 
 const Resume = ({ id, ratingBook, summaryBook = "" }) => {
+  const [active, setActive] = useState(true);
+  const onStart = () => {
+    setActive(false);
+  };
   // const [rating, setRating] = useState(1);
   const [summary, setSummary] = useState(summaryBook);
 
@@ -31,7 +35,7 @@ const Resume = ({ id, ratingBook, summaryBook = "" }) => {
   // };
 
   return (
-    <Container>
+    <Container style={active ? { display: "block" } : { display: "none" }}>
       <form onSubmit={handleSubmit}>
         <Rating>Choose rating of the book</Rating>
         <RatingStars id={id} rating={ratingBook} />
@@ -88,7 +92,7 @@ const Resume = ({ id, ratingBook, summaryBook = "" }) => {
         />
 
         <ItemBtn>
-          <Btn type="button">Back</Btn>
+          <Btn type="button" onClick={onStart}>Back</Btn>
           <BtnColor type="submit">Save</BtnColor>
         </ItemBtn>
       </form>
