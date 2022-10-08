@@ -36,6 +36,8 @@ const Registration = () => {
     email: yup
       .string()
       .email("Email should be valid")
+      .matches(/^[a-zA-Z0-9]/, "Email should be valid")
+      .matches(/^.{2,}@/, "Email should be valid")
       .min(10, "Must be more than 10 characters")
       .max(63, "Must be no more than 63 characters")
       .required("Email is required"),

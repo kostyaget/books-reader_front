@@ -10,12 +10,6 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { ReactComponent as Plus } from "../../images/IconP.svg";
 import { useState } from "react";
 
-// import queryString from "query-string";
-// import { useLocation } from "react-router-dom";
-// import React, { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { googleLogIn } from "../../redux/auth/auth";
-
 export default function Library() {
   const [modalOpen, setModalOpen] = useState(true);
   const toggleModal = () => {
@@ -25,17 +19,6 @@ export default function Library() {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(min-width: 768px)");
   const isBook = useSelector(selectCurrentUserBook);
-
-  // const location = useLocation();
-  // const query = queryString.parse(location.search);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (query.token) {
-  //     const { name, email, token } = query;
-  //     const user = { name, email };
-  //     dispatch(googleLogIn({ user, token }));
-  //   }
-  // });
 
   return (
     <>
