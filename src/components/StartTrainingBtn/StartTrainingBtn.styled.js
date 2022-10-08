@@ -6,7 +6,7 @@ export const Button = styled.button`
   cursor: pointer;
   width: 171px;
   height: 40px;
-  margin: 30px auto;
+  margin: 0 auto;
 
   font-family: "Montserrat";
   font-weight: 500;

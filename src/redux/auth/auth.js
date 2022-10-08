@@ -7,6 +7,7 @@ const authSlice = createSlice({
     user: null,
     token: null,
     isLoggedIn: false,
+    isError: false,
   },
   // reducers: {},
   reducers: {
@@ -53,6 +54,7 @@ const authSlice = createSlice({
           state.user = payload.user;
           state.token = payload.token;
           state.isLoggedIn = true;
+          state.isError = false;
         }
       )
       .addMatcher(
@@ -82,6 +84,7 @@ const authSlice = createSlice({
           state.user = null;
           state.token = null;
           state.isLoggedIn = false;
+          state.isError = false;
         }
       );
   },

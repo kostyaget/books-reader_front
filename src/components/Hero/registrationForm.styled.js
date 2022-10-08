@@ -4,24 +4,24 @@ import pic from "../../images/pic.jpg";
 import img from "../../images/Vector.jpg";
 
 export const Container = styled.div`
-margin-left: auto;
-margin-right: auto;
-@media screen and (min-width: 1280px) {
-display: flex;
-}
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-min-width: 320px;
-height: 400px;
-}
-@media screen and (min-width: 767px) and (max-width: 1023px) {
-min-width: 768px;
-height: 560px;
-}
-@media screen and (min-width: 1024px){
-max-width: 1280px;
-height: 790px;
-}
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    min-width: 320px;
+    height: 400px;
+  }
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    min-width: 768px;
+    height: 560px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 1280px;
+    height: 790px;
+  }
 `;
 
 export const SectionLogin = styled.div``;
@@ -84,6 +84,7 @@ export const RegistrationList = styled.ul`
   }
 `;
 export const RegistrationHeading = styled.h2`
+  margin-left: 5px;
   margin-bottom: 14px;
   font-weight: 500;
   font-size: 20px;

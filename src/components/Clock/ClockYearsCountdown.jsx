@@ -37,7 +37,7 @@ const ClockGoalsCountdown = () => {
 
   return (
     <GoalContainer>
-      <GoalTitle>Goals countdown</GoalTitle>
+      <GoalTitle>Years countdown</GoalTitle>
 
       <GoalBackground>
         <GoalCountdownTime>{makeMeTwoDigits(days)}</GoalCountdownTime>
