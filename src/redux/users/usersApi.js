@@ -79,6 +79,17 @@ export const usersApi = createApi({
       }),
       invalidatesTags: ["users"],
     }),
+    updateIsTraining: builder.mutation({
+      query: (data) => {
+        const { id, ...body } = data;
+        return {
+          url: `/api/users/${id}/training`,
+          method: "PATCH",
+          body,
+        };
+      },
+      invalidatesTags: ["users"],
+    }),
   }),
 });
 
@@ -91,4 +102,5 @@ export const {
   useUpdateResumeMutation,
   useUpdateStatusMutation,
   useDeleteBookMutation,
+  useUpdateIsTrainingMutation,
 } = usersApi;
