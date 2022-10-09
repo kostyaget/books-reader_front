@@ -10,7 +10,7 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: 0.5s;
+  /* transition: 0.5s; */
 }
 
 .modal.active {
@@ -23,8 +23,8 @@
   padding: 20px;
   border-radius: 2px;
   background-color: white;
-  transform: scale(0.5);
-  transition: 0.4s all;
+  /* transform: scale(0.5);
+  transition: 0.4s all; */
 }
 
 .modal__content.active {
