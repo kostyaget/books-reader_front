@@ -26,7 +26,7 @@ export default function LogInMenu() {
 
   useEffect(() => {
     if (error) {
-      logoutUser();
+      localStorage.clear();
     }
   }, [error]);
 
