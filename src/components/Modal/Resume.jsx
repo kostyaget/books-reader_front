@@ -25,6 +25,10 @@ const Resume = ({
   const [updateResume] = useUpdateResumeMutation();
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    setTimeout(() => {
+      onClose();
+    }, 200);
+
     updateResume({ id, summary });
   };
   return (
@@ -36,9 +40,9 @@ const Resume = ({
         <Container open={open} onClose={onClose}>
           <form onSubmit={handleSubmit}>
             <Rating>Choose rating of the book</Rating>
-           <RatingStarss>
-               <RatingStars id={id} rating={ratingBook} />
-           </RatingStarss>
+            <RatingStarss>
+              <RatingStars id={id} rating={ratingBook} />
+            </RatingStarss>
 
             <Rating htmlFor="resume">Resume</Rating>
             <Summary
@@ -56,7 +60,7 @@ const Resume = ({
               <BtnColor
                 type="submit"
                 // onClick={ResumeFunc}
-                onClick={onClose}
+                // onClick={onClose}
               >
                 Save
               </BtnColor>
