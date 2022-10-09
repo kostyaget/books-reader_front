@@ -9,7 +9,10 @@ import BooksListTraining from "../../components/BooksListTraining/BooksListTrain
 import Result from "../../components/Result/Result";
 import ClockTimes from "../../components/Clock/index";
 import StartTrainingBtn from "../../components/StartTrainingBtn/StartTrainingBtn";
-import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
+import {
+  useDeleteTrainingBookMutation,
+  useFetchTrainingsDataQuery,
+} from "../../redux/trainings/trainingsApi";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import {
@@ -19,16 +22,21 @@ import {
   SideBar,
   MyTrainingWarp,
 } from "./Training.styled";
+import FinishTrainingBtn from "../../components/StartTrainingBtn/FinishTrainingBtn";
 
 // ------------------------------
 
 export default function Training() {
-  const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
-  const [isTrainingActive, setIsTrainingActive] = useState(false);
   const { data } = useFetchTrainingsDataQuery();
   const user = useFetchUserDataQuery();
-  const booksArr = user?.data?.user.books;
-  console.log(booksArr);
+  const isTraningStatus = user?.data?.user?.info.isTraining;
+  const [clearBookList] = useDeleteTrainingBookMutation();
+
+  const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
+  // const [isTrainingActive, setIsTrainingActive] = useState(isTraningStatus);
+  const isTrainingActive = isTraningStatus;
+  // const booksArr = user?.data?.user.books;
+  // console.log(booksArr);
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -37,8 +45,21 @@ export default function Training() {
     setIsTrainingAddBookShown(!isTrainingAddBookShown);
   };
   const openStatistics = () => {
-    setIsTrainingActive(!isTrainingActive);
+    // setIsTrainingActive(!isTrainingActive);
+    console.log("inprogress");
   };
+
+  const traningFinish = data?.data
+    ?.map((el) => el.book.status)
+    .every((val) => val === "completed");
+  // console.log("traningFinish", traningFinish);
+
+  function clearTraningList() {
+    data?.data?.forEach((el) => {
+      clearBookList(el._id);
+    });
+  }
+
   return (
     <Section>
       {isMobile && !isTrainingActive && (
@@ -61,11 +82,13 @@ export default function Training() {
           {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
+          {traningFinish && (
+            <FinishTrainingBtn clearListBook={clearTraningList} />
+          )}
           <Chart />
           <Result />
         </>
       )}
-
       {isTablet && !isTrainingActive && (
         <>
           <WithoutBooks />
@@ -82,6 +105,9 @@ export default function Training() {
           {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
+          {traningFinish && (
+            <FinishTrainingBtn clearListBook={clearTraningList} />
+          )}
           <Chart />
           <Result />
         </>
@@ -113,6 +139,9 @@ export default function Training() {
                 <MyTraining />
               )}
               <BooksListTraining training={isTrainingActive} />
+              {traningFinish && (
+                <FinishTrainingBtn clearListBook={clearTraningList} />
+              )}
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>
