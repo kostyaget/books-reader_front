@@ -38,7 +38,7 @@ export default function LibraryForm() {
       .number()
       .positive("Enter valid number of pages")
       .integer("Enter valid number of pages")
-      .max(9999, "Enter number less than 10000")
+      .max(9999, "Enter valid number of pages")
       .required("This field is required"),
   });
 
