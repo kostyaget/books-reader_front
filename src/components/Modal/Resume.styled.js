@@ -13,8 +13,11 @@ export const Rating = styled.label`
   color: #242a37;
 
   @media ${device.mobileS} {
-    margin: 0 0 20px 0;
+    margin: 0px 0 20px 0;
   }
+  // @media ${device.tablet} {
+  //   margin: 20px 0 12px 0;
+  // }
 `;
 
 export const RatingArea = styled.div`
@@ -60,7 +63,7 @@ export const RatingArea = styled.div`
 `;
 
 export const Summary = styled.textarea`
-  width: 240px;
+  width: 260px;
   height: 170px;
   font-family: "Montserrat";
   font-style: normal;
@@ -73,11 +76,11 @@ export const Summary = styled.textarea`
   resize: none;
 
   @media ${device.mobileS} and (max-width: 767px) {
-    margin: -12px 0 20px 0;
+    margin: -8px 0 20px 0;
   }
 
   @media ${device.tablet} {
-    margin: -8px 0 28px 0;
+    margin: -12px 0 28px 0;
     width: 568px;
     height: 170px;
   }
@@ -128,7 +131,7 @@ export const BtnColor = styled.button`
 `;
 
 export const ItemBtn = styled.div`
-  margin: 20px 35px 40px 35px;
+  margin: 0 35px 20px 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,3 +147,10 @@ export const Container = styled.div`
     max-height: 399px;
   }
 `;
+
+export const RatingStarss = styled.div`
+@media ${device.mobileS} {
+  margin: 0 0 20px 0;
+  height: 17px;
+}
+`

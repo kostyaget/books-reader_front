@@ -1,40 +1,34 @@
-import { useState } from "react";
-import { useLogoutUserMutation } from "../../redux/auth/authApi";
-import { createPortal } from "react-dom";
-import { useDispatch } from "react-redux";
-
 import { Form, Formik } from "formik";
 import { Rating, BtnColor, Btn, ItemBtn, Container } from "./ExitModal.style";
+import "./Resume.css";
 
-const ExitModal = () => {
-  const modal = document.querySelector("#modal-root");
-  const dispatch = useDispatch();
-
-  const [logoutUser] = useLogoutUserMutation();
-  const [active, setActive] = useState(true);
-  const onStart = () => {
-    setActive(false);
-  };
-  return createPortal(
-    <Container style={active ? { display: "block" } : { display: "none" }}>
-      <Rating>
-        The changes you made will be lost if you navigate away from this
-        application
-      </Rating>
-      <Formik initialValues={{}} onSubmit={(values, actions) => {}}>
-        <Form>
-          <ItemBtn>
-            <Btn type="button" onClick={onStart}>
-              Cancel
-            </Btn>
-            <BtnColor type="button" onClick={() =>dispatch(logoutUser) }>
-              Leave this app
-            </BtnColor>
-          </ItemBtn>
-        </Form>
-      </Formik>
-    </Container>,
-    modal
+const ExitModal = ({ open, onClose, logoutFunc }) => {
+  return (
+    <div className={open ? "modal active" : "modal"} onClick={onClose}>
+      <div
+        className={open ? "modal__content active" : "modal__content"}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Container open={open} onClose={onClose}>
+          <Rating>
+            The changes you made will be lost if you navigate away from this
+            application
+          </Rating>
+          <Formik>
+            <Form>
+              <ItemBtn>
+                <Btn type="button" onClick={onClose}>
+                  Cancel
+                </Btn>
+                <BtnColor type="button" onClick={logoutFunc}>
+                  Leave this app
+                </BtnColor>
+              </ItemBtn>
+            </Form>
+          </Formik>
+        </Container>
+        </div>
+    </div>
   );
 };
 

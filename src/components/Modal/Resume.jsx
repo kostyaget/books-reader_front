@@ -1,102 +1,71 @@
 import { useState } from "react";
 import { useUpdateResumeMutation } from "../../redux/users/usersApi";
 import RatingStars from "../RatingStars/RatingStars";
+import "./Resume.css";
 import {
   Rating,
-  // RatingArea,
   Summary,
   BtnColor,
   Btn,
   ItemBtn,
   Container,
+  RatingStarss,
 } from "./Resume.styled";
 
-const Resume = ({ id, ratingBook, summaryBook = "" }) => {
-  const [active, setActive] = useState(true);
-  const onStart = () => {
-    setActive(false);
-  };
-  // const [rating, setRating] = useState(1);
+const Resume = ({
+  id,
+  ratingBook,
+  summaryBook = "",
+  open,
+  onClose,
+  ResumeFunc,
+  
+}) => {
   const [summary, setSummary] = useState(summaryBook);
-
   const [updateResume] = useUpdateResumeMutation();
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     updateResume({ id, summary });
-
-    // reset();
   };
 
-  // const reset = () => {
-  //   setRating(1);
-  //   setSummary("");
-  // };
-
   return (
-    <Container style={active ? { display: "block" } : { display: "none" }}>
-      <form onSubmit={handleSubmit}>
-        <Rating>Choose rating of the book</Rating>
-        <RatingStars id={id} rating={ratingBook} />
-        {/* <RatingArea>
-          <input
-            type="radio"
-            id="star-5"
-            name="rating"
-            value={rating}
-            onChange={(e) => setRating(5)}
-          />
-          <label htmlFor="star-5" title="Оценка «5»"></label>
-          <input
-            type="radio"
-            id="star-4"
-            name="rating"
-            value={rating}
-            onChange={(e) => setRating(4)}
-          />
-          <label htmlFor="star-4" title="Оценка «4»"></label>
-          <input
-            type="radio"
-            id="star-3"
-            name="rating"
-            value={rating}
-            onChange={(e) => setRating(3)}
-          />
-          <label htmlFor="star-3" title="Оценка «3»"></label>
-          <input
-            type="radio"
-            id="star-2"
-            name="rating"
-            value={rating}
-            onChange={(e) => setRating(2)}
-          />
-          <label htmlFor="star-2" title="Оценка «2»"></label>
-          <input
-            type="radio"
-            id="star-1"
-            name="rating"
-            value={rating}
-            onChange={(e) => setRating(1)}
-          />
-          <label htmlFor="star-1" title="Оценка «1»"></label>
-        </RatingArea> */}
-        <Rating htmlFor="resume">Resume</Rating>
-        <Summary
-          type="text"
-          name="text"
-          placeholder="..."
-          id="summary"
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
-        />
+    <div className={open ? "modal active" : "modal"} onClick={onClose}>
+      <div
+        className={open ? "modal__content active" : "modal__content"}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Container open={open} onClose={onClose}>
+          <form onSubmit={handleSubmit}>
+            <Rating>Choose rating of the book</Rating>
+           <RatingStarss>
+               <RatingStars id={id} rating={ratingBook} />
+           </RatingStarss>
+            <Rating htmlFor="resume">Resume</Rating>
+            <Summary
+              type="text"
+              name="text"
+              placeholder="..."
+              id="summary"
+              value={summary}
+              onChange={(e) => setSummary(e.target.value)}
+            />
 
-        <ItemBtn>
-          <Btn type="button" onClick={onStart}>Back</Btn>
-          <BtnColor type="submit">Save</BtnColor>
-        </ItemBtn>
-      </form>
-    </Container>
+            <ItemBtn>
+              <Btn type="button" onClick={onClose}>
+                Back
+              </Btn>
+              <BtnColor
+                type="submit"
+                // onClick={ResumeFunc}
+                onClick={onClose}
+              >
+                Save
+              </BtnColor>
+            </ItemBtn>
+          </form>
+        </Container>
+      </div>
+    </div>
   );
 };
 
