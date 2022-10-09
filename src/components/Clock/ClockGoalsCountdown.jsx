@@ -14,22 +14,26 @@ const ClockYearsCountdown = ({ deadline, startDate }) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  // const [running, setRunning] = useState(false);
+  const [running, setRunning] = useState(true);
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now(startDate);
-
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
     setSeconds(Math.floor((time / 1000) % 60));
+
+    return time;
   };
   useEffect(() => {
-    let interval = setInterval(() => getTime(deadline), 1000);
-    if (days + hours + minutes + seconds < 0) {
-      clearInterval(interval);
-      // setRunning(true);
-    }
+    let interval = setInterval(() => {
+      if (getTime() <= 0) {
+        setRunning(false);
+        clearInterval(interval);
+      }
+      getTime();
+    }, 1000);
+
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -40,13 +44,22 @@ const ClockYearsCountdown = ({ deadline, startDate }) => {
         <GoalTitle>Goals countdown</GoalTitle>
 
         <GoalBackground>
-          <GoalCountdownTime>{makeMeTwoDigits(days)}</GoalCountdownTime>
+          <GoalCountdownTime>
+            {running ? makeMeTwoDigits(days) : "00"}
+          </GoalCountdownTime>
           <GoalCountdownTime>:</GoalCountdownTime>
-          <GoalCountdownTime>{makeMeTwoDigits(hours)}</GoalCountdownTime>
+          <GoalCountdownTime>
+            {running ? makeMeTwoDigits(hours) : "00"}
+          </GoalCountdownTime>
           <GoalCountdownTime>:</GoalCountdownTime>
-          <GoalCountdownTime>{makeMeTwoDigits(minutes)}</GoalCountdownTime>
+          <GoalCountdownTime>
+            {running ? makeMeTwoDigits(minutes) : "00"}
+          </GoalCountdownTime>
           <GoalCountdownTime>:</GoalCountdownTime>
-          <GoalCountdownTime>{makeMeTwoDigits(seconds)}</GoalCountdownTime>
+          <GoalCountdownTime>
+            {" "}
+            {running ? makeMeTwoDigits(seconds) : "00"}
+          </GoalCountdownTime>
 
           <GoalItemTime>
             <GoalText>DAYS</GoalText>
