@@ -11,6 +11,7 @@ import {
   Container,
   RatingStarss,
 } from "./Resume.styled";
+import "./Resume.css";
 
 const Resume = ({
   id,
@@ -19,15 +20,14 @@ const Resume = ({
   open,
   onClose,
   ResumeFunc,
-  
 }) => {
+
   const [summary, setSummary] = useState(summaryBook);
   const [updateResume] = useUpdateResumeMutation();
   const handleSubmit = (evt) => {
     evt.preventDefault();
     updateResume({ id, summary });
   };
-
   return (
     <div className={open ? "modal active" : "modal"} onClick={onClose}>
       <div
@@ -49,7 +49,6 @@ const Resume = ({
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
             />
-
             <ItemBtn>
               <Btn type="button" onClick={onClose}>
                 Back

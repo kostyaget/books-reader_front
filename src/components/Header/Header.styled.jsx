@@ -92,6 +92,22 @@ export const Avatar = styled.div`
     margin-left: 0px;
   }
 `;
+export const User = styled.span`
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #f5f7fa;
+  border-radius: 50%;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.214;
+
+  color: #242a37;
+`;
+
 export const Name = styled.span`
   display: none;
 

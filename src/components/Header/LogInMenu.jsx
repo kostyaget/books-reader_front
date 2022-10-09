@@ -8,12 +8,12 @@ import {
   Border,
   NavWrapper,
   Name,
+  User,
 } from "./Header.styled";
 import { useState } from "react";
 import ExitModal from "../Modal/ExitModal";
 import { ReactComponent as Home } from "../../images/home.svg";
 import { ReactComponent as Lib } from "../../images/book.svg";
-import { ReactComponent as User } from "../../images/user.svg";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 import { useDispatch } from "react-redux";
 
@@ -51,7 +51,7 @@ export default function LogInMenu() {
           </NavList>
           <Name>{name}</Name>
           <Avatar>
-            <User width="40px" height="40px" />
+            <User>{name?.slice(0, 1)}</User>
           </Avatar>
         </NavWrapper>
         <LogOutBtn type="button" onClick={onClick}>

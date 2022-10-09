@@ -3,9 +3,8 @@ import styled from "styled-components";
 import deleteIc from "../../images/svg/delete.svg";
 import deleteActiveIc from "../../images/svg/deleteActive.svg";
 import { useDeleteTrainingBookMutation } from "../../redux/trainings/trainingsApi";
-import { useUpdateStatusMutation } from "../../redux/users/usersApi";
+// import { useUpdateStatusMutation } from "../../redux/users/usersApi";
 import Notiflix from "notiflix";
-
 
 const BreakPoint = {
   mobileMin: "min-width: 320px",
@@ -34,12 +33,12 @@ const DeleteIco = styled.button`
 `;
 
 export default function DeleteButton({ idTraning, idBook }) {
-  const [updateStatus] = useUpdateStatusMutation();
+  // const [updateStatus] = useUpdateStatusMutation();
   const [deleteBook] = useDeleteTrainingBookMutation();
-  const newStatus = {
-    id: idBook,
-    status: "next",
-  };
+  // const newStatus = {
+  //   id: idBook,
+  //   status: "next",
+  // };
 
   return (
     <DeleteIco
@@ -47,10 +46,9 @@ export default function DeleteButton({ idTraning, idBook }) {
       // onClick={() => alert("Кнопка видалити тест")}
 
       onClick={() => {
-        updateStatus(newStatus);
+        // updateStatus(newStatus);
         deleteBook(idTraning);
         Notiflix.Notify.success("Book Deleted Successfully");
-
       }}
     ></DeleteIco>
   );

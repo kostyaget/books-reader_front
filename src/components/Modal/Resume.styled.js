@@ -15,9 +15,6 @@ export const Rating = styled.label`
   @media ${device.mobileS} {
     margin: 0px 0 20px 0;
   }
-  // @media ${device.tablet} {
-  //   margin: 20px 0 12px 0;
-  // }
 `;
 
 export const RatingArea = styled.div`
@@ -135,15 +132,31 @@ export const ItemBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
 `;
 
 export const Container = styled.div`
+width:568px;
+display:flex;
+// background: #ffffff;
+// position: absolute;
+// left: 0;
+// right: 0;
+// top: 50%;
+z-index: 2000;
+// margin-left: auto;
+// margin-right: auto;
+// // padding-top: 24px;
+// // padding-bottom: 24px;
+// padding:20px;
+
   @media screen and ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
     max-height: 395px;
   }
   @media screen and ${device.tablet} {
-    max-width: 608px;
+    max-width: 568px;
     max-height: 399px;
   }
 `;

@@ -35,6 +35,13 @@ export const usersApi = createApi({
       },
       invalidatesTags: ["users"],
     }),
+    deleteProgress: builder.mutation({
+      query: (progressId) => ({
+        url: `/api/users/${progressId}/progress`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["users"],
+    }),
     addBook: builder.mutation({
       query: (body) => ({
         url: "/api/books/add",
@@ -72,6 +79,17 @@ export const usersApi = createApi({
       }),
       invalidatesTags: ["users"],
     }),
+    updateIsTraining: builder.mutation({
+      query: (data) => {
+        const { id, ...body } = data;
+        return {
+          url: `/api/users/${id}/training`,
+          method: "PATCH",
+          body,
+        };
+      },
+      invalidatesTags: ["users"],
+    }),
   }),
 });
 
@@ -79,8 +97,10 @@ export const {
   useFetchUserDataQuery,
   useLazyFetchUserDataQuery,
   useAddResultsMutation,
+  useDeleteProgressMutation,
   useAddBookMutation,
   useUpdateResumeMutation,
   useUpdateStatusMutation,
   useDeleteBookMutation,
+  useUpdateIsTrainingMutation,
 } = usersApi;

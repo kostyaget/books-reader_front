@@ -78,7 +78,8 @@ export const ItemBtn = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 280px; /* Need a specific value to work */
+  width: 280px;
+  
   @media screen and ${device.mobileS} and (max-width: 767px) {
   }
   @media screen and ${device.tablet} {
