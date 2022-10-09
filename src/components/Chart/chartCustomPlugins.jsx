@@ -83,7 +83,7 @@ export const customPagesValue = {
     ctx.fillStyle = Colors.grayBlue;
     ctx.textBaseline = "middle";
     ctx.font = "500 12px Montserrat";
-    ctx.fillText("AMONT OF PAGES / DAY", 3, 13);
+    ctx.fillText("AMOUNT OF PAGES / DAY", 3, 13);
     ctx.fill();
 
     data.datasets.forEach((item, index) => {
