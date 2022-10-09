@@ -1,8 +1,12 @@
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../redux/auth/auth";
-import { useUpdateIsTrainingMutation } from "../../redux/users/usersApi";
+// import { useSelector } from "react-redux";
+// import { selectCurrentUser } from "../../redux/auth/auth";
+import {
+  useDeleteProgressMutation,
+  useUpdateIsTrainingMutation,
+} from "../../redux/users/usersApi";
 import styled from "styled-components";
 import { device } from "../../components/device/device";
+import Notiflix from "notiflix";
 
 const Button = styled.button`
   display: block;
@@ -35,12 +39,14 @@ const Button = styled.button`
   } ;
 `;
 
-export default function FinishTrainingBtn({ clearListBook }) {
-  const { _id } = useSelector(selectCurrentUser);
+export default function FinishTrainingBtn({ clearListBook, userId }) {
+  // const user = useSelector(selectCurrentUser);
+  // console.log("user", user);
   const [updateIsTraningStatus] = useUpdateIsTrainingMutation();
+  const [deleteProgress] = useDeleteProgressMutation();
 
   const IsTraningStatus = {
-    id: _id,
+    id: userId,
     isTraining: false,
   };
 
@@ -50,6 +56,8 @@ export default function FinishTrainingBtn({ clearListBook }) {
       onClick={() => {
         clearListBook();
         updateIsTraningStatus(IsTraningStatus);
+        deleteProgress(userId);
+        Notiflix.Notify.success("Training is complete");
       }}
     >
       All books are read to complete the training?

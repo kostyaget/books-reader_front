@@ -1,9 +1,9 @@
 import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Notiflix from "notiflix";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useAddResultsMutation } from "../../../redux/users/usersApi";
-import { selectCurrentUser } from "../../../redux/auth/auth";
+// import { selectCurrentUser } from "../../../redux/auth/auth";
 
 import {
   FormResult,
@@ -38,10 +38,11 @@ const FormError = ({ name }) => {
   );
 };
 
-export default function ResultForm() {
+export default function ResultForm({ userId }) {
   const [addResult] = useAddResultsMutation();
-  const { _id } = useSelector(selectCurrentUser);
-  const id = _id;
+  // const { _id } = useSelector(selectCurrentUser);
+  // const id = _id;
+  const id = userId;
   const handleSubmit = async (values, { resetForm }) => {
     const now = new Date();
     values.trainingDate.setHours(now.getHours());

@@ -1,19 +1,20 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import ResultForm from "./ResultForm/ResultForm";
 import PagesStats from "../PagesStats/PagesStats";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
-import { selectCurrentUser } from "../../redux/auth/auth";
+// import { selectCurrentUser } from "../../redux/auth/auth";
 import { Section, Title } from "./Result.styled";
 
-export default function Result() {
+export default function Result({ userId }) {
   const { data } = useFetchUserDataQuery();
-  const user = useSelector(selectCurrentUser);
+  // const user = useSelector(selectCurrentUser);
+  const user = userId;
 
   return (
     <>
       <Section>
         <Title>Result</Title>
-        {user && <ResultForm />}
+        {user && <ResultForm userId={userId} />}
         {data && <PagesStats />}
       </Section>
     </>
