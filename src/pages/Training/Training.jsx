@@ -54,6 +54,7 @@ export default function Training() {
     .every((val) => val === "completed");
   // console.log("traningFinish", traningFinish);
 
+
   function clearTraningList() {
     data?.data?.forEach((el) => {
       clearBookList(el._id);
@@ -79,7 +80,11 @@ export default function Training() {
       )}
       {isMobile && isTrainingActive && (
         <>
-          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
+          {data?.data.length > 0 && !traningFinish ? (
+            <ClockTimes data={data} />
+          ) : (
+            <MyTraining />
+          )}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
           {traningFinish && (
@@ -102,7 +107,11 @@ export default function Training() {
       )}
       {isTablet && isTrainingActive && (
         <>
-          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
+          {data?.data.length > 0 && !traningFinish ? (
+            <ClockTimes data={data} />
+          ) : (
+            <MyTraining />
+          )}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
           {traningFinish && (
@@ -133,7 +142,7 @@ export default function Training() {
         <DesktopTrainingWrapper>
           <MyTrainingWarp>
             <TrainingContent>
-              {data?.data.length > 0 ? (
+              {data?.data.length > 0 && !traningFinish ? (
                 <ClockTimes data={data} />
               ) : (
                 <MyTraining />

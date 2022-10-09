@@ -21,7 +21,6 @@ const Resume = ({
   onClose,
   ResumeFunc,
 }) => {
-
   const [summary, setSummary] = useState(summaryBook);
   const [updateResume] = useUpdateResumeMutation();
   const handleSubmit = (evt) => {
@@ -40,6 +39,7 @@ const Resume = ({
            <RatingStarss>
                <RatingStars id={id} rating={ratingBook} />
            </RatingStarss>
+
             <Rating htmlFor="resume">Resume</Rating>
             <Summary
               type="text"

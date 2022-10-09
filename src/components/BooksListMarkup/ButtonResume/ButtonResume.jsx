@@ -4,7 +4,6 @@ import Resume from "../../Modal/Resume";
 // import { useDispatch } from 'react-redux';
 
 export default function ButtonResume({ id = 1, rating = 0, summaryBook = "" }) {
-
   const [modalActiveResume, setModalActiveResume] = useState(false);
 
   const closeResumeModal = () => {
