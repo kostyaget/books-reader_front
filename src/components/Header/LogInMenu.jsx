@@ -58,7 +58,7 @@ export default function LogInMenu() {
           </NavList>
           <Name>{name}</Name>
           <Avatar>
-            <User>{name?.slice(0, 1)}</User>
+            <User>{name?.slice(0, 1)?.toUpperCase()}</User>
           </Avatar>
         </NavWrapper>
         <LogOutBtn type="button" onClick={onClick}>
