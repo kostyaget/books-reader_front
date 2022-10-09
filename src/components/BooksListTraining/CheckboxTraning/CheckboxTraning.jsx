@@ -2,7 +2,12 @@ import * as React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import { useUpdateStatusMutation } from "../../../redux/users/usersApi";
 
-export default function CheckboxTraning({ id, statusBook, idTraning }) {
+export default function CheckboxTraning({
+  id,
+  statusBook,
+  idTraning,
+  isAlready,
+}) {
   const [updateStatus] = useUpdateStatusMutation();
 
   let statusLoad = false;
@@ -28,6 +33,7 @@ export default function CheckboxTraning({ id, statusBook, idTraning }) {
         checked={value}
         onChange={(event, newValue) => {
           setValue(newValue);
+          isAlready(newValue);
           if (newValue) {
             updateStatus(statusCompleted);
           }

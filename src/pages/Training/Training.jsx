@@ -33,6 +33,7 @@ export default function Training() {
   const [clearBookList] = useDeleteTrainingBookMutation();
 
   const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
+  const [traningFinish, setTraningFinish] = useState(false);
   // const [isTrainingActive, setIsTrainingActive] = useState(isTraningStatus);
   const isTrainingActive = isTraningStatus;
   // const booksArr = user?.data?.user.books;
@@ -49,10 +50,18 @@ export default function Training() {
     console.log("inprogress");
   };
 
-  const traningFinish = data?.data
-    ?.map((el) => el.book.status)
-    .every((val) => val === "completed");
-  // console.log("traningFinish", traningFinish);
+  function isAlready(newValue) {
+    const traningAll = data?.data
+      ?.map((el) => el.book.status)
+      .every((val) => val === "completed");
+    console.log("traningFinish", traningFinish);
+    if (traningAll) {
+      setTraningFinish(newValue);
+    }
+    if (!traningAll) {
+      setTraningFinish(newValue);
+    }
+  }
 
   function clearTraningList() {
     data?.data?.forEach((el) => {
@@ -79,7 +88,11 @@ export default function Training() {
       )}
       {isMobile && isTrainingActive && (
         <>
-          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
+          {data?.data.length > 0 && !traningFinish ? (
+            <ClockTimes data={data} />
+          ) : (
+            <MyTraining />
+          )}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
           {traningFinish && (
@@ -102,7 +115,11 @@ export default function Training() {
       )}
       {isTablet && isTrainingActive && (
         <>
-          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
+          {data?.data.length > 0 && !traningFinish ? (
+            <ClockTimes data={data} />
+          ) : (
+            <MyTraining />
+          )}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
           {traningFinish && (
@@ -133,12 +150,15 @@ export default function Training() {
         <DesktopTrainingWrapper>
           <MyTrainingWarp>
             <TrainingContent>
-              {data?.data.length > 0 ? (
+              {data?.data.length > 0 && !traningFinish ? (
                 <ClockTimes data={data} />
               ) : (
                 <MyTraining />
               )}
-              <BooksListTraining training={isTrainingActive} />
+              <BooksListTraining
+                training={isTrainingActive}
+                isAlready={isAlready}
+              />
               {traningFinish && (
                 <FinishTrainingBtn clearListBook={clearTraningList} />
               )}
