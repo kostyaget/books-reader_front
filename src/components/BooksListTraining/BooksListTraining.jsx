@@ -35,7 +35,7 @@ import DeleteButton from "./DeleteButton";
 import CheckboxTraning from "./CheckboxTraning/CheckboxTraning";
 import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 
-export default function BooksListTraining({ training = false }) {
+export default function BooksListTraining({ training = false, isAlready }) {
   const { data } = useFetchTrainingsDataQuery();
   // console.log(data?.data);
   let empty = false;
@@ -67,6 +67,7 @@ export default function BooksListTraining({ training = false }) {
                         id={book._id}
                         statusBook={book.status}
                         idTraning={_id}
+                        isAlready={isAlready}
                       />
                     )}
                     {/* {training && read && <CheckboxActiveIco />} */}
