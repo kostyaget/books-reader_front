@@ -1,46 +1,45 @@
 import { useState } from "react";
 import { useUpdateResumeMutation } from "../../redux/users/usersApi";
 import RatingStars from "../RatingStars/RatingStars";
-// import { useDispatch } from "react-redux";
+import "./Resume.css";
 import {
   Rating,
-  // RatingArea,
   Summary,
   BtnColor,
   Btn,
   ItemBtn,
   Container,
+  RatingStarss,
 } from "./Resume.styled";
 import "./Resume.css";
 
-const Resume = ({ id, ratingBook, summaryBook = "" }) => {
-  // const dispatch = useDispatch();
-
-  // const [rating, setRating] = useState(1);
+const Resume = ({
+  id,
+  ratingBook,
+  summaryBook = "",
+  open,
+  onClose,
+  ResumeFunc,
+}) => {
   const [summary, setSummary] = useState(summaryBook);
   const [updateResume] = useUpdateResumeMutation();
   const handleSubmit = (evt) => {
     evt.preventDefault();
     updateResume({ id, summary });
   };
-
-  const [active, setActive] = useState(true);
-  const onStart = () => {
-    setActive(false);
-  };
   return (
-    <div
-      className={active ? "modal active" : "modal"}
-      onClick={() => setActive(false)}
-    >
+    <div className={open ? "modal active" : "modal"} onClick={onClose}>
       <div
-        className={"modal__content active"}
+        className={open ? "modal__content active" : "modal__content"}
         onClick={(e) => e.stopPropagation()}
       >
-        <Container style={active ? { display: "block" } : { display: "none" }}>
+        <Container open={open} onClose={onClose}>
           <form onSubmit={handleSubmit}>
             <Rating>Choose rating of the book</Rating>
-            <RatingStars id={id} rating={ratingBook} />
+           <RatingStarss>
+               <RatingStars id={id} rating={ratingBook} />
+           </RatingStarss>
+
             <Rating htmlFor="resume">Resume</Rating>
             <Summary
               type="text"
@@ -50,12 +49,17 @@ const Resume = ({ id, ratingBook, summaryBook = "" }) => {
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
             />
-
             <ItemBtn>
-              <Btn type="button" onClick={onStart}>
+              <Btn type="button" onClick={onClose}>
                 Back
               </Btn>
-              <BtnColor type="submit">Save</BtnColor>
+              <BtnColor
+                type="submit"
+                // onClick={ResumeFunc}
+                onClick={onClose}
+              >
+                Save
+              </BtnColor>
             </ItemBtn>
           </form>
         </Container>

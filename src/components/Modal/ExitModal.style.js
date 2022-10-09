@@ -78,17 +78,6 @@ export const ItemBtn = styled.div`
 `;
 
 export const Container = styled.div`
-  background: #ffffff;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  z-index: 20;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 24px;
-  padding-bottom: 24px;
-
   width: 280px;
   @media screen and ${device.mobileS} and (max-width: 767px) {
   }

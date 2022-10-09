@@ -33,7 +33,6 @@ export default function Training() {
   const [clearBookList] = useDeleteTrainingBookMutation();
 
   const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
-  const [traningFinish, setTraningFinish] = useState(false);
   // const [isTrainingActive, setIsTrainingActive] = useState(isTraningStatus);
   const isTrainingActive = isTraningStatus;
   // const booksArr = user?.data?.user.books;
@@ -50,18 +49,11 @@ export default function Training() {
     console.log("inprogress");
   };
 
-  function isAlready(newValue) {
-    const traningAll = data?.data
-      ?.map((el) => el.book.status)
-      .every((val) => val === "completed");
-    console.log("traningFinish", traningFinish);
-    if (traningAll) {
-      setTraningFinish(newValue);
-    }
-    if (!traningAll) {
-      setTraningFinish(newValue);
-    }
-  }
+  const traningFinish = data?.data
+    ?.map((el) => el.book.status)
+    .every((val) => val === "completed");
+  // console.log("traningFinish", traningFinish);
+
 
   function clearTraningList() {
     data?.data?.forEach((el) => {
@@ -155,10 +147,7 @@ export default function Training() {
               ) : (
                 <MyTraining />
               )}
-              <BooksListTraining
-                training={isTrainingActive}
-                isAlready={isAlready}
-              />
+              <BooksListTraining training={isTrainingActive} />
               {traningFinish && (
                 <FinishTrainingBtn clearListBook={clearTraningList} />
               )}
