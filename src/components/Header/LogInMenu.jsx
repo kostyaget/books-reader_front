@@ -21,15 +21,15 @@ import { useLogoutUserMutation } from "../../redux/auth/authApi";
 export default function LogInMenu() {
   const { data, error } = useFetchUserDataQuery();
   const name = data?.user.info.username;
+  const [logoutUser] = useLogoutUserMutation();
+  const [logoutModal, setLogoutModal] = useState(false);
 
   useEffect(() => {
     if (error) {
       logoutUser();
     }
-  }, [error, logoutUser]);
+  }, [error]);
 
-  const [logoutUser] = useLogoutUserMutation();
-  const [logoutModal, setLogoutModal] = useState(false);
   const closeLogoutModal = () => {
     setLogoutModal(false);
   };
