@@ -33,7 +33,7 @@ export default function StartTrainingBtn({ openStatistics, data }) {
         updateIsTraningStatus(IsTraningStatus);
       }}
     >
-      Start traininig
+      Start training
     </Button>
   );
 }
