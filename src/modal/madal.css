@@ -20,6 +20,7 @@
 .modal.active {
   opacity: 1;
   pointer-events: all;
+  z-index: 40
 }
 
 .modal__content {
