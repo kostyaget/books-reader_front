@@ -96,8 +96,8 @@ export const User = styled.span`
   display: block;
   padding-top: 12px;
   padding-bottom: 12px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 15px;
+  padding-right: 15px;
   background: #f5f7fa;
   border-radius: 50%;
 

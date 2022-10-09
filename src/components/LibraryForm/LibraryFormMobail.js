@@ -34,23 +34,23 @@ export default function LibraryFormMobail() {
       .string()
       .max(50, "Must be no more than 50 characters")
       .matches(/^[^\s-]/, "Title can't start with space or dash")
-      .required("*"),
+      .required("Title is required"),
     author: yup
       .string()
       .max(50, "Must be no more than 50 characters")
       .matches(/^[^\s-]/, "Author can't start with space or dash")
       .matches(/^\D+$/, "Author can't contain digits")
-      .required("*"),
+      .required("Author is required"),
     publishingDate: yup
       .string()
       .matches(/^[12]\d{3}$/, "Enter a valid year")
-      .required("*"),
+      .required("Year is required"),
     pageAmount: yup
       .number()
       .positive("Enter valid number of pages")
       .integer("Enter valid number of pages")
       .max(9999, "Enter number less than 10000")
-      .required("*"),
+      .required("This field is required"),
   });
 
   return createPortal(
