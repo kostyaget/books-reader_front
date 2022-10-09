@@ -10,7 +10,7 @@ import {
   Name,
   User,
 } from "./Header.styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ExitModal from "../Modal/ExitModal";
 import { ReactComponent as Home } from "../../images/home.svg";
 import { ReactComponent as Lib } from "../../images/book.svg";
@@ -19,10 +19,17 @@ import { useDispatch } from "react-redux";
 
 import { useLogoutUserMutation } from "../../redux/auth/authApi";
 export default function LogInMenu() {
-  const { data } = useFetchUserDataQuery();
+  const { data, error } = useFetchUserDataQuery();
   const name = data?.user.info.username;
   const [logoutUser] = useLogoutUserMutation();
   const [logoutModal, setLogoutModal] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      logoutUser();
+    }
+  }, [error]);
+
   const closeLogoutModal = () => {
     setLogoutModal(false);
   };
