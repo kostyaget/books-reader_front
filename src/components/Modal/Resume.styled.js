@@ -13,7 +13,7 @@ export const Rating = styled.label`
   color: #242a37;
 
   @media ${device.mobileS} {
-    margin: 0px 0 20px 0;
+    margin: 0px 0 12px 0;
   }
 `;
 
@@ -73,12 +73,12 @@ export const Summary = styled.textarea`
   resize: none;
 
   @media ${device.mobileS} and (max-width: 767px) {
-    margin: -8px 0 20px 0;
+    margin: -4px 0 20px 0;
   }
 
   @media ${device.tablet} {
-    margin: -12px 0 28px 0;
-    width: 568px;
+    margin: 0 0 28px 0;
+    width: 545px;
     height: 170px;
   }
 `;
@@ -163,7 +163,7 @@ z-index: 2000;
 
 export const RatingStarss = styled.div`
 @media ${device.mobileS} {
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   height: 17px;
 }
 `
