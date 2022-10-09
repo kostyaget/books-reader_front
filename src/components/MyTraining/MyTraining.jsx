@@ -22,7 +22,7 @@ import icons from "../../images/svg/date.svg";
 
 import {
   useFetchUserDataQuery,
-  useUpdateStatusMutation,
+  // useUpdateStatusMutation,
 } from "../../redux/users/usersApi";
 import { useStartTrainingMutation } from "../../redux/trainings/trainingsApi";
 
@@ -35,7 +35,7 @@ const MyTraining = () => {
   const [book, setBook] = useState("");
 
   const [addTrainingBook] = useStartTrainingMutation();
-  const [updateStatus] = useUpdateStatusMutation();
+  // const [updateStatus] = useUpdateStatusMutation();
 
   const options = {
     day: "numeric",
@@ -43,10 +43,10 @@ const MyTraining = () => {
     year: "numeric",
   };
 
-  const bookStatus = {
-    id: book,
-    status: "inprogress",
-  };
+  // const bookStatus = {
+  //   id: book,
+  //   status: "inprogress",
+  // };
 
   const startDate = start.toLocaleString("en-US", options).split("/").join(".");
   const finishDate = finish
@@ -57,7 +57,7 @@ const MyTraining = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     addTrainingBook({ startDate, finishDate, book });
-    updateStatus(bookStatus);
+    // updateStatus(bookStatus);
     reset();
   };
 

@@ -1,18 +1,18 @@
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../redux/auth/auth";
+// import { useSelector } from "react-redux";
+// import { selectCurrentUser } from "../../redux/auth/auth";
 import {
   useUpdateIsTrainingMutation,
   useUpdateStatusMutation,
 } from "../../redux/users/usersApi";
 import { Button } from "./StartTrainingBtn.styled";
 
-export default function StartTrainingBtn({ openStatistics, data }) {
-  const { _id } = useSelector(selectCurrentUser);
+export default function StartTrainingBtn({ openStatistics, data, userId }) {
+  // const { _id } = useSelector(selectCurrentUser);
   const [updateStatus] = useUpdateStatusMutation();
   const [updateIsTraningStatus] = useUpdateIsTrainingMutation();
 
   const IsTraningStatus = {
-    id: _id,
+    id: userId,
     isTraining: true,
   };
 
