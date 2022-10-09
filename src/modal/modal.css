@@ -11,7 +11,7 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
-  z-index: 100;
+
   /* @media screen and (min-width: 280px) and (max-width: 767px) {
     width: 280px;
   } */
