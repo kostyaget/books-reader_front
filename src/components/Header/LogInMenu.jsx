@@ -26,7 +26,7 @@ export default function LogInMenu() {
     if (error) {
       logoutUser();
     }
-  }, [error]);
+  }, [error, logoutUser]);
 
   const [logoutUser] = useLogoutUserMutation();
   const [logoutModal, setLogoutModal] = useState(false);
