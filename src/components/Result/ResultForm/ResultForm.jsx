@@ -26,6 +26,7 @@ import {
 const schema = yup.object().shape({
   trainingDate: yup
     .date()
+    .min(new Date(2022, 9, 9), "Select a valid date")
     .max(new Date(), "Select valid date")
     .required("Enter a date"),
   pagesAmount: yup
@@ -56,6 +57,7 @@ export default function ResultForm({
   const [addResult] = useAddResultsMutation();
   const arrayBooks = fetch?.data?.data;
   const userProgress = user?.data?.user?.info?.progress;
+
   let totalPages = 0;
   let totalProgressPages = 0;
   const id = userId;
