@@ -13,7 +13,7 @@ import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 export const PLAN_LINE_NAME = "PLAN";
 export const ACT_LINE_NAME = "ACT";
-
+export let planNumber = 0;
 function Chart() {
   const user = useFetchUserDataQuery();
   const fetch = useFetchTrainingsDataQuery();
@@ -36,11 +36,13 @@ function Chart() {
 
   let maxLongNumb = Math.max(...longDays);
   let ser = totalPages;
-
+  let wDay = maxLongNumb;
+  planNumber = Math.round(totalPages / maxLongNumb);
   userProgress?.forEach(({ trainingDate, pagesAmount }) => {
     ser -= pagesAmount;
-    const planDay = Math.round(ser / maxLongNumb);
-
+    // wDay -= 1;
+    const planDay = Math.round(ser / wDay);
+    planNumber = planDay;
     planData.push(planDay);
     labelsData.push(trainingDate);
     actData.push(pagesAmount);

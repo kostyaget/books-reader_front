@@ -1,5 +1,6 @@
 import { Colors } from "./Chart.styled";
 import { PLAN_LINE_NAME } from "./Chart";
+import { planNumber } from "./Chart";
 
 export const customBorder = {
   id: "customBorder",
@@ -88,9 +89,8 @@ export const customPagesValue = {
 
     data.datasets.forEach((item, index) => {
       if (item.label === PLAN_LINE_NAME) {
-        const value = item.data[item.data.length - 1];
-        const ifValue =
-          data.datasets[index].data[item.data.length - 1].toString().length;
+        const value = planNumber;
+        const ifValue = planNumber.toString().length;
         if (ifValue > 1) {
           let bgPagesLength = 25;
           if (ifValue === 2) {
