@@ -92,7 +92,7 @@ export const BookBnt = styled.button`
   cursor: pointer;
 
   border: 1px solid #242a37;
-  background: #f6f7fb;
+  background-color: transparent;
 
   font-family: "Montserrat";
   font-style: normal;
