@@ -134,4 +134,9 @@ export const LogOutBtn = styled.button`
   background: transparent;
   color: #242a37;
   cursor: pointer;
+
+  &:hover,
+  focus {
+    color: #ff6b08;
+  }
 `;

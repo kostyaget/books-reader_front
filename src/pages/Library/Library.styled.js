@@ -35,6 +35,9 @@ export const LibraryBnt = styled(Link)`
   width: 171px;
   padding-top: 10px;
   padding-bottom: 10px;
+  &:hover {
+    background: #ff9506;
+  }
 
   @media screen and (min-width: 768px) {
     width: 200px;
