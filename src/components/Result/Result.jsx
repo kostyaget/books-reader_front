@@ -5,7 +5,7 @@ import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 // import { selectCurrentUser } from "../../redux/auth/auth";
 import { Section, Title } from "./Result.styled";
 
-export default function Result({ userId }) {
+export default function Result({ userId, clearListBook, dataTrainingBook }) {
   const { data } = useFetchUserDataQuery();
   // const user = useSelector(selectCurrentUser);
   const user = userId;
@@ -14,7 +14,13 @@ export default function Result({ userId }) {
     <>
       <Section>
         <Title>Result</Title>
-        {user && <ResultForm userId={userId} />}
+        {user && (
+          <ResultForm
+            userId={userId}
+            clearListBook={clearListBook}
+            dataTrainingBook={dataTrainingBook}
+          />
+        )}
         {data && <PagesStats />}
       </Section>
     </>

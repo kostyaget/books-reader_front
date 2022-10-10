@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { device } from "../device/device";
 
+export const Backdrop = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgba(43, 43, 43, 0.25);
+`;
+
 export const Rating = styled.p`
   font-family: "Montserrat";
   font-style: normal;
@@ -31,7 +41,6 @@ export const ItemBtn = styled.div`
   justify-content: center;
 `;
 
-
 export const BtnColor = styled.button`
   background: #ff6b08;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -60,6 +69,12 @@ export const BtnColor = styled.button`
 `;
 
 export const Container = styled.div`
+  z-index: 20;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 300ms, transform 300ms;
   background: #ffffff;
   @media screen and ${device.mobileS} and (max-width: 767px) {
     width: 240px;
@@ -70,7 +85,6 @@ export const Container = styled.div`
     max-height: 286px;
   }
 `;
-
 
 export const Svg = styled.img`
   width: 54px;
