@@ -57,10 +57,10 @@ export default function FinishTrainingBtn({ clearListBook, userId }) {
         clearListBook();
         updateIsTraningStatus(IsTraningStatus);
         deleteProgress(userId);
-        Notiflix.Notify.success("Training is complete");
+        Notiflix.Notify.success("Training is completed");
       }}
     >
-      All books are read to complete the training?
+      Stop training
     </Button>
   );
 }

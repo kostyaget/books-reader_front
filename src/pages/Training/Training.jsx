@@ -22,7 +22,6 @@ import {
   SideBar,
   MyTrainingWarp,
 } from "./Training.styled";
-import FinishTrainingBtn from "../../components/StartTrainingBtn/FinishTrainingBtn";
 
 // ------------------------------
 
@@ -101,14 +100,9 @@ export default function Training() {
           )}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
-          {traningFinish && (
-            <FinishTrainingBtn
-              clearListBook={clearTraningList}
-              userId={userId}
-            />
-          )}
+
           <Chart />
-          <Result userId={userId} />
+          <Result userId={userId} clearListBook={clearTraningList} />
         </>
       )}
       {isTablet && !isTrainingActive && (
@@ -135,14 +129,9 @@ export default function Training() {
           )}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
           <BooksListTraining training={isTrainingActive} />
-          {traningFinish && (
-            <FinishTrainingBtn
-              clearListBook={clearTraningList}
-              userId={userId}
-            />
-          )}
+
           <Chart />
-          <Result userId={userId} />
+          <Result userId={userId} clearListBook={clearTraningList} />
         </>
       )}
       {isDesktop && !isTrainingActive && (
@@ -179,12 +168,7 @@ export default function Training() {
                 training={isTrainingActive}
                 isAlready={isAlready}
               />
-              {traningFinish && (
-                <FinishTrainingBtn
-                  clearListBook={clearTraningList}
-                  userId={userId}
-                />
-              )}
+
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>
@@ -194,7 +178,11 @@ export default function Training() {
             ) : (
               <WithoutBooks />
             )}
-            <Result userId={userId} />
+            <Result
+              userId={userId}
+              clearListBook={clearTraningList}
+              dataTrainingBook={data}
+            />
           </SideBar>
         </DesktopTrainingWrapper>
       )}

@@ -2,7 +2,6 @@ import { Form, Formik } from "formik";
 import {
   Backdrop,
   Rating,
-  BtnColor,
   Btn,
   ItemBtn,
   Container,
@@ -10,7 +9,7 @@ import {
 } from "./LateRead.styled";
 import Like from "../../images/Vector2.svg";
 
-const ExitModal = ({ showModal, setShowModal }) => {
+const LateRead = ({ showModal, setShowModal }) => {
   return (
     <Backdrop>
       <Container>
@@ -23,9 +22,9 @@ const ExitModal = ({ showModal, setShowModal }) => {
         <Formik>
           <Form>
             <ItemBtn>
-              <BtnColor type="submit" onClick={() => setShowModal(!showModal)}>
-                New training
-              </BtnColor>
+              {/* <BtnColor type="submit" onClick={() => setShowModal(!showModal)}>
+                Done
+              </BtnColor> */}
               <Btn type="button" onClick={() => setShowModal(!showModal)}>
                 Back
               </Btn>
@@ -37,4 +36,4 @@ const ExitModal = ({ showModal, setShowModal }) => {
   );
 };
 
-export default ExitModal;
+export default LateRead;
