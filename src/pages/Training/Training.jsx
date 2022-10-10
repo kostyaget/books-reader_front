@@ -102,7 +102,11 @@ export default function Training() {
           <BooksListTraining training={isTrainingActive} />
 
           <Chart />
-          <Result userId={userId} clearListBook={clearTraningList} />
+          <Result
+            userId={userId}
+            clearListBook={clearTraningList}
+            dataTrainingBook={data}
+          />
         </>
       )}
       {isTablet && !isTrainingActive && (
@@ -131,7 +135,11 @@ export default function Training() {
           <BooksListTraining training={isTrainingActive} />
 
           <Chart />
-          <Result userId={userId} clearListBook={clearTraningList} />
+          <Result
+            userId={userId}
+            clearListBook={clearTraningList}
+            dataTrainingBook={data}
+          />
         </>
       )}
       {isDesktop && !isTrainingActive && (
