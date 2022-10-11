@@ -24,11 +24,17 @@ import {
   useFetchUserDataQuery,
   // useUpdateStatusMutation,
 } from "../../redux/users/usersApi";
-import { useStartTrainingMutation } from "../../redux/trainings/trainingsApi";
+import {
+  useFetchTrainingsDataQuery,
+  useStartTrainingMutation,
+} from "../../redux/trainings/trainingsApi";
 
 const MyTraining = () => {
   const { data } = useFetchUserDataQuery();
   const booksList = data ? data.user.books : [];
+
+  const training = useFetchTrainingsDataQuery();
+  const isListTraining = training?.data?.data.map((el) => el.book._id);
 
   const [start, setStart] = useState("");
   const [finish, setFinish] = useState("");
@@ -119,7 +125,8 @@ const MyTraining = () => {
               {booksList &&
                 booksList.map(
                   ({ _id = "0", title = "", status }) =>
-                    status === "next" && (
+                    status === "next" &&
+                    !isListTraining?.includes(_id) && (
                       <option value={_id} key={_id}>
                         {title}
                       </option>
