@@ -3,10 +3,12 @@
 import {
   useDeleteProgressMutation,
   useUpdateIsTrainingMutation,
+  useUpdateStatusMutation,
 } from "../../redux/users/usersApi";
 import styled from "styled-components";
 import { device } from "../../components/device/device";
 import Notiflix from "notiflix";
+import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
 
 const Button = styled.button`
   display: block;
@@ -42,18 +44,31 @@ const Button = styled.button`
 export default function FinishTrainingBtn({ clearListBook, userId }) {
   // const user = useSelector(selectCurrentUser);
   // console.log("user", user);
+  const { data } = useFetchTrainingsDataQuery();
   const [updateIsTraningStatus] = useUpdateIsTrainingMutation();
   const [deleteProgress] = useDeleteProgressMutation();
+  const [updateStatus] = useUpdateStatusMutation();
 
   const IsTraningStatus = {
     id: userId,
     isTraining: false,
+  };
+  console.log(data?.data);
+  const updateStatusBook = () => {
+    data?.data?.forEach((e) => {
+      if (e.book.status !== "completed")
+        return updateStatus({
+          id: e.book._id,
+          status: "next",
+        });
+    });
   };
 
   return (
     <Button
       type="submit"
       onClick={() => {
+        updateStatusBook();
         clearListBook();
         updateIsTraningStatus(IsTraningStatus);
         deleteProgress(userId);

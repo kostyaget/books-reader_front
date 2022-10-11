@@ -22,6 +22,7 @@ import {
   SideBar,
   MyTrainingWarp,
 } from "./Training.styled";
+import FinishTrainingBtn from "../../components/StartTrainingBtn/FinishTrainingBtn";
 
 // ------------------------------
 
@@ -55,7 +56,6 @@ export default function Training() {
     const traningAll = data?.data
       ?.map((el) => el.book.status)
       .every((val) => val === "completed");
-    // console.log("traningFinish", traningFinish);
     if (traningAll) {
       setTraningFinish(newValue);
     }
@@ -93,14 +93,18 @@ export default function Training() {
       )}
       {isMobile && isTrainingActive && (
         <>
-          {data?.data.length > 0 ? (
-            <ClockTimes data={data} traningFinish={traningFinish} />
-          ) : (
-            <MyTraining />
-          )}
+          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
-          <BooksListTraining training={isTrainingActive} />
-
+          <BooksListTraining
+            training={isTrainingActive}
+            isAlready={isAlready}
+          />
+          {traningFinish && (
+            <FinishTrainingBtn
+              clearListBook={clearTraningList}
+              userId={userId}
+            />
+          )}
           <Chart />
           <Result
             userId={userId}
@@ -126,14 +130,18 @@ export default function Training() {
       )}
       {isTablet && isTrainingActive && (
         <>
-          {data?.data.length > 0 ? (
-            <ClockTimes data={data} traningFinish={traningFinish} />
-          ) : (
-            <MyTraining />
-          )}
+          {data?.data.length > 0 ? <ClockTimes data={data} /> : <MyTraining />}
           {data?.data.length > 0 ? <WithBooks data={data} /> : <WithoutBooks />}
-          <BooksListTraining training={isTrainingActive} />
-
+          <BooksListTraining
+            training={isTrainingActive}
+            isAlready={isAlready}
+          />
+          {traningFinish && (
+            <FinishTrainingBtn
+              clearListBook={clearTraningList}
+              userId={userId}
+            />
+          )}
           <Chart />
           <Result
             userId={userId}
@@ -147,7 +155,7 @@ export default function Training() {
           <MyTrainingWarp>
             <TrainingContent>
               <MyTraining />
-              <BooksListTraining training={isTrainingActive} />
+              <BooksListTraining />
               {data?.data.length > 0 && (
                 <StartTrainingBtn
                   openStatistics={openStatistics}
@@ -168,7 +176,7 @@ export default function Training() {
           <MyTrainingWarp>
             <TrainingContent>
               {data?.data.length > 0 ? (
-                <ClockTimes data={data} traningFinish={traningFinish} />
+                <ClockTimes data={data} />
               ) : (
                 <MyTraining />
               )}
@@ -176,7 +184,12 @@ export default function Training() {
                 training={isTrainingActive}
                 isAlready={isAlready}
               />
-
+              {traningFinish && (
+                <FinishTrainingBtn
+                  clearListBook={clearTraningList}
+                  userId={userId}
+                />
+              )}
               <Chart />
             </TrainingContent>
           </MyTrainingWarp>

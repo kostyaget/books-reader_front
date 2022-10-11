@@ -45,7 +45,7 @@ const HeadingText = css`
 export const Wrapper = styled.div`
   box-sizing: border-box;
 
-  // margin: 0 auto;
+  margin: 0 auto;
   max-width: 280px;
   @media screen and (${BreakPoint.tabletMin}) {
     max-width: 704px;
@@ -65,6 +65,7 @@ export const Wrapper = styled.div`
     }
   }
   @media screen and (${BreakPoint.desktopMin}) {
+    margin: 0;
     max-width: 1248px;
   }
 `;
