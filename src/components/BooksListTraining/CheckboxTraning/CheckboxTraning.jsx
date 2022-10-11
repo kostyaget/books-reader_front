@@ -1,6 +1,7 @@
 import * as React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import { useUpdateStatusMutation } from "../../../redux/users/usersApi";
+import { useUpdateTrainingStatusMutation } from "../../../redux/trainings/trainingsApi";
 
 export default function CheckboxTraning({
   id,
@@ -9,6 +10,7 @@ export default function CheckboxTraning({
   isAlready,
 }) {
   const [updateStatus] = useUpdateStatusMutation();
+  const [updateTrainingStatus] = useUpdateTrainingStatusMutation();
 
   let statusLoad = false;
   if (statusBook === "completed") {
@@ -27,6 +29,10 @@ export default function CheckboxTraning({
     id,
     status: "inprogress",
   };
+  const statusTrainingA = {
+    id: idTraning,
+    status: "active",
+  };
   return (
     <div>
       <Checkbox
@@ -36,9 +42,11 @@ export default function CheckboxTraning({
           isAlready(newValue);
           if (newValue) {
             updateStatus(statusCompleted);
+            updateTrainingStatus(statusTrainingA);
           }
           if (!newValue) {
             updateStatus(statusInprogress);
+            updateTrainingStatus(statusTrainingA);
           }
         }}
         size="small"
