@@ -25,7 +25,7 @@ const DeleteIco = styled.button`
   &:focus {
     background-image: url(${deleteActiveIc});
   }
-  cursor: pointer;
+
   @media screen and (${BreakPoint.desktopMin}) {
     display: block;
     margin-left: auto;
