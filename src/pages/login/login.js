@@ -68,7 +68,7 @@ const Login = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, { resetForm }) => {
-            resetForm({ values: "" });
+            resetForm();
             const res = await loginUser(values);
             if (res.error) {
               Notiflix.Notify.failure("Wrong password or email");
@@ -103,7 +103,6 @@ const Login = () => {
                 <InputField
                   type="email"
                   name="email"
-                  value={values.email}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="your@email.com"

@@ -68,7 +68,7 @@ const Registration = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, { resetForm }) => {
-            resetForm({ values: "" });
+            resetForm();
             const res = await createUser(values);
             if (res.error) {
               Notiflix.Notify.failure("You can't use this email");
@@ -103,7 +103,6 @@ const Registration = () => {
                 <InputField
                   type="text"
                   name="username"
-                  value={values.username}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="..."
@@ -120,7 +119,6 @@ const Registration = () => {
                 <InputField
                   type="email"
                   name="email"
-                  value={values.email}
                   onBlur={handleBlur}
                   onChange={handleChange}
                   placeholder="your@email.com"

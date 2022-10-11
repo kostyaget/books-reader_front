@@ -38,7 +38,7 @@ export const TrainingContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  gap: 15px;
+  gap: 30px;
 `;
 export const SideBar = styled.div`
   display: flex;

@@ -100,6 +100,11 @@ export const BookBnt = styled.button`
   font-size: 14px;
   line-height: 17px;
 
+  &:hover {
+    color: #ffffff;
+    border: none;
+    background: #ff6b08;
+  }
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
   }
