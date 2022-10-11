@@ -14,6 +14,7 @@ const BreakPoint = {
 };
 
 const DeleteIco = styled.button`
+  cursor: pointer;
   background-image: url(${deleteIc});
   width: 14px;
   height: 18px;

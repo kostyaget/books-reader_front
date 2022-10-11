@@ -207,6 +207,7 @@ export const TdPages = styled.td`
 `;
 
 export const TdDelete = styled.td`
+  
   padding: 20px 0;
   vertical-align: top;
   @media screen and (${BreakPoint.tabletMin}) {
@@ -227,6 +228,7 @@ export const FirstColumn = styled.div`
 `;
 
 export const IconContainer = styled.div`
+  cursor: pointer;
   width: 22px;
   margin-right: 12px;
   @media screen and (${BreakPoint.tabletMin}) {

@@ -179,12 +179,20 @@ export const SelectsWrap = styled.div`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
+  font-family: "Montserrat";
   width: 171px;
   height: 42px;
   padding: 11px;
   font-weight: 500;
   display: block;
   margin: 0 auto;
+
+  &:hover {
+    color: #ffffff;
+    border: none;
+    background: #ff6b08;
+  }
   ${device.tablet} {
     font-size: 14px;
     width: 181px;
