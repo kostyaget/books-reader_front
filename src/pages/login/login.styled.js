@@ -1,17 +1,21 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     display: flex;
     justify-content: center;
     padding: 32px 20px;
   }
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     padding: 70px 144px;
     display: flex;
     justify-content: center;
   }
+
   @media screen and (min-width: 1280px) {
     padding: 176px 79px 184px 70px;
   }
@@ -25,6 +29,7 @@ export const SectionLogin = styled.div`
     flex-direction: column;
     align-items: center;
   }
+
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -36,6 +41,7 @@ export const SectionLogin = styled.div`
     background: #ffffff;
   }
 `;
+
 export const GoogleSection = styled.div`
   display: flex;
   margin-bottom: 28px;
@@ -73,12 +79,14 @@ export const GoogleButton = styled.button`
     transform: scale(1.2);
   }
 `;
+
 export const GoogleLogo = styled.img`
   width: 18px;
   height: 18px;
   margin-right: 16px;
   margin-left: 14px;
 `;
+
 export const ErrorMessage = styled.div`
   height: 20px;
 
@@ -94,10 +102,12 @@ export const ErrorMessage = styled.div`
     text-shadow: 0 0 0 #333;
   }
 `;
+
 export const Error = styled.p`
   font-size: 12px;
   color: red;
 `;
+
 export const LabelField = styled.label`
   @media screen and (min-width: 320px) and (max-width: 767px) {
     padding-left: 18px;
@@ -136,6 +146,7 @@ export const InputField = styled.input`
     width: 280px;
   }
 `;
+
 export const LogiBtn = styled.button`
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 280px;
@@ -165,6 +176,7 @@ export const LogiBtn = styled.button`
     transition: background-color 0.25s ease-in-out;
   }
 `;
+
 export const Register = styled.p`
   font-family: "Montserrat";
   font-size: 13px;
@@ -178,10 +190,12 @@ export const Register = styled.p`
     color: #d15807;
   }
 `;
+
 export const Star = styled.span`
   padding-left: 3px;
   color: #ff6b08;
 `;
+
 export const GLink = styled.a`
   font-family: "Roboto";
   font-weight: 700;
@@ -191,6 +205,7 @@ export const GLink = styled.a`
   color: #707375;
   text-decoration: none;
 `;
+
 export const RLink = styled(Link)`
   text-decoration-color: #ff6b08;
   &:hover,

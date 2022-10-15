@@ -1,10 +1,10 @@
-import Library from "./pages/Library/Library";
-import Header from "./components/Header/Header";
-import Training from "./pages/Training/Training";
 import { Suspense } from "react";
-import Login from "./components/Hero/login";
-import RegistrationSection from "./components/Hero/registrationForm";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Login from "./components/Hero/Login.jsx";
+import RegistrationSection from "./components/Hero/RegistrationSection";
+import Library from "./pages/Library/Library";
+import Training from "./pages/Training/Training";
 import PrivateRoute from "./components/Routes/PrivateRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 
@@ -25,14 +25,6 @@ const App = () => {
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </Suspense>
-
-      {/* <Routes>
-        <Route path="/library" element={<Library />} />
-        <Route path="/training" element={<Training />} />
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/registration" element={<RegistrationSection />}></Route>
-        <Route path="*" element={<Navigate to="/login" />} />
-      </Routes> */}
     </>
   );
 };

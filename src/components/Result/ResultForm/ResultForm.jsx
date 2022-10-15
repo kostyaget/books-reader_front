@@ -1,15 +1,13 @@
+import React, { useState, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Notiflix from "notiflix";
-// import { useSelector } from "react-redux";
 import {
   useAddResultsMutation,
   useFetchUserDataQuery,
 } from "../../../redux/users/usersApi";
-// import { selectCurrentUser } from "../../../redux/auth/auth";
 import { useFetchTrainingsDataQuery } from "../../../redux/trainings/trainingsApi";
-import React, { useState, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
 import ExitModal from "../../Modal/BookRead";
 import LateRead from "../../Modal/LateRead";
 import {
@@ -61,6 +59,7 @@ export default function ResultForm({
   let totalPages = 0;
   let totalProgressPages = 0;
   const id = userId;
+
   if (arrayBooks) {
     totalPages = arrayBooks?.reduce((a, e) => a + e.book.pageAmount, 0);
   }
@@ -71,6 +70,7 @@ export default function ResultForm({
   const isShowModal = () => {
     setShowModal(!showModal);
   };
+
   const handleSubmit = async (values, { resetForm }) => {
     const now = new Date();
     values.trainingDate.setHours(now.getHours());
@@ -84,7 +84,9 @@ export default function ResultForm({
       isShowModal();
     }
   };
+
   const nodeRef = useRef(null);
+
   return (
     <>
       <CSSTransition

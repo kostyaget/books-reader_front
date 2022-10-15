@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
 export const Section = styled.div`
   background: rgba(9, 30, 63, 0.8);
   padding: 108px 77px 74px 72px;
@@ -15,6 +16,7 @@ export const Section = styled.div`
     padding: 108px 77px 74px 72px;
   }
 `;
+
 export const SectionRegistration = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,6 +28,7 @@ export const SectionRegistration = styled.div`
     background: #ffffff;
   }
 `;
+
 export const GoogleSection = styled.div`
   @media screen and (min-width: 320px) and (max-width: 767px) {
     padding-top: 33px;
@@ -34,6 +37,7 @@ export const GoogleSection = styled.div`
 
   padding-top: 41px;
 `;
+
 export const GoogleButton = styled.button`
   align-items: center;
   display: flex;
@@ -58,12 +62,14 @@ export const GoogleButton = styled.button`
     transform: scale(1.2);
   }
 `;
+
 export const GoogleLogo = styled.img`
   width: 18px;
   height: 18px;
   margin-right: 16px;
   margin-left: 14px;
 `;
+
 export const ErrorMessage = styled.div`
   height: 20px;
 
@@ -84,6 +90,7 @@ export const Error = styled.p`
   font-size: 12px;
   color: red;
 `;
+
 export const LabelField = styled.label`
   @media screen and (min-width: 768px) {
     padding-left: 35px;
@@ -152,9 +159,11 @@ export const RegisterBtn = styled.button`
     transition: background-color 0.25s ease-in-out;
   }
 `;
+
 export const LoginLink = styled.div`
   display: flex;
 `;
+
 export const LogTitle = styled.span`
   font-family: "Montserrat";
   font-style: normal;
@@ -166,6 +175,7 @@ export const LogTitle = styled.span`
 
   color: #898f9f;
 `;
+
 export const Login = styled.p`
   font-family: "Montserrat";
   font-size: 13px;
@@ -179,10 +189,12 @@ export const Login = styled.p`
     color: #d15807;
   }
 `;
+
 export const Star = styled.span`
   padding-left: 3px;
   color: #ff6b08;
 `;
+
 export const GLink = styled.a`
   font-family: "Roboto";
   font-weight: 700;
@@ -192,6 +204,7 @@ export const GLink = styled.a`
   color: #707375;
   text-decoration: none;
 `;
+
 export const RLink = styled(Link)`
   text-decoration-color: #ff6b08;
   &:hover,

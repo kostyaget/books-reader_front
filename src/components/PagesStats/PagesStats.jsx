@@ -1,6 +1,6 @@
-import { Title, Table, TableData, NumberOfPages } from "./PagesStats.styled";
 import { formatPagesDate, formatPagesTime } from "../../utils/formatPagesData";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
+import { Title, Table, TableData, NumberOfPages } from "./PagesStats.styled";
 
 export default function PagesStats() {
   const { data } = useFetchUserDataQuery();

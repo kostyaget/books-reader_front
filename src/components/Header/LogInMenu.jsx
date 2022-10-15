@@ -1,3 +1,10 @@
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useLogoutUserMutation } from "../../redux/auth/authApi";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
+import ExitModal from "../Modal/ExitModal";
+import { ReactComponent as Home } from "../../images/home.svg";
+import { ReactComponent as Lib } from "../../images/book.svg";
 import {
   Logo,
   LogInContainer,
@@ -10,14 +17,7 @@ import {
   Name,
   User,
 } from "./Header.styled";
-import { useState, useEffect } from "react";
-import ExitModal from "../Modal/ExitModal";
-import { ReactComponent as Home } from "../../images/home.svg";
-import { ReactComponent as Lib } from "../../images/book.svg";
-import { useFetchUserDataQuery } from "../../redux/users/usersApi";
-import { useDispatch } from "react-redux";
 
-import { useLogoutUserMutation } from "../../redux/auth/authApi";
 export default function LogInMenu() {
   const { data, error } = useFetchUserDataQuery();
   const name = data?.user.info.username;
@@ -33,10 +33,13 @@ export default function LogInMenu() {
   const closeLogoutModal = () => {
     setLogoutModal(false);
   };
+
   const onClick = () => {
     setLogoutModal(true);
   };
+
   const dispatch = useDispatch();
+
   const logoutFunc = () => {
     dispatch(logoutUser);
   };

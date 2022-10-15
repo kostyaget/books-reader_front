@@ -12,6 +12,7 @@ export const ModalBackDrop = styled.div`
   background-color: #f6f7fb;
   z-index: 20;
 `;
+
 export const ModalWrapper = styled.div`
   padding: 25px 0;
 `;
