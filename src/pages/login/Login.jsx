@@ -1,13 +1,13 @@
-import queryString from "query-string";
-import { useLocation } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
+import Notiflix from "notiflix";
 import { Formik } from "formik";
 import * as yup from "yup";
-import google from "../../images/google icon.svg";
+import { googleLogIn } from "../../redux/auth/auth";
 import { useLoginUserMutation } from "../../redux/auth/authApi";
-import Notiflix from "notiflix";
-
+import google from "../../images/google icon.svg";
 import {
   Error,
   ErrorMessage,
@@ -23,16 +23,14 @@ import {
   Section,
   SectionLogin,
   Star,
-} from "./login.styled";
-
-import { googleLogIn } from "../../redux/auth/auth";
+} from "./Login.styled";
 
 const Login = () => {
   const [loginUser] = useLoginUserMutation();
-
   const location = useLocation();
   const query = queryString.parse(location.search);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (query.token) {
       const { name, email, token } = query;
@@ -132,7 +130,6 @@ const Login = () => {
                 <LogiBtn tn type="submit">
                   Login
                 </LogiBtn>
-
                 <RLink to="/registration">
                   <Register>Register</Register>
                 </RLink>

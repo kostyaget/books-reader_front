@@ -1,20 +1,21 @@
 import { useState } from "react";
-import Chart from "../../components/Chart/Chart";
-import WithBooks from "../../components/NumberBooks/WithBooks";
-import WithoutBooks from "../../components/NumberBooks/WithoutBooks";
-import RoundButton from "../../components/RoundButton/RoundButton";
-import TrainingAddBookModal from "../../components/TrainingAddBookModal/TrainingAddBookModal";
-import MyTraining from "../../components/MyTraining/MyTraining";
-import BooksListTraining from "../../components/BooksListTraining/BooksListTraining";
-import Result from "../../components/Result/Result";
-import ClockTimes from "../../components/Clock/index";
-import StartTrainingBtn from "../../components/StartTrainingBtn/StartTrainingBtn";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 import {
   useDeleteTrainingBookMutation,
   useFetchTrainingsDataQuery,
 } from "../../redux/trainings/trainingsApi";
-import { useFetchUserDataQuery } from "../../redux/users/usersApi";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
+import MyTraining from "../../components/MyTraining/MyTraining";
+import BooksListTraining from "../../components/BooksListTraining/BooksListTraining";
+import FinishTrainingBtn from "../../components/StartTrainingBtn/FinishTrainingBtn";
+import ClockTimes from "../../components/Clock/index";
+import WithBooks from "../../components/NumberBooks/WithBooks";
+import WithoutBooks from "../../components/NumberBooks/WithoutBooks";
+import RoundButton from "../../components/RoundButton/RoundButton";
+import TrainingAddBookModal from "../../components/TrainingAddBookModal/TrainingAddBookModal";
+import StartTrainingBtn from "../../components/StartTrainingBtn/StartTrainingBtn";
+import Chart from "../../components/Chart/Chart";
+import Result from "../../components/Result/Result";
 import {
   Section,
   DesktopTrainingWrapper,
@@ -22,24 +23,20 @@ import {
   SideBar,
   MyTrainingWarp,
 } from "./Training.styled";
-import FinishTrainingBtn from "../../components/StartTrainingBtn/FinishTrainingBtn";
-
-// ------------------------------
 
 export default function Training() {
+  const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
+  const [traningFinish, setTraningFinish] = useState(false);
+
   const { data } = useFetchTrainingsDataQuery();
   const user = useFetchUserDataQuery();
+  const [clearBookList] = useDeleteTrainingBookMutation();
 
   const isTraningStatus = user?.data?.user?.info.isTraining;
   const userId = user?.data?.user?.info._id;
-  const [clearBookList] = useDeleteTrainingBookMutation();
 
-  const [isTrainingAddBookShown, setIsTrainingAddBookShown] = useState(false);
-  const [traningFinish, setTraningFinish] = useState(false);
-  // const [isTrainingActive, setIsTrainingActive] = useState(isTraningStatus);
   const isTrainingActive = isTraningStatus ? isTraningStatus : false;
-  // const booksArr = user?.data?.user.books;
-  // console.log(booksArr);
+
   const isMobile = useMediaQuery("(max-width: 767px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isDesktop = useMediaQuery("(min-width: 1024px)");

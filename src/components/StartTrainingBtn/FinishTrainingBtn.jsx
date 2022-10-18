@@ -1,14 +1,12 @@
-// import { useSelector } from "react-redux";
-// import { selectCurrentUser } from "../../redux/auth/auth";
+import Notiflix from "notiflix";
+import { device } from "../../components/device/device";
 import {
   useDeleteProgressMutation,
   useUpdateIsTrainingMutation,
   useUpdateStatusMutation,
 } from "../../redux/users/usersApi";
-import styled from "styled-components";
-import { device } from "../../components/device/device";
-import Notiflix from "notiflix";
 import { useFetchTrainingsDataQuery } from "../../redux/trainings/trainingsApi";
+import styled from "styled-components";
 
 const Button = styled.button`
   display: block;
@@ -42,8 +40,6 @@ const Button = styled.button`
 `;
 
 export default function FinishTrainingBtn({ clearListBook, userId }) {
-  // const user = useSelector(selectCurrentUser);
-  // console.log("user", user);
   const { data } = useFetchTrainingsDataQuery();
   const [updateIsTraningStatus] = useUpdateIsTrainingMutation();
   const [deleteProgress] = useDeleteProgressMutation();
@@ -53,7 +49,7 @@ export default function FinishTrainingBtn({ clearListBook, userId }) {
     id: userId,
     isTraining: false,
   };
-  console.log(data?.data);
+
   const updateStatusBook = () => {
     data?.data?.forEach((e) => {
       if (e.book.status !== "completed")

@@ -1,3 +1,4 @@
+import Registration from "../../pages/Registration/Registration";
 import {
   Container,
   LoginImg,
@@ -10,9 +11,7 @@ import {
   RegistrationHeading,
   Arrow,
   RegisterForm,
-} from "./registrationForm.styled";
-
-import RegistrationForm from "../../pages/registration/registration";
+} from "./RegistrationSection.styled";
 
 export default function RegistrationSection() {
   return (
@@ -20,7 +19,7 @@ export default function RegistrationSection() {
       <Container>
         <SectionLogin>
           <LoginImg>
-            <RegistrationForm />
+            <Registration />
           </LoginImg>
         </SectionLogin>
 

@@ -1,9 +1,8 @@
+import Notiflix from "notiflix";
 import { Formik } from "formik";
 import * as yup from "yup";
-import google from "../../images/google icon.svg";
 import { useCreateNewUserMutation } from "../../redux/auth/authApi";
-import Notiflix from "notiflix";
-
+import google from "../../images/google icon.svg";
 import {
   Section,
   GoogleSection,
@@ -21,7 +20,7 @@ import {
   GLink,
   RLink,
   ErrorMessage,
-} from "./registration.styled";
+} from "./Registration.styled";
 
 const Registration = () => {
   const [createUser] = useCreateNewUserMutation();

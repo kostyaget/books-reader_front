@@ -3,8 +3,9 @@ import pic from "../../images/pic.jpg";
 import ico from "../../images/ico.jpg";
 
 export const Container = styled.div`
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+
   @media screen and (min-width: 1280px) {
     display: flex;
   }
@@ -13,20 +14,24 @@ export const Container = styled.div`
     min-width: 320px;
     height: 400px;
   }
+
   @media screen and (min-width: 767px) and (max-width: 1023px) {
     min-width: 768px;
     height: 560px;
   }
-  @media screen and (min-width: 1024px){
+
+  @media screen and (min-width: 1024px) {
     max-width: 1280px;
     height: 790px;
   }
 `;
 export const SectionLogin = styled.div``;
+
 export const LoginImg = styled.div`
   background-image: url(${pic});
   background-repeat: no-repeat;
   background-size: cover;
+
   @media screen and (min-width: 1280px) {
     width: 549px;
     height: 790px;
@@ -58,11 +63,13 @@ export const Icon = styled.p`
   background-image: url(${ico});
   background-repeat: no-repeat;
   background-size: contain;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 23px;
     height: 23px;
   }
-  @media screen and (min-width: 768px){
+
+  @media screen and (min-width: 768px) {
     width: 27px;
     height: 27px;
     margin: 0px auto 15px;
@@ -99,6 +106,7 @@ export const Author = styled.p`
     padding-bottom: 109px;
     margin-top: 20px;
   }
+
   width: 150px;
   height: 24px;
   font-weight: 500;

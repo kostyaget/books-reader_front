@@ -22,10 +22,12 @@ export const Section = styled.section`
     padding-right: 16px;
   }
 `;
+
 export const DesktopTrainingWrapper = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
 export const MyTrainingWarp = styled.div`
   display: flex;
   gap: 30px;
@@ -40,6 +42,7 @@ export const TrainingContent = styled.div`
   flex-grow: 1;
   gap: 30px;
 `;
+
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;

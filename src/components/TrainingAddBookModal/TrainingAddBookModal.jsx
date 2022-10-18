@@ -1,5 +1,5 @@
-import { ReactComponent as Arrow } from "../../images/backArrow.svg";
 import MyTraining from "../MyTraining/MyTraining";
+import { ReactComponent as Arrow } from "../../images/backArrow.svg";
 import {
   ModalBackDrop,
   ModalWrapper,
