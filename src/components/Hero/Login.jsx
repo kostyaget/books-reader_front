@@ -1,4 +1,4 @@
-import LoginForm from "../../pages/Login/Login";
+import LoginForm from "../../pages/login/Login";
 import {
   Container,
   SectionLogin,
@@ -7,7 +7,7 @@ import {
   Text,
   Author,
   LoginImg,
-} from "./Login.styled";
+} from "./login.styled";
 
 export default function Hero() {
   return (

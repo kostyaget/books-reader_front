@@ -23,7 +23,7 @@ import {
   Section,
   SectionLogin,
   Star,
-} from "./Login.styled";
+} from "./login.styled";
 
 const Login = () => {
   const [loginUser] = useLoginUserMutation();

@@ -20,7 +20,7 @@ import {
   GLink,
   RLink,
   ErrorMessage,
-} from "./Registration.styled";
+} from "./registration.styled";
 
 const Registration = () => {
   const [createUser] = useCreateNewUserMutation();

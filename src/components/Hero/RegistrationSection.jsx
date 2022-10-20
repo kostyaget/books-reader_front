@@ -1,4 +1,4 @@
-import Registration from "../../pages/Registration/Registration";
+import Registration from "../../pages/registration/Registration";
 import {
   Container,
   LoginImg,
