@@ -19,7 +19,6 @@ export const Rating = styled.p`
   line-height: 22px;
   text-align: center;
   color: #242a37;
-
   @media ${device.mobileS} {
     width: 237px;
     // height: 88px;
@@ -42,7 +41,6 @@ export const Btn = styled.button`
   background: #ffffff;
   color: #242a37;
   border: 1px solid #242a37;
-
   @media screen and ${device.mobileS} and (max-width: 767px) {
     width: 152px;
     height: 40px;
@@ -52,7 +50,6 @@ export const Btn = styled.button`
     width: 152px;
     height: 40px;
   }
-
   &:hover,
   &:focus {
     border: 1px solid #242a37;
@@ -67,7 +64,6 @@ export const BtnColor = styled.button`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   color: #ffffff;
   border: none;
-
   @media screen and ${device.mobileS} and (max-width: 767px) {
     width: 152px;
     height: 40px;
@@ -77,7 +73,6 @@ export const BtnColor = styled.button`
     width: 152px;
     height: 40px;
   }
-
   &:hover,
   &:focus {
     border: 1px solid #242a37;
@@ -111,7 +106,6 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   transition: opacity 300ms, transform 300ms;
   background: #ffffff;
   @media screen and ${device.mobileS} and (max-width: 767px) {

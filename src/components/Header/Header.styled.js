@@ -8,9 +8,12 @@ export const Header = styled.header`
   height: 60px;
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
   background-color: #ffffff;
-  // @media screen and (min-width: 1280px) {
-  //   width: 1280px;
-  // }
+  position: sticky;
+  z-index:1000;
+  top:0px;
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 `;
 export const Logo = styled.a`
   width: 28px;
@@ -85,27 +88,27 @@ export const NavWrapper = styled.div`
   }
 `;
 export const Avatar = styled.div`
-  padding-top: 14px;
   margin-left: 14px;
 
-  @media screen and (min-width: 768px) {
-    margin-left: 0px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   margin-left: 0px;
+  // }
 `;
 export const User = styled.span`
+  height: 14px;
+  width: 7px;
   display: block;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 12px 15px;
   background: #f5f7fa;
   border-radius: 50%;
-
   font-weight: 600;
   font-size: 14px;
   line-height: 1.214;
-
   color: #242a37;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Name = styled.span`
@@ -113,27 +116,28 @@ export const Name = styled.span`
 
   @media screen and (min-width: 768px) {
     display: block;
-    padding-top: 22px;
-    margin-right: 180px;
-    margin-left: 21px;
+    margin-left: 8px;
+    // padding-top: 22px;
+    // margin-right: 180px;
+    // margin-left: 21px;
   }
-  @media screen and (min-width: 1280px) {
-    margin-right: 400px;
-  }
+  // @media screen and (min-width: 1280px) {
+  //   margin-right: 400px;
+  // }
 `;
 
 export const LogOutBtn = styled.button`
-  margin-top: 20px;
-  margin-left: 14px;
+  // margin-top: 20px;
+  margin-left: 8px;
 
-  padding: 0;
+  padding: 12px 0;
   height: 20px;
   border: none;
-  border-bottom: 1px #242a37 solid;
-  outline: none;
-  background: transparent;
+  // border-bottom: 1px #242a37 solid;
+  // outline: none;
+  // background: transparent;
   color: #242a37;
-  cursor: pointer;
+  // cursor: pointer;
 
   &:hover,
   focus {
