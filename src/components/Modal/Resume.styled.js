@@ -11,7 +11,6 @@ export const Rating = styled.label`
   font-size: 16px;
   line-height: 20px;
   color: #242a37;
-
   @media ${device.mobileS} {
     margin: 0px 0 12px 0;
   }
@@ -20,8 +19,6 @@ export const Rating = styled.label`
 export const RatingArea = styled.div`
   overflow: hidden;
   width: 265px;
-  /* margin: 0 auto; */
-
   &:not(:checked) > input {
     display: none;
   }
@@ -71,11 +68,9 @@ export const Summary = styled.textarea`
   padding: 10px;
   border: 1px solid #a6abb9;
   resize: none;
-
   @media ${device.mobileS} and (max-width: 767px) {
     margin: -4px 0 20px 0;
   }
-
   @media ${device.tablet} {
     margin: 0 0 28px 0;
     width: 545px;
@@ -90,7 +85,6 @@ export const Btn = styled.button`
   box-shadow: 10px 10px 20px rgba(9, 30, 63, 0.2);
   color: #242a37;
   border: 1px solid #242a37;
-
   &:hover,
   &:focus,
   &:active {
@@ -108,14 +102,12 @@ export const BtnColor = styled.button`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   color: #ffffff;
   border: none;
-
   @media screen and ${device.mobileS} and (max-width: 767px) {
     margin-left: 16px;
   }
   @media screen and ${device.tablet} {
     margin-left: 28px;
   }
-
   &:hover,
   &:focus,
   &:active {
@@ -126,31 +118,17 @@ export const BtnColor = styled.button`
     cursor: pointer;
   }
 `;
-
 export const ItemBtn = styled.div`
   margin: 0 35px 20px 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  
 `;
 
 export const Container = styled.div`
-width:568px;
-display:flex;
-// background: #ffffff;
-// position: absolute;
-// left: 0;
-// right: 0;
-// top: 50%;
-z-index: 2000;
-// margin-left: auto;
-// margin-right: auto;
-// // padding-top: 24px;
-// // padding-bottom: 24px;
-// padding:20px;
-
+  width: 568px;
+  display: flex;
+  z-index: 2000;
   @media screen and ${device.mobileS} and (max-width: 767px) {
     max-width: 280px;
     max-height: 395px;
@@ -162,8 +140,8 @@ z-index: 2000;
 `;
 
 export const RatingStarss = styled.div`
-@media ${device.mobileS} {
-  margin: 0 0 15px 0;
-  height: 17px;
-}
-`
+  @media ${device.mobileS} {
+    margin: 0 0 15px 0;
+    height: 17px;
+  }
+`;

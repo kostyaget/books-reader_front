@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useLogoutUserMutation } from "../../redux/auth/authApi";
+
+// import { useLogoutUserMutation } from "../../redux/auth/authApi";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
-import ExitModal from "../Modal/ExitModal";
+
+import HederMenu from "../Modal/HederMenu";
 import { ReactComponent as Home } from "../../images/home.svg";
 import { ReactComponent as Lib } from "../../images/book.svg";
 import {
@@ -11,37 +12,31 @@ import {
   NavList,
   Avatar,
   StyledNavLink,
-  LogOutBtn,
+  // LogOutBtn,
   Border,
   NavWrapper,
-  Name,
+  // Name,
   User,
 } from "./Header.styled";
 
 export default function LogInMenu() {
   const { data, error } = useFetchUserDataQuery();
   const name = data?.user.info.username;
-  const [logoutUser] = useLogoutUserMutation();
-  const [logoutModal, setLogoutModal] = useState(false);
-
+  // const [logoutUser] = useLogoutUserMutation();
+  // const [logoutModal, setLogoutModal] = useState(false);
+  const [Menu, setMenu] = useState(false);
   useEffect(() => {
     if (error) {
       localStorage.clear();
     }
   }, [error]);
 
-  const closeLogoutModal = () => {
-    setLogoutModal(false);
+  const closeMenu = () => {
+    setMenu(false);
   };
 
   const onClick = () => {
-    setLogoutModal(true);
-  };
-
-  const dispatch = useDispatch();
-
-  const logoutFunc = () => {
-    dispatch(logoutUser);
+    setMenu(true);
   };
 
   return (
@@ -58,23 +53,17 @@ export default function LogInMenu() {
                 <Home />
               </StyledNavLink>
             </Border>
+
+            <Avatar>
+              <User type="button" onClick={onClick}>
+                {name?.slice(0, 1)?.toUpperCase()}
+              </User>
+            </Avatar>
           </NavList>
-          <Name>{name}</Name>
-          <Avatar>
-            <User>{name?.slice(0, 1)?.toUpperCase()}</User>
-          </Avatar>
         </NavWrapper>
-        <LogOutBtn type="button" onClick={onClick}>
-          Logout
-        </LogOutBtn>
       </LogInContainer>
-      {logoutModal && (
-        <ExitModal
-          open={logoutModal}
-          onClose={closeLogoutModal}
-          logoutFunc={logoutFunc}
-        ></ExitModal>
-      )}
+
+      {Menu && <HederMenu onClose={closeMenu} open={Menu} />}
     </>
   );
 }

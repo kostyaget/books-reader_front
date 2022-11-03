@@ -26,7 +26,6 @@ export const ІnfModal = styled.div`
 `;
 export const InfoPreTitle = styled.b`
   margin-bottom: 8px;
-
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
@@ -52,17 +51,19 @@ export const InfoText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-
   color: #898f9f;
 `;
+
 export const InfoTextWrapp = styled.div`
   padding-left: 30px;
 `;
+
 export const InfoList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
 `;
+
 export const InfoItem = styled.li`
   &:not(:last-child) {
     margin-bottom: 20px;

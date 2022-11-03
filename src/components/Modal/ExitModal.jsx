@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import { Rating, BtnColor, Btn, ItemBtn, Container } from "./ExitModal.style";
 import "./Resume.css";
 
-const ExitModal = ({ open, onClose, logoutFunc }) => {
+const ExitModal = ({ open, onClose, logoutFunc}) => {
   return (
     <div className={open ? "modal active" : "modal"} onClick={onClose}>
       <div
@@ -27,7 +27,7 @@ const ExitModal = ({ open, onClose, logoutFunc }) => {
             </Form>
           </Formik>
         </Container>
-        </div>
+      </div>
     </div>
   );
 };
