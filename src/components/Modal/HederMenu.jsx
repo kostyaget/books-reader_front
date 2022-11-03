@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import ExitModal from "../Modal/ExitModal";
+import ExitModal from "./ExitModal";
 import { Name } from "../Header/Header.styled";
 import {
   Container,
@@ -37,24 +37,44 @@ const HederMenu = ({ open, onClose }) => {
     dispatch(logoutUser);
   };
 
-  return (
-    <>
-      {open && (
-          <Container onClick={(e) => e.stopPropagation()}>
-            <Avatar>
-              <User>{name?.slice(0, 1)?.toUpperCase()}</User>
-              <Name>{name}</Name>
-              <Button onClick={onClose}>x</Button>
-            </Avatar>
+//     const f1=() =>{
+//       console.log('F1')
+//     }
 
-            <Hr />
-            <ListMenu type="button" onClick={onClick}>
-              <Svg>
-                <Exit />
-              </Svg>
-              Logout
-            </ListMenu>
-          </Container>
+//     const f2=() =>{
+//       console.log('F2')
+//     }
+
+//   function someFunc() {
+//     f1();
+//     f2();
+// }
+
+  return (
+    <div className={open && "modalMenu active" } onClick={onClose} >
+      {open && (
+        <Container
+          onClick={(e) => e.stopPropagation()}
+          id="Menu"
+        >
+          <Avatar>
+            <User>{name?.slice(0, 1)?.toUpperCase()}</User>
+            <Name>{name}</Name>
+            {/* <Button onClick={onClose}>x</Button> */}
+          </Avatar>
+          <Hr />
+          <ListMenu
+            type="button"
+            onClick={onClick}
+            // ontoggle={someFunc()}
+            // onClick={onClose}
+          >
+            <Svg>
+              <Exit />
+            </Svg>
+            Logout
+          </ListMenu>
+        </Container>
       )}
       {logoutModal && (
         <ExitModal
@@ -63,8 +83,9 @@ const HederMenu = ({ open, onClose }) => {
           logoutFunc={logoutFunc}
         ></ExitModal>
       )}
-    </>
+      </div>
   );
 };
 
 export default HederMenu;
+
