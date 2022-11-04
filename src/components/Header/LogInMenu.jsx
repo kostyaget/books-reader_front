@@ -12,11 +12,11 @@ import {
   NavList,
   Avatar,
   StyledNavLink,
-  // LogOutBtn,
   Border,
   NavWrapper,
-  // Name,
   User,
+  // Name,
+  // LogOutBtn,
 } from "./Header.styled";
 
 export default function LogInMenu() {

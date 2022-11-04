@@ -51,12 +51,12 @@ const HederMenu = ({ open, onClose }) => {
 // }
 
   return (
-    <div className={open && "modalMenu active" } onClick={onClose} >
+    <div data-location className={open && "modalMenu active" } onClick={onClose} >
       {open && (
         <Container
           onClick={(e) => e.stopPropagation()}
           id="Menu"
-        >
+        > 
           <Avatar>
             <User>{name?.slice(0, 1)?.toUpperCase()}</User>
             <Name>{name}</Name>
@@ -64,6 +64,7 @@ const HederMenu = ({ open, onClose }) => {
           </Avatar>
           <Hr />
           <ListMenu
+            data-location-close
             type="button"
             onClick={onClick}
             // ontoggle={someFunc()}

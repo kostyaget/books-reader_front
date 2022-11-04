@@ -32,11 +32,11 @@
   transform: scale(1);
 }
 
-.hidenMenu{
+.hidenMenu {
   display: none;
 }
 
-.modalMenu{
+.modalMenu {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -46,8 +46,21 @@
   align-items: center;
   justify-content: center;
   transition: 0.5s;
-  
-  opacity: 1;
+  /* -------------- */
+  opacity: 0;
+  /* ==================== */
   pointer-events: all;
   z-index: 40;
+}
+.modalMenu.is-open {
+  opacity: 1;
+}
+
+.modalMenu.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition-property: opacity, visibility, overflow;
+  transition-duration: 500ms;
+  overflow: hidden;
 }
