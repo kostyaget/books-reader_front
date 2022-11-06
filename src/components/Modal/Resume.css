@@ -46,21 +46,10 @@
   align-items: center;
   justify-content: center;
   transition: 0.5s;
-  /* -------------- */
-  opacity: 0;
-  /* ==================== */
   pointer-events: all;
   z-index: 40;
 }
-.modalMenu.is-open {
-  opacity: 1;
-}
 
-.modalMenu.is-hidden {
-  visibility: hidden;
+.is-hidden {
   opacity: 0;
-  pointer-events: none;
-  transition-property: opacity, visibility, overflow;
-  transition-duration: 500ms;
-  overflow: hidden;
 }

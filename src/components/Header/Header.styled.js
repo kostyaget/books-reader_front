@@ -9,11 +9,12 @@ export const Header = styled.header`
   box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
   background-color: #ffffff;
   position: sticky;
-  z-index:1000;
-  top:0px;
-  @media screen and (min-width: 1280px) {
-    width: 1280px;
-  }
+  z-index: 1000;
+  top: 0px;
+  
+  // @media screen and (min-width: 1280px) {
+  //   width: 1280px;
+  // }
 `;
 export const Logo = styled.a`
   width: 28px;

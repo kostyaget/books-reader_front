@@ -9,8 +9,6 @@ import {
   Avatar,
   Svg,
   User,
-  // Background,
-  Button,
 } from "./HederMenu.style";
 import "./Resume.css";
 import { useLogoutUserMutation } from "../../redux/auth/authApi";
@@ -37,56 +35,48 @@ const HederMenu = ({ open, onClose }) => {
     dispatch(logoutUser);
   };
 
-//     const f1=() =>{
-//       console.log('F1')
-//     }
-
-//     const f2=() =>{
-//       console.log('F2')
-//     }
-
-//   function someFunc() {
-//     f1();
-//     f2();
-// }
+  const backFunc = () => {
+    onClick();
+    setTimeout(() => {
+      const menu = document.getElementById("Menu");
+      const btnclk= () => {
+        menu.style.display = 'none';
+      }
+      btnclk();
+    },1)
+}
 
   return (
-    <div data-location className={open && "modalMenu active" } onClick={onClose} >
-      {open && (
-        <Container
-          onClick={(e) => e.stopPropagation()}
-          id="Menu"
-        > 
-          <Avatar>
-            <User>{name?.slice(0, 1)?.toUpperCase()}</User>
-            <Name>{name}</Name>
-            {/* <Button onClick={onClose}>x</Button> */}
-          </Avatar>
-          <Hr />
-          <ListMenu
-            data-location-close
-            type="button"
-            onClick={onClick}
-            // ontoggle={someFunc()}
-            // onClick={onClose}
-          >
-            <Svg>
-              <Exit />
-            </Svg>
-            Logout
-          </ListMenu>
-        </Container>
-      )}
-      {logoutModal && (
-        <ExitModal
-          open={logoutModal}
-          onClose={closeLogoutModal}
-          logoutFunc={logoutFunc}
-        ></ExitModal>
-      )}
+    <div>
+      <div id="Menu" className={open && "modalMenu active"} onClick={onClose}>
+        {open && (
+          <Container onClick={(e) => e.stopPropagation()}>
+            <Avatar>
+              <User>{name?.slice(0, 1)?.toUpperCase()}</User>
+              <Name>{name}</Name>
+            </Avatar>
+            <Hr />
+            <ListMenu onClick={backFunc}>
+              <Svg>
+                <Exit />
+              </Svg>
+              Logout
+            </ListMenu>
+          </Container>
+        )}
       </div>
+
+      <div>
+        {logoutModal && (
+          <ExitModal
+            open={logoutModal}
+            onClose={closeLogoutModal}
+            logoutFunc={logoutFunc}
+          ></ExitModal>
+        )}
+      </div>
+    </div>
   );
 };
 
 export default HederMenu;
-

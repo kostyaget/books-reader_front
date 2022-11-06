@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-
-// import { useLogoutUserMutation } from "../../redux/auth/authApi";
 import { useFetchUserDataQuery } from "../../redux/users/usersApi";
 
 import HederMenu from "../Modal/HederMenu";
@@ -15,15 +13,11 @@ import {
   Border,
   NavWrapper,
   User,
-  // Name,
-  // LogOutBtn,
 } from "./Header.styled";
 
 export default function LogInMenu() {
   const { data, error } = useFetchUserDataQuery();
   const name = data?.user.info.username;
-  // const [logoutUser] = useLogoutUserMutation();
-  // const [logoutModal, setLogoutModal] = useState(false);
   const [Menu, setMenu] = useState(false);
   useEffect(() => {
     if (error) {
@@ -37,6 +31,13 @@ export default function LogInMenu() {
 
   const onClick = () => {
     setMenu(true);
+    setTimeout(() => {
+      const menu = document.getElementById("Menu");
+      const btnclk = () => {
+        menu.style.display = "block";
+      };
+      btnclk();
+    }, 1);
   };
 
   return (
@@ -55,7 +56,7 @@ export default function LogInMenu() {
             </Border>
 
             <Avatar>
-              <User type="button" onClick={onClick}>
+              <User id="Icon" type="button" onClick={onClick}>
                 {name?.slice(0, 1)?.toUpperCase()}
               </User>
             </Avatar>

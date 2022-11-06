@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 360px;
-  width: 88vw;
+  width: 330px;
   background: #fff;
   margin: 60px 4px 0 0;
   top: 0;
@@ -11,6 +10,10 @@ export const Container = styled.div`
   padding: 15px;
   position: fixed;
   z-index: 100;
+
+  @media screen and (min-width: 280px) and ( max-width: 320px) {
+    width: 88vw;
+  }
 `;
 
 // export const Background = styled.div`
@@ -76,7 +79,7 @@ export const User = styled.span`
 `;
 
 export const Button = styled.button`
-  margin-left: 210px;
+  margin-left: 180px;
   height: 25px;
   width: 25px;
   border-radius: 50%;

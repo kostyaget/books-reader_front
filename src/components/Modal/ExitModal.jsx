@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import { Rating, BtnColor, Btn, ItemBtn, Container } from "./ExitModal.style";
 import "./Resume.css";
 
-const ExitModal = ({ open, onClose, logoutFunc}) => {
+const ExitModal = ({ open, onClose, logoutFunc, backFunc }) => {
   return (
     <div className={open ? "modal active" : "modal"} onClick={onClose}>
       <div
