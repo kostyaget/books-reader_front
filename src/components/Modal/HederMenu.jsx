@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import ExitModal from "../Modal/ExitModal";
+import ExitModal from "./ExitModal";
 import { Name } from "../Header/Header.styled";
 import {
   Container,
@@ -9,8 +9,6 @@ import {
   Avatar,
   Svg,
   User,
-  // Background,
-  Button,
 } from "./HederMenu.style";
 import "./Resume.css";
 import { useLogoutUserMutation } from "../../redux/auth/authApi";
@@ -37,33 +35,47 @@ const HederMenu = ({ open, onClose }) => {
     dispatch(logoutUser);
   };
 
+  const backFunc = () => {
+    onClick();
+    setTimeout(() => {
+      const menu = document.getElementById("Menu");
+      const btnclk= () => {
+        menu.style.display = 'none';
+      }
+      btnclk();
+    },1)
+}
+
   return (
-    <>
-      {open && (
+    <div>
+      <div id="Menu" className={open && "modalMenu active"} onClick={onClose}>
+        {open && (
           <Container onClick={(e) => e.stopPropagation()}>
             <Avatar>
               <User>{name?.slice(0, 1)?.toUpperCase()}</User>
               <Name>{name}</Name>
-              <Button onClick={onClose}>x</Button>
             </Avatar>
-
             <Hr />
-            <ListMenu type="button" onClick={onClick}>
+            <ListMenu onClick={backFunc}>
               <Svg>
                 <Exit />
               </Svg>
               Logout
             </ListMenu>
           </Container>
-      )}
-      {logoutModal && (
-        <ExitModal
-          open={logoutModal}
-          onClose={closeLogoutModal}
-          logoutFunc={logoutFunc}
-        ></ExitModal>
-      )}
-    </>
+        )}
+      </div>
+
+      <div>
+        {logoutModal && (
+          <ExitModal
+            open={logoutModal}
+            onClose={closeLogoutModal}
+            logoutFunc={logoutFunc}
+          ></ExitModal>
+        )}
+      </div>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const Resume = ({
   summaryBook = "",
   open,
   onClose,
-  ResumeFunc,
+  // ResumeFunc,
 }) => {
   const [summary, setSummary] = useState(summaryBook);
   const [updateResume] = useUpdateResumeMutation();
